@@ -25,13 +25,13 @@ export default function CreateCard({ data }) {
 }
 
 const CardStyle = styled.section`
+  display: flex;
+  flex-direction: column;
   margin: 5%;
   padding: 0.5rem;
   background-color: lightgrey;
   border: 2px solid darkred;
   border-radius: 0.7rem;
-  display: flex;
-  flex-direction: column;
 `;
 
 const ContainerStyle = styled.div`
