@@ -63,7 +63,7 @@ const CardStyle = styled.section`
   display: flex;
   flex-direction: column;
   margin: 5%;
-  padding: 0.5rem;
+
   background-color: white;
 `;
 
@@ -72,6 +72,7 @@ const PlantContainerStyle = styled.div`
   flex-direction: row;
   gap: 20px;
   margin: 0;
+  padding: 0.5rem;
   border: 3px solid darkred;
   border-radius: 0.7rem;
 `;
@@ -81,6 +82,7 @@ const PlaceContainerStyle = styled.div`
   flex-direction: row;
   gap: 20px;
   margin: 0;
+  padding: 0.5rem;
   border: 3px solid darkgreen;
   border-radius: 0.7rem;
 `;
