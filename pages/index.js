@@ -1,11 +1,18 @@
-import ShowPlantList from "../components/ShowPlantList.js";
 import styled from "styled-components";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
     <MainStyled>
       <h1>Hello from Grow Green</h1>
-      <ShowPlantList type="places" />
+      {/* <ShowPlantList /> */}
+
+      <Link href="/lists/plantlist">
+        <h3>Alle Pflanzen zeigen</h3>
+      </Link>
+      <Link href="/lists/placelist">
+        <h3>Alle Standorte zeigen</h3>
+      </Link>
     </MainStyled>
   );
 }
