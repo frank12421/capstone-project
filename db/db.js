@@ -36,3 +36,38 @@ export const plants = [
     standort: "Gewächshaus",
   },
 ];
+
+export const places = [
+  {
+    id: "1",
+    name: "Gewächshaus",
+    kapazitaet: 14,
+    licht: "Halbschatten",
+    standort: "Gewächshaus",
+    regenschutz: "Voll",
+  },
+  {
+    id: "2",
+    name: "Hauswand vorne",
+    kapazitaet: 20,
+    licht: "Halbschatten",
+    standort: "Dach",
+    regenschutz: "Teilweise",
+  },
+  {
+    id: "3",
+    name: "Für Mama",
+    kapazitaet: 6,
+    licht: "",
+    standort: "",
+    regenschutz: "",
+  },
+  {
+    id: "4",
+    name: "Garten hinterm Haus",
+    kapazitaet: 30,
+    licht: "Halbschatten",
+    standort: "Freiland",
+    regenschutz: "Ohne",
+  },
+];
