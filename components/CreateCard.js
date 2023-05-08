@@ -7,9 +7,9 @@ export default function CreateCard({ data, type }) {
       data.typ === "Normal" ? "/pictures/Plant1.png" : "/pictures/Plant2.png";
 
     return (
-      <PlantCardStyle>
+      <CardStyle>
         <h3>{data.name}</h3>
-        <ContainerStyle>
+        <PlantContainerStyle>
           <div>
             <Image src={imgSrc} alt="Pflanze" width="50" height="150" />
           </div>
@@ -26,8 +26,8 @@ export default function CreateCard({ data, type }) {
             </ListElementStyled>
             <ListElementStyled>Standort: {data.standort}</ListElementStyled>
           </div>
-        </ContainerStyle>
-      </PlantCardStyle>
+        </PlantContainerStyle>
+      </CardStyle>
     );
   }
 
@@ -38,9 +38,9 @@ export default function CreateCard({ data, type }) {
         : `/pictures/Place-People.png`;
 
     return (
-      <PlaceCardStyle>
+      <CardStyle>
         <h3>{data.name}</h3>
-        <ContainerStyle>
+        <PlaceContainerStyle>
           <div>
             <Image width="150" height="150" alt="Pflanze" src={imgSrc} />
           </div>
@@ -52,39 +52,37 @@ export default function CreateCard({ data, type }) {
               Regenschutz: {data.regenschutz}
             </ListElementStyled>
           </div>
-        </ContainerStyle>
-      </PlaceCardStyle>
+        </PlaceContainerStyle>
+      </CardStyle>
     );
   }
 }
 
-const PlaceCardStyle = styled.section`
+const CardStyle = styled.section`
   min-width: 355px;
   display: flex;
   flex-direction: column;
   margin: 5%;
   padding: 0.5rem;
   background-color: white;
-  border: 3px solid darkgreen;
-  border-radius: 0.7rem;
 `;
 
-const PlantCardStyle = styled.section`
-  min-width: 355px;
-  display: flex;
-  flex-direction: column;
-  margin: 5%;
-  padding: 0.5rem;
-  background-color: white;
-  border: 3px solid darkred;
-  border-radius: 0.7rem;
-`;
-
-const ContainerStyle = styled.div`
+const PlantContainerStyle = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
   margin: 0;
+  border: 3px solid darkred;
+  border-radius: 0.7rem;
+`;
+
+const PlaceContainerStyle = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 0;
+  border: 3px solid darkgreen;
+  border-radius: 0.7rem;
 `;
 
 const ListElementStyled = styled.p`
