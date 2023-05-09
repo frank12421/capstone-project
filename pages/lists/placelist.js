@@ -1,13 +1,15 @@
-import styled from "styled-components";
 import Link from "next/link.js";
 import { places } from "@/db/db";
 import CreateCard from "@/components/CreateCard";
+import { StyledBackButton, StyledALinkWhite } from "@/components/StyledButton";
 
 export default function PlaceList() {
   return (
     <main>
       <h1>Alle Standorte - Grow Green</h1>
-      <Link href="/">zurück </Link>
+      <StyledBackButton>
+        <StyledALinkWhite href="/">zurück </StyledALinkWhite>
+      </StyledBackButton>
 
       <>
         {places.map((place) => {
@@ -18,8 +20,6 @@ export default function PlaceList() {
           );
         })}
       </>
-
-      {/* <ShowLists type={plants} /> */}
     </main>
   );
 }
