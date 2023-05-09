@@ -1,20 +1,29 @@
 import styled from "styled-components";
+import Link from "next/link.js";
 
-export const StyledBackButton = styled.button`
-  width: 100vw;
-  /* margin-top: 10vh; */
-  padding: 10px 30px;
-  background: green;
+export const StyledBackLink = styled(Link)`
+  margin: 20px;
+  padding: 10px 50px;
   border-radius: 10px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: medium;
-  color: #fff;
+  color: white;
+  background-color: darkgreen;
+  text-decoration: none;
 `;
 
-export const StyledALinkWhite = styled.a`
+export const StyledLinkGreen = styled(Link)`
+  margin: 20px;
+  padding: 10px 50px;
+  border-radius: 10px;
   color: white;
-  font-weight: bold;
+  background-color: darkgreen;
+  text-decoration: none;
+`;
+
+export const StyledLinkRed = styled(Link)`
+  margin: 20px;
+  padding: 10px 50px;
+  border-radius: 10px;
+  color: white;
+  background-color: darkred;
+  text-decoration: none;
 `;
