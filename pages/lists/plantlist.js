@@ -1,6 +1,12 @@
 import { plants } from "@/db/db";
-import CreateCard from "@/components/CreateCard";
 import { StyledBackLink } from "@/components/StyledButton";
+import {
+  StyledCard,
+  StyledCardUl,
+  StyledContentContainer,
+  StyledLi,
+} from "@/components/Card";
+import Image from "next/image";
 
 export default function PlantList() {
   return (
@@ -9,9 +15,26 @@ export default function PlantList() {
       <StyledBackLink href="/">zurück </StyledBackLink>
       <>
         {plants.map((plant) => {
+          const imgSrc =
+            plant.typ === "Normal"
+              ? "/pictures/Plant1.png"
+              : "/pictures/Plant2.png";
+
           return (
             <section key={plant.id}>
-              <CreateCard data={plant} type="plant" />
+              <StyledCard border={"green"}>
+                <h2>{plant.name}</h2>
+                <StyledContentContainer>
+                  <Image src={imgSrc} alt="Pflanze" width="50" height="150" />
+                  <StyledCardUl>
+                    <StyledLi>Type: {plant.typ}</StyledLi>
+                    <StyledLi>Pflanzdatum: {plant.pflanzdatum}</StyledLi>
+                    <StyledLi>Pflanzhöhe: {plant.pflanzenhoehe}</StyledLi>
+                    <StyledLi>Anbaueignung: {plant.anbaueignung}</StyledLi>
+                    <StyledLi>Standort: {plant.standort}</StyledLi>
+                  </StyledCardUl>
+                </StyledContentContainer>
+              </StyledCard>
             </section>
           );
         })}
