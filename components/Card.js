@@ -4,7 +4,7 @@ export const StyledCard = styled.section`
   min-width: 355px;
   margin-top: 5%;
   background-color: white;
-  border: 3px solid ${({ border }) => border};
+  border: 5px solid ${({ border }) => border};
   border-radius: 0.7rem;
   padding: 0.2rem 1rem;
   display: flex;
