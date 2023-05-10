@@ -19,13 +19,8 @@ export const StyledContentContainer = styled.section`
 `;
 
 export const StyledCardUl = styled.ul`
-  /* margin: 0; */
   list-style: none;
 `;
 export const StyledLi = styled.li`
   font-weight: 400;
 `;
-
-// const ListElementStyled = styled.p`
-//   margin: 0;
-// `;

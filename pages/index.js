@@ -1,10 +1,5 @@
 import Image from "next/image.js";
-import styled from "styled-components";
-import { StyledLinkGreen, StyledLinkRed } from "@/components/StyledButton";
-
-const StyledButtonContainer = styled.div`
-  margin-top: 50px;
-`;
+import { StyledLink } from "@/components/StyledButton";
 
 export default function HomePage() {
   return (
@@ -15,18 +10,15 @@ export default function HomePage() {
         height="150"
         alt="Pflanze"
         src={"/pictures/Header-Home.png"}
+        style={{ objectFit: "contain" }}
       />
-      <StyledButtonContainer>
-        <StyledLinkGreen href="/lists/plantlist">
-          Alle Pflanzen anzeigen
-        </StyledLinkGreen>
-      </StyledButtonContainer>
+      <StyledLink color="darkgreen" href="/lists/plantlist">
+        Alle Pflanzen anzeigen
+      </StyledLink>
 
-      <StyledButtonContainer>
-        <StyledLinkRed href="/lists/placelist">
-          Alle Standorte anzeigen
-        </StyledLinkRed>
-      </StyledButtonContainer>
+      <StyledLink color="darkred" href="/lists/placelist">
+        Alle Standorte anzeigen
+      </StyledLink>
     </main>
   );
 }

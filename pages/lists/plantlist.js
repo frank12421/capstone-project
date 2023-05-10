@@ -1,5 +1,5 @@
 import { plants } from "@/db/db";
-import { StyledBackLink } from "@/components/StyledButton";
+import { StyledLink } from "@/components/StyledButton";
 import {
   StyledCard,
   StyledCardUl,
@@ -12,7 +12,9 @@ export default function PlantList() {
   return (
     <main>
       <h1>Alle Pflanzen - Grow Green</h1>
-      <StyledBackLink href="/">zurück </StyledBackLink>
+      <StyledLink color="darkgreen" href="/">
+        zurück
+      </StyledLink>
       <>
         {plants.map((plant) => {
           const imgSrc =
@@ -25,7 +27,13 @@ export default function PlantList() {
               <StyledCard border={"green"}>
                 <h2>{plant.name}</h2>
                 <StyledContentContainer>
-                  <Image src={imgSrc} alt="Pflanze" width="50" height="150" />
+                  <Image
+                    src={imgSrc}
+                    alt="Pflanze"
+                    width="50"
+                    height="150"
+                    style={{ objectFit: "contain" }}
+                  />
                   <StyledCardUl>
                     <StyledLi>Type: {plant.typ}</StyledLi>
                     <StyledLi>Pflanzdatum: {plant.pflanzdatum}</StyledLi>

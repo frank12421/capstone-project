@@ -1,5 +1,5 @@
 import { places } from "@/db/db";
-import { StyledBackLink } from "@/components/StyledButton";
+import { StyledLink } from "@/components/StyledButton";
 import {
   StyledCard,
   StyledCardUl,
@@ -12,7 +12,9 @@ export default function PlaceList() {
   return (
     <main>
       <h1>Alle Standorte - Grow Green</h1>
-      <StyledBackLink href="/">zurück </StyledBackLink>
+      <StyledLink color="darkgreen" href="/">
+        zurück{" "}
+      </StyledLink>
       <>
         {places.map((place) => {
           const imgSrc =
