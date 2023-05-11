@@ -19,6 +19,10 @@ export default function HomePage() {
       <StyledLink color="darkred" href="/lists/placelist">
         Alle Standorte anzeigen
       </StyledLink>
+
+      <StyledLink color="darkred" href="/lists/addplanttoplace">
+        nur temporär
+      </StyledLink>
     </main>
   );
 }
