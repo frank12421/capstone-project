@@ -18,7 +18,7 @@ export default function PlantList() {
       <>
         {plants.map((plant) => {
           const imgSrc =
-            plant.typ === "Normal"
+            plant.type === "Normal"
               ? "/pictures/Plant1.png"
               : "/pictures/Plant2.png";
 
@@ -35,11 +35,13 @@ export default function PlantList() {
                     style={{ objectFit: "contain" }}
                   />
                   <StyledCardUl>
-                    <StyledLi>Type: {plant.typ}</StyledLi>
-                    <StyledLi>Pflanzdatum: {plant.pflanzdatum}</StyledLi>
-                    <StyledLi>Pflanzhöhe: {plant.pflanzenhoehe}</StyledLi>
-                    <StyledLi>Anbaueignung: {plant.anbaueignung}</StyledLi>
-                    <StyledLi>Standort: {plant.standort}</StyledLi>
+                    <StyledLi>Type: {plant.type}</StyledLi>
+                    <StyledLi>Pflanzdatum: {plant.plantingdate}</StyledLi>
+                    <StyledLi>Pflanzhöhe: {plant.plantheight}</StyledLi>
+                    <StyledLi>
+                      Anbaueignung: {plant.cultivation_suitability}
+                    </StyledLi>
+                    <StyledLi>Standort: {plant.location}</StyledLi>
                   </StyledCardUl>
                 </StyledContentContainer>
               </StyledCard>

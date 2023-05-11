@@ -18,8 +18,8 @@ export default function PlaceList() {
       <>
         {places.map((place) => {
           const imgSrc =
-            place.standort !== ""
-              ? `/pictures/Place-${place.standort}.png`
+            place.location !== ""
+              ? `/pictures/Place-${place.location}.png`
               : `/pictures/Place-People.png`;
 
           return (
@@ -35,10 +35,12 @@ export default function PlaceList() {
                     style={{ objectFit: "contain" }}
                   />
                   <StyledCardUl>
-                    <StyledLi>Kapazität: {place.kapazitaet}</StyledLi>
-                    <StyledLi>Licht: {place.licht}</StyledLi>
-                    <StyledLi>Standort: {place.standort}</StyledLi>
-                    <StyledLi>Regenschutz: {place.regenschutz}</StyledLi>
+                    <StyledLi>
+                      Kapazität: {place.used} / {place.capacity}
+                    </StyledLi>
+                    <StyledLi>Licht: {place.lightratio}</StyledLi>
+                    <StyledLi>Standort: {place.location}</StyledLi>
+                    <StyledLi>Regenschutz: {place.rainprotection}</StyledLi>
                   </StyledCardUl>
                 </StyledContentContainer>
               </StyledCard>
