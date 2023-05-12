@@ -4,12 +4,9 @@ import {
   StyledCard,
   StyledCardList,
   StyledCardListItem,
-  StyledCardUl,
   StyledContentContainer,
-  StyledLi,
 } from "@/components/Card";
 import { useRouter } from "next/router";
-import React from "react";
 
 const plantsSorted = [...plants].sort((a, b) => (a.name > b.name ? 1 : -1));
 
@@ -39,31 +36,29 @@ export default function AddPlantToPlaceList({ places, setPlaces }) {
       <>
         {plantsSorted.map((plant) => {
           return (
-            <React.Fragment key={plant.id}>
-              <StyledCard border={"green"}>
-                <h2>{plant.name}</h2>
-                <StyledContentContainer>
-                  <StyledButton onClick={onClickAddPlant} color="green">
-                    +
-                  </StyledButton>
-                  <StyledCardList>
-                    <StyledCardListItem>Type: {plant.type}</StyledCardListItem>
-                    <StyledCardListItem>
-                      Pflanzdatum: {plant.plantingdate}
-                    </StyledCardListItem>
-                    <StyledCardListItem>
-                      Pflanzhöhe: {plant.plantheight}
-                    </StyledCardListItem>
-                    <StyledCardListItem>
-                      Anbaueignung: {plant.cultivation_suitability}
-                    </StyledCardListItem>
-                    <StyledCardListItem>
-                      Standort: {plant.location}
-                    </StyledCardListItem>
-                  </StyledCardList>
-                </StyledContentContainer>
-              </StyledCard>
-            </React.Fragment>
+            <StyledCard border={"green"} key={plant.id}>
+              <h2>{plant.name}</h2>
+              <StyledContentContainer>
+                <StyledButton onClick={onClickAddPlant} color="green">
+                  +
+                </StyledButton>
+                <StyledCardList>
+                  <StyledCardListItem>Type: {plant.type}</StyledCardListItem>
+                  <StyledCardListItem>
+                    Pflanzdatum: {plant.plantingdate}
+                  </StyledCardListItem>
+                  <StyledCardListItem>
+                    Pflanzhöhe: {plant.plantheight}
+                  </StyledCardListItem>
+                  <StyledCardListItem>
+                    Anbaueignung: {plant.cultivation_suitability}
+                  </StyledCardListItem>
+                  <StyledCardListItem>
+                    Standort: {plant.location}
+                  </StyledCardListItem>
+                </StyledCardList>
+              </StyledContentContainer>
+            </StyledCard>
           );
         })}
       </>

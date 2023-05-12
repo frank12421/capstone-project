@@ -7,7 +7,6 @@ import {
   StyledContentContainer,
 } from "@/components/Card";
 import Image from "next/image";
-import React from "react";
 
 export default function PlantList() {
   return (
@@ -24,35 +23,33 @@ export default function PlantList() {
               : "/pictures/Plant2.png";
 
           return (
-            <React.Fragment key={plant.id}>
-              <StyledCard border={"green"}>
-                <h2>{plant.name}</h2>
-                <StyledContentContainer>
-                  <Image
-                    src={imgSrc}
-                    alt="Pflanze"
-                    width="50"
-                    height="150"
-                    style={{ objectFit: "cover" }}
-                  />
-                  <StyledCardList>
-                    <StyledCardListItem>Type: {plant.type}</StyledCardListItem>
-                    <StyledCardListItem>
-                      Pflanzdatum: {plant.plantingdate}
-                    </StyledCardListItem>
-                    <StyledCardListItem>
-                      Pflanzhöhe: {plant.plantheight}
-                    </StyledCardListItem>
-                    <StyledCardListItem>
-                      Anbaueignung: {plant.cultivation_suitability}
-                    </StyledCardListItem>
-                    <StyledCardListItem>
-                      Standort: {plant.location}
-                    </StyledCardListItem>
-                  </StyledCardList>
-                </StyledContentContainer>
-              </StyledCard>
-            </React.Fragment>
+            <StyledCard key={plant.id} border={"green"}>
+              <h2>{plant.name}</h2>
+              <StyledContentContainer>
+                <Image
+                  src={imgSrc}
+                  alt="Pflanze"
+                  width="50"
+                  height="150"
+                  style={{ objectFit: "cover" }}
+                />
+                <StyledCardList>
+                  <StyledCardListItem>Type: {plant.type}</StyledCardListItem>
+                  <StyledCardListItem>
+                    Pflanzdatum: {plant.plantingdate}
+                  </StyledCardListItem>
+                  <StyledCardListItem>
+                    Pflanzhöhe: {plant.plantheight}
+                  </StyledCardListItem>
+                  <StyledCardListItem>
+                    Anbaueignung: {plant.cultivation_suitability}
+                  </StyledCardListItem>
+                  <StyledCardListItem>
+                    Standort: {plant.location}
+                  </StyledCardListItem>
+                </StyledCardList>
+              </StyledContentContainer>
+            </StyledCard>
           );
         })}
       </>
