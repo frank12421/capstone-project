@@ -1,4 +1,3 @@
-import { places } from "@/db/db";
 import { StyledLink } from "@/components/StyledButton";
 import {
   StyledCard,
@@ -8,7 +7,7 @@ import {
 } from "@/components/Card";
 import Image from "next/image";
 
-export default function PlaceList() {
+export default function PlaceList({ places }) {
   return (
     <main>
       <h1>Alle Standorte - Grow Green</h1>
@@ -43,6 +42,17 @@ export default function PlaceList() {
                     <StyledLi>Regenschutz: {place.rainprotection}</StyledLi>
                   </StyledCardUl>
                 </StyledContentContainer>
+                <div>
+                  <StyledLink
+                    href={{
+                      pathname: `/lists/addplanttoplace`,
+                      query: { id: place.id },
+                    }}
+                    color={"green"}
+                  >
+                    +
+                  </StyledLink>
+                </div>
               </StyledCard>
             </section>
           );

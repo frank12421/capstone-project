@@ -10,6 +10,15 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
+export const StyledAddLink = styled(Link)`
+  margin: 20px;
+  padding: 10px 50px;
+  border-radius: 10px;
+  color: white;
+  background-color: ${({ color }) => color || "lightgrey"};
+  text-decoration: none;
+`;
+
 export const StyledButton = styled.button`
   /* margin: 5px;
   border-radius: 10px; */
@@ -19,8 +28,7 @@ export const StyledButton = styled.button`
   text-decoration: none;
   font-size: 6rem;
   cursor: pointer;
-  &:hover,
-  &:focus {
+  &:hover {
     font-weight: 900;
   }
 `;

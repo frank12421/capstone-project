@@ -32,7 +32,7 @@ export default function PlantList() {
                     alt="Pflanze"
                     width="50"
                     height="150"
-                    style={{ objectFit: "contain" }}
+                    style={{ objectFit: "cover" }}
                   />
                   <StyledCardUl>
                     <StyledLi>Type: {plant.type}</StyledLi>

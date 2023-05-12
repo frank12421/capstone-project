@@ -37,12 +37,12 @@ export const plants = [
   },
 ];
 
-export const places = [
+export const defaultplaces = [
   {
     id: "1",
     name: "Gewächshaus",
     capacity: 14,
-    used: 1,
+    used: 0,
     lightratio: "Halbschatten",
     location: "Gewächshaus",
     rainprotection: "Voll",
