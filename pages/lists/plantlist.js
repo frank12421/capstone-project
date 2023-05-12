@@ -2,11 +2,12 @@ import { plants } from "@/db/db";
 import { StyledLink } from "@/components/StyledButton";
 import {
   StyledCard,
-  StyledCardUl,
+  StyledCardList,
+  StyledCardListItem,
   StyledContentContainer,
-  StyledLi,
 } from "@/components/Card";
 import Image from "next/image";
+import React from "react";
 
 export default function PlantList() {
   return (
@@ -23,7 +24,7 @@ export default function PlantList() {
               : "/pictures/Plant2.png";
 
           return (
-            <section key={plant.id}>
+            <React.Fragment key={plant.id}>
               <StyledCard border={"green"}>
                 <h2>{plant.name}</h2>
                 <StyledContentContainer>
@@ -34,18 +35,24 @@ export default function PlantList() {
                     height="150"
                     style={{ objectFit: "cover" }}
                   />
-                  <StyledCardUl>
-                    <StyledLi>Type: {plant.type}</StyledLi>
-                    <StyledLi>Pflanzdatum: {plant.plantingdate}</StyledLi>
-                    <StyledLi>Pflanzhöhe: {plant.plantheight}</StyledLi>
-                    <StyledLi>
+                  <StyledCardList>
+                    <StyledCardListItem>Type: {plant.type}</StyledCardListItem>
+                    <StyledCardListItem>
+                      Pflanzdatum: {plant.plantingdate}
+                    </StyledCardListItem>
+                    <StyledCardListItem>
+                      Pflanzhöhe: {plant.plantheight}
+                    </StyledCardListItem>
+                    <StyledCardListItem>
                       Anbaueignung: {plant.cultivation_suitability}
-                    </StyledLi>
-                    <StyledLi>Standort: {plant.location}</StyledLi>
-                  </StyledCardUl>
+                    </StyledCardListItem>
+                    <StyledCardListItem>
+                      Standort: {plant.location}
+                    </StyledCardListItem>
+                  </StyledCardList>
                 </StyledContentContainer>
               </StyledCard>
-            </section>
+            </React.Fragment>
           );
         })}
       </>

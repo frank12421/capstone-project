@@ -1,12 +1,12 @@
 import { StyledLink } from "@/components/StyledButton";
 import {
   StyledCard,
-  StyledCardUl,
+  StyledCardList,
   StyledContentContainer,
-  StyledLi,
+  StyledCardListItem,
 } from "@/components/Card";
 import Image from "next/image";
-
+import React from "react";
 export default function PlaceList({ places }) {
   return (
     <main>
@@ -22,7 +22,7 @@ export default function PlaceList({ places }) {
               : `/pictures/Place-People.png`;
 
           return (
-            <section key={place.id}>
+            <React.Fragment key={place.id}>
               <StyledCard border={"darkred"}>
                 <h2>{place.name}</h2>
                 <StyledContentContainer>
@@ -33,14 +33,20 @@ export default function PlaceList({ places }) {
                     height="150"
                     style={{ objectFit: "contain" }}
                   />
-                  <StyledCardUl>
-                    <StyledLi>
+                  <StyledCardList>
+                    <StyledCardListItem>
                       Kapazität: {place.used} / {place.capacity}
-                    </StyledLi>
-                    <StyledLi>Licht: {place.lightratio}</StyledLi>
-                    <StyledLi>Standort: {place.location}</StyledLi>
-                    <StyledLi>Regenschutz: {place.rainprotection}</StyledLi>
-                  </StyledCardUl>
+                    </StyledCardListItem>
+                    <StyledCardListItem>
+                      Licht: {place.lightratio}
+                    </StyledCardListItem>
+                    <StyledCardListItem>
+                      Standort: {place.location}
+                    </StyledCardListItem>
+                    <StyledCardListItem>
+                      Regenschutz: {place.rainprotection}
+                    </StyledCardListItem>
+                  </StyledCardList>
                 </StyledContentContainer>
                 <div>
                   <StyledLink
@@ -54,7 +60,7 @@ export default function PlaceList({ places }) {
                   </StyledLink>
                 </div>
               </StyledCard>
-            </section>
+            </React.Fragment>
           );
         })}
       </>
