@@ -1,38 +1,47 @@
 import { plants } from "@/db/db";
-import { StyledLink } from "@/components/StyledButton";
+import { StyledButton, StyledLink } from "@/components/StyledButton";
 import {
   StyledCard,
   StyledCardList,
   StyledCardListItem,
   StyledContentContainer,
 } from "@/components/Card";
-import Image from "next/image";
+import { useRouter } from "next/router";
 
-export default function PlantList() {
+const plantsSorted = [...plants].sort((a, b) => (a.name > b.name ? 1 : -1));
+
+export default function AddPlantToPlaceList({ places, setPlaces }) {
+  const router = useRouter();
+  const site = router.query;
+
+  function onClickAddPlant() {
+    setPlaces(
+      places.map((place) => {
+        if (place.id === site.id) {
+          return { ...place, used: place.used + 1 };
+        } else {
+          return { ...place };
+        }
+      })
+    );
+    router.push("/lists/placelist");
+  }
+
   return (
     <main>
-      <h1>Alle Pflanzen - Grow Green</h1>
+      <h1>Pflanze auswählen - Grow Green</h1>
       <StyledLink color="darkgreen" href="/">
         zurück
       </StyledLink>
       <>
-        {plants.map((plant) => {
-          const imgSrc =
-            plant.type === "Normal"
-              ? "/pictures/Plant1.png"
-              : "/pictures/Plant2.png";
-
+        {plantsSorted.map((plant) => {
           return (
-            <StyledCard key={plant.id} border={"green"}>
+            <StyledCard border={"green"} key={plant.id}>
               <h2>{plant.name}</h2>
               <StyledContentContainer>
-                <Image
-                  src={imgSrc}
-                  alt="Pflanze"
-                  width="50"
-                  height="150"
-                  style={{ objectFit: "cover" }}
-                />
+                <StyledButton onClick={onClickAddPlant} color="green">
+                  +
+                </StyledButton>
                 <StyledCardList>
                   <StyledCardListItem>Type: {plant.type}</StyledCardListItem>
                   <StyledCardListItem>

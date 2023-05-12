@@ -18,9 +18,9 @@ export const StyledContentContainer = styled.section`
   justify-content: flex-start;
 `;
 
-export const StyledCardUl = styled.ul`
+export const StyledCardList = styled.ul`
   list-style: none;
 `;
-export const StyledLi = styled.li`
+export const StyledCardListItem = styled.li`
   font-weight: 400;
 `;
