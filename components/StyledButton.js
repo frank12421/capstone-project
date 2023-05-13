@@ -20,8 +20,6 @@ export const StyledAddLink = styled(Link)`
 `;
 
 export const StyledButton = styled.button`
-  /* margin: 5px;
-  border-radius: 10px; */
   color: ${({ color }) => color || "lightgrey"};
   background-color: white;
   border-style: none;
@@ -31,4 +29,12 @@ export const StyledButton = styled.button`
   &:hover {
     font-weight: 900;
   }
+`;
+
+export const StyledInactiveButton = styled.button`
+  color: lightgrey;
+  background-color: white;
+  border-style: none;
+  text-decoration: none;
+  font-size: 6rem;
 `;
