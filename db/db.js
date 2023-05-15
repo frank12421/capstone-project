@@ -35,6 +35,24 @@ export const plants = [
     cultivation_suitability: "Gewächshaus",
     location: "Gewächshaus",
   },
+  {
+    id: "5",
+    name: "Irgendwas",
+    type: "Normal",
+    plantingdate: "2023-05-05",
+    plantheight: 180,
+    cultivation_suitability: "Gewächshaus",
+    location: "Gewächshaus",
+  },
+  {
+    id: "6",
+    name: "Nochwas",
+    type: "Normal",
+    plantingdate: "2023-05-05",
+    plantheight: 180,
+    cultivation_suitability: "Gewächshaus",
+    location: "Gewächshaus",
+  },
 ];
 
 export const defaultplaces = [
