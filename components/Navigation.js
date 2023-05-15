@@ -7,6 +7,7 @@ const StyledNavigationLink = styled(Link)`
   color: white;
   background-color: ${({ color }) => color || "lightgrey"};
   text-decoration: none;
+  text-align: center;
 `;
 
 export default function StyledNavigation({ children, navigationlink, color }) {

@@ -25,7 +25,7 @@ export const StyledButton = styled.button`
   background-color: white;
   border-style: none;
   text-decoration: none;
-  font-size: 6rem;
+  font-size: 4rem;
   cursor: pointer;
   &:hover {
     font-weight: 900;
@@ -37,5 +37,5 @@ export const StyledInactiveButton = styled.button`
   background-color: white;
   border-style: none;
   text-decoration: none;
-  font-size: 6rem;
+  font-size: 4rem;
 `;

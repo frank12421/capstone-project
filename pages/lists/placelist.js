@@ -5,10 +5,10 @@ import {
   StyledContentContainer,
   StyledCardListItem,
 } from "@/components/Card";
-import Image from "next/image";
 import { StyledHeader } from "@/components/Header";
 import { StyledMain } from "@/components/Main";
 import StyledNavigation from "@/components/Navigation";
+import Image from "next/image";
 
 export default function PlaceList({ places }) {
   return (

@@ -49,7 +49,6 @@ export default function AddPlantToPlaceList({ places, setPlaces }) {
   return (
     <>
       <StyledHeader position="fixed">
-        <h1>Pflanze auswählen - Grow Green</h1>
         <StyledNavigation navigationlink="/lists/placelist" color="darkgreen">
           zurück
         </StyledNavigation>
@@ -63,7 +62,7 @@ export default function AddPlantToPlaceList({ places, setPlaces }) {
         </StyledCard>
       </StyledHeader>
 
-      <StyledMain margintop="140">
+      <StyledMain margintop="110">
         {plantsSorted.map((plant) => {
           return (
             <StyledCard border={"green"} key={plant.id}>

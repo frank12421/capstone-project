@@ -1,5 +1,4 @@
 import { plants } from "@/db/db";
-import { StyledLink, StyledNavigationLink } from "@/components/StyledButton";
 import {
   StyledCard,
   StyledCardList,
