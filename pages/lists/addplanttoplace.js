@@ -53,9 +53,17 @@ export default function AddPlantToPlaceList({ places, setPlaces }) {
         <StyledNavigation navigationlink="/lists/placelist" color="darkgreen">
           zurück
         </StyledNavigation>
+        <StyledCard border="red">
+          <h3>{place.name}</h3>
+          <StyledCardList>
+            <StyledCardListItem>
+              Kapazität:{place.capacity} | Noch frei: {freePlaces}
+            </StyledCardListItem>
+          </StyledCardList>
+        </StyledCard>
       </StyledHeader>
 
-      <StyledMain margintop="100">
+      <StyledMain margintop="145">
         <>
           {plantsSorted.map((plant) => {
             return (

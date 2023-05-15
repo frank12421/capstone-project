@@ -22,6 +22,12 @@ h1 {
 
 h2 {
 font-size: 1rem;
-margin: 10px
+margin: 5px
+}
+
+h3 {
+font-size: 0.8rem;
+margin: 2px;
+
 }
 `;

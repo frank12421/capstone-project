@@ -20,6 +20,7 @@ export const StyledContentContainer = styled.section`
 `;
 
 export const StyledCardList = styled.ul`
+  margin-top: 0;
   list-style: none;
 `;
 export const StyledCardListItem = styled.li`
