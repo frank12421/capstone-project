@@ -1,4 +1,4 @@
-import { StyledLink, StyledNavigationLink } from "@/components/StyledButton";
+import { StyledLink } from "@/components/StyledButton";
 import {
   StyledCard,
   StyledCardList,
@@ -20,54 +20,52 @@ export default function PlaceList({ places }) {
         </StyledNavigation>
       </StyledHeader>
       <StyledMain>
-        <>
-          {places.map((place) => {
-            const imgSrc =
-              place.location !== ""
-                ? `/pictures/Place-${place.location}.png`
-                : `/pictures/Place-People.png`;
+        {places.map((place) => {
+          const imgSrc =
+            place.location !== ""
+              ? `/pictures/Place-${place.location}.png`
+              : `/pictures/Place-People.png`;
 
-            return (
-              <StyledCard border={"darkred"} key={place.id}>
-                <h2>{place.name}</h2>
-                <StyledContentContainer>
-                  <Image
-                    src={imgSrc}
-                    alt="Pflanze"
-                    width="50"
-                    height="100"
-                    style={{ objectFit: "contain" }}
-                  />
-                  <StyledCardList>
-                    <StyledCardListItem>
-                      Kapazität: {place.used} / {place.capacity}
-                    </StyledCardListItem>
-                    <StyledCardListItem>
-                      Licht: {place.lightratio}
-                    </StyledCardListItem>
-                    <StyledCardListItem>
-                      Standort: {place.location}
-                    </StyledCardListItem>
-                    <StyledCardListItem>
-                      Regenschutz: {place.rainprotection}
-                    </StyledCardListItem>
-                  </StyledCardList>
-                </StyledContentContainer>
-                <div>
-                  <StyledLink
-                    href={{
-                      pathname: `/lists/addplanttoplace`,
-                      query: { id: place.id },
-                    }}
-                    color={"green"}
-                  >
-                    +
-                  </StyledLink>
-                </div>
-              </StyledCard>
-            );
-          })}
-        </>
+          return (
+            <StyledCard border={"darkred"} key={place.id}>
+              <h2>{place.name}</h2>
+              <StyledContentContainer>
+                <Image
+                  src={imgSrc}
+                  alt="Pflanze"
+                  width="50"
+                  height="100"
+                  style={{ objectFit: "contain" }}
+                />
+                <StyledCardList>
+                  <StyledCardListItem>
+                    Kapazität: {place.used} / {place.capacity}
+                  </StyledCardListItem>
+                  <StyledCardListItem>
+                    Licht: {place.lightratio}
+                  </StyledCardListItem>
+                  <StyledCardListItem>
+                    Standort: {place.location}
+                  </StyledCardListItem>
+                  <StyledCardListItem>
+                    Regenschutz: {place.rainprotection}
+                  </StyledCardListItem>
+                </StyledCardList>
+              </StyledContentContainer>
+              <div>
+                <StyledLink
+                  href={{
+                    pathname: `/lists/addplanttoplace`,
+                    query: { id: place.id },
+                  }}
+                  color={"green"}
+                >
+                  +
+                </StyledLink>
+              </div>
+            </StyledCard>
+          );
+        })}
       </StyledMain>
     </>
   );

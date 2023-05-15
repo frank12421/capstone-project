@@ -63,48 +63,46 @@ export default function AddPlantToPlaceList({ places, setPlaces }) {
         </StyledCard>
       </StyledHeader>
 
-      <StyledMain margintop="145">
-        <>
-          {plantsSorted.map((plant) => {
-            return (
-              <StyledCard border={"green"} key={plant.id}>
-                <h2>{plant.name}</h2>
-                <StyledContentContainer>
-                  {minusButton ? (
-                    <StyledButton onClick={onClickMinusPlant} color="red">
-                      -
-                    </StyledButton>
-                  ) : (
-                    <StyledInactiveButton>-</StyledInactiveButton>
-                  )}
+      <StyledMain margintop="140">
+        {plantsSorted.map((plant) => {
+          return (
+            <StyledCard border={"green"} key={plant.id}>
+              <h2>{plant.name}</h2>
+              <StyledContentContainer>
+                {minusButton ? (
+                  <StyledButton onClick={onClickMinusPlant} color="red">
+                    -
+                  </StyledButton>
+                ) : (
+                  <StyledInactiveButton>-</StyledInactiveButton>
+                )}
 
-                  {addButton ? (
-                    <StyledButton onClick={onClickAddPlant} color="green">
-                      +
-                    </StyledButton>
-                  ) : (
-                    <StyledInactiveButton>+</StyledInactiveButton>
-                  )}
-                  <StyledCardList>
-                    <StyledCardListItem>Type: {plant.type}</StyledCardListItem>
-                    <StyledCardListItem>
-                      Pflanzdatum: {plant.plantingdate}
-                    </StyledCardListItem>
-                    <StyledCardListItem>
-                      Pflanzhöhe: {plant.plantheight}
-                    </StyledCardListItem>
-                    <StyledCardListItem>
-                      Anbaueignung: {plant.cultivation_suitability}
-                    </StyledCardListItem>
-                    <StyledCardListItem>
-                      Standort: {plant.location}
-                    </StyledCardListItem>
-                  </StyledCardList>
-                </StyledContentContainer>
-              </StyledCard>
-            );
-          })}
-        </>
+                {addButton ? (
+                  <StyledButton onClick={onClickAddPlant} color="green">
+                    +
+                  </StyledButton>
+                ) : (
+                  <StyledInactiveButton>+</StyledInactiveButton>
+                )}
+                <StyledCardList>
+                  <StyledCardListItem>Type: {plant.type}</StyledCardListItem>
+                  <StyledCardListItem>
+                    Pflanzdatum: {plant.plantingdate}
+                  </StyledCardListItem>
+                  <StyledCardListItem>
+                    Pflanzhöhe: {plant.plantheight}
+                  </StyledCardListItem>
+                  <StyledCardListItem>
+                    Anbaueignung: {plant.cultivation_suitability}
+                  </StyledCardListItem>
+                  <StyledCardListItem>
+                    Standort: {plant.location}
+                  </StyledCardListItem>
+                </StyledCardList>
+              </StyledContentContainer>
+            </StyledCard>
+          );
+        })}
       </StyledMain>
     </>
   );

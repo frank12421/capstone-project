@@ -11,7 +11,7 @@ export default function HomePage() {
         <h1>Hello from Grow Green</h1>
       </StyledHeader>
 
-      <StyledMain margintop="0">
+      <StyledMain>
         <Image
           width="350"
           height="150"
