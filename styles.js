@@ -12,16 +12,22 @@ export default createGlobalStyle`
     font-family: Arial, Helvetica, sans-serif;
     background-color: lightgoldenrodyellow;
     /* outline: 1px solid black; */
+    font-size: 0.8rem;
   }
 
- main {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-    }
-
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  margin: 10px;
+}
+
+h2 {
+font-size: 1rem;
+margin: 5px
+}
+
+h3 {
+font-size: 0.8rem;
+margin: 2px;
+
 }
 `;

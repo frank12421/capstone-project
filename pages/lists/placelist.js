@@ -5,16 +5,21 @@ import {
   StyledContentContainer,
   StyledCardListItem,
 } from "@/components/Card";
+import { StyledHeader } from "@/components/Header";
+import { StyledMain } from "@/components/Main";
+import StyledNavigation from "@/components/Navigation";
 import Image from "next/image";
 
 export default function PlaceList({ places }) {
   return (
-    <main>
-      <h1>Alle Standorte - Grow Green</h1>
-      <StyledLink color="darkgreen" href="/">
-        zurück{" "}
-      </StyledLink>
-      <>
+    <>
+      <StyledHeader>
+        <h1>Alle Standorte - Grow Green</h1>
+        <StyledNavigation navigationlink="/" color="darkgreen">
+          zurück
+        </StyledNavigation>
+      </StyledHeader>
+      <StyledMain>
         {places.map((place) => {
           const imgSrc =
             place.location !== ""
@@ -28,8 +33,8 @@ export default function PlaceList({ places }) {
                 <Image
                   src={imgSrc}
                   alt="Pflanze"
-                  width="150"
-                  height="150"
+                  width="50"
+                  height="100"
                   style={{ objectFit: "contain" }}
                 />
                 <StyledCardList>
@@ -61,7 +66,7 @@ export default function PlaceList({ places }) {
             </StyledCard>
           );
         })}
-      </>
-    </main>
+      </StyledMain>
+    </>
   );
 }

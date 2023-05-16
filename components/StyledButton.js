@@ -2,8 +2,9 @@ import styled from "styled-components";
 import Link from "next/link.js";
 
 export const StyledLink = styled(Link)`
-  margin: 20px;
-  padding: 10px 50px;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
   border-radius: 10px;
   color: white;
   background-color: ${({ color }) => color || "lightgrey"};
@@ -20,15 +21,21 @@ export const StyledAddLink = styled(Link)`
 `;
 
 export const StyledButton = styled.button`
-  /* margin: 5px;
-  border-radius: 10px; */
   color: ${({ color }) => color || "lightgrey"};
   background-color: white;
   border-style: none;
   text-decoration: none;
-  font-size: 6rem;
+  font-size: 4rem;
   cursor: pointer;
   &:hover {
     font-weight: 900;
   }
+`;
+
+export const StyledInactiveButton = styled.button`
+  color: lightgrey;
+  background-color: white;
+  border-style: none;
+  text-decoration: none;
+  font-size: 4rem;
 `;
