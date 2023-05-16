@@ -23,8 +23,8 @@ export default function AddPlantToPlaceList({ places, setPlaces }) {
 
   const place = places[site.id - 1];
   const freePlaces = place.capacity - place.used;
-  const addButton = freePlaces <= 0 ? false : true;
-  const minusButton = freePlaces >= place.capacity ? false : true;
+  const showAddButton = freePlaces <= 0 ? false : true;
+  const showMinusButton = freePlaces >= place.capacity ? false : true;
 
   function onClickAddPlant() {
     setPlaces(
@@ -36,7 +36,6 @@ export default function AddPlantToPlaceList({ places, setPlaces }) {
         }
       })
     );
-    console.log(freePlaces);
   }
 
   function onClickMinusPlant() {
@@ -73,7 +72,7 @@ export default function AddPlantToPlaceList({ places, setPlaces }) {
             <StyledCard border={"green"} key={plant.id}>
               <h2>{plant.name}</h2>
               <StyledContentContainer>
-                {minusButton ? (
+                {showMinusButton ? (
                   <StyledButton onClick={onClickMinusPlant} color="red">
                     -
                   </StyledButton>
@@ -81,7 +80,7 @@ export default function AddPlantToPlaceList({ places, setPlaces }) {
                   <StyledInactiveButton>-</StyledInactiveButton>
                 )}
 
-                {addButton ? (
+                {showAddButton ? (
                   <StyledButton onClick={onClickAddPlant} color="green">
                     +
                   </StyledButton>
