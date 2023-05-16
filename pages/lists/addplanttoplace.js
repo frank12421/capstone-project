@@ -16,6 +16,11 @@ const plantsSorted = [...plants].sort((a, b) => (a.name > b.name ? 1 : -1));
 export default function AddPlantToPlaceList({ places, setPlaces }) {
   const router = useRouter();
   const site = router.query;
+
+  if (!site.id) {
+    return null;
+  }
+
   const place = places[site.id - 1];
   const freePlaces = place.capacity - place.used;
   const addButton = freePlaces <= 0 ? false : true;
