@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { StyledHeader } from "@/components/Header";
 import { StyledMain } from "@/components/Main";
 import StyledNavigation from "@/components/Navigation";
-import Form from "@/components/addDateForm.js";
+import AddDateForm from "@/components/addDateForm";
 
 export default function ShowDateForm({ dates, setDates }) {
   const router = useRouter();
@@ -21,7 +21,7 @@ export default function ShowDateForm({ dates, setDates }) {
         </StyledNavigation>
       </StyledHeader>
       <StyledMain>
-        <Form locationId={site.id} dates={dates} setDates={setDates} />
+        <AddDateForm locationId={site.id} dates={dates} setDates={setDates} />
       </StyledMain>
     </>
   );
