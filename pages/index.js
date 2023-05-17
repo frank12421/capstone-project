@@ -3,6 +3,7 @@ import { StyledHeader } from "@/components/Header";
 import { StyledMain } from "@/components/Main";
 import { StyledNavigationLink } from "@/components/StyledButton";
 import StyledNavigation from "@/components/Navigation";
+import Form from "@/components/addDateForm";
 
 export default function HomePage() {
   return (
@@ -24,6 +25,9 @@ export default function HomePage() {
         </StyledNavigation>
         <StyledNavigation color="darkred" navigationlink="/lists/placelist">
           Alle Standorte anzeigen
+        </StyledNavigation>
+        <StyledNavigation color="darkblue" navigationlink="/lists/adddateform">
+          Form
         </StyledNavigation>
       </StyledMain>
     </>
