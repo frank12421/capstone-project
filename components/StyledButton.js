@@ -2,9 +2,9 @@ import styled from "styled-components";
 import Link from "next/link.js";
 
 export const StyledLink = styled(Link)`
-  width: 100%;
-  margin: 10px;
-  padding: 10px;
+  width: auto;
+  margin: 5px;
+  padding: 8px;
   border-radius: 10px;
   color: white;
   background-color: ${({ color }) => color || "lightgrey"};
