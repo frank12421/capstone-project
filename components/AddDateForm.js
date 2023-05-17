@@ -29,10 +29,12 @@ const Label = styled.label`
   font-weight: bold;
 `;
 
-export default function Form({}) {
+export default function Form({ locationId }) {
   const formName = "test";
   const [dates, setDates] = useImmer([]);
   const [dateseries, setDateseries] = useState(false);
+
+  console.log("Form - locationId:", locationId);
 
   console.log("dates:", dates);
 
@@ -47,6 +49,7 @@ export default function Form({}) {
     setDates((draft) => {
       draft.push({
         id: id,
+        location: locationId,
         data: data,
       });
     });

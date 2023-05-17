@@ -29,7 +29,6 @@ export const StyledCardListItem = styled.li`
 
 export const StyledCardFooter = styled.section`
   width: 100%;
-  /* background-color: yellow; */
   display: flex;
   justify-content: flex-start;
 `;
