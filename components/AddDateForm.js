@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { StyledButton } from "./StyledButton.js";
-import { useImmer } from "use-immer";
 import { useState } from "react";
 
 const FormContainer = styled.form`
@@ -99,12 +98,6 @@ export default function Form({ locationId, dates, setDates }) {
           Speichern
         </StyledButton>
       </FormContainer>
-      <>
-        <p>Anzahl Termine: {dates.length}</p>
-        {/* {dates.map((date) => (
-          <p key={date.id}>Termin:{date.data}</p>
-        ))} */}
-      </>
     </>
   );
 }

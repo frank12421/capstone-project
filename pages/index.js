@@ -1,9 +1,7 @@
 import Image from "next/image.js";
 import { StyledHeader } from "@/components/Header";
 import { StyledMain } from "@/components/Main";
-import { StyledNavigationLink } from "@/components/StyledButton";
 import StyledNavigation from "@/components/Navigation";
-import Form from "@/components/addDateForm";
 
 export default function HomePage() {
   return (

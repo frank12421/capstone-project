@@ -1,10 +1,7 @@
 import { plants } from "@/db/db";
 import {
-  StyledButton,
-  StyledInactiveButton,
   StyledModifyCountButtonActive,
   StyledModifyCountButtonInactive,
-  StyledModifyPlantCountButton,
 } from "@/components/StyledButton";
 import {
   StyledCard,
