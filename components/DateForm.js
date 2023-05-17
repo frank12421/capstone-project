@@ -26,7 +26,7 @@ const Label = styled.label`
   font-weight: 400;
 `;
 
-export default function AddDateForm({ locationId, dates, setDates }) {
+export default function DateForm({ locationId, dates, setDates }) {
   const formName = "test";
 
   const [dateseries, setDateseries] = useState(false);
