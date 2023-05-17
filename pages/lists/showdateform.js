@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
-import Form from "@/components/addDateForm";
 import { StyledHeader } from "@/components/Header";
 import { StyledMain } from "@/components/Main";
 import StyledNavigation from "@/components/Navigation";
+import Form from "@/components/addDateForm";
 
 export default function ShowDateForm({ dates, setDates }) {
   const router = useRouter();
