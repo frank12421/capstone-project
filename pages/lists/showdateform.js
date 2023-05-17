@@ -4,7 +4,7 @@ import { StyledHeader } from "@/components/Header";
 import { StyledMain } from "@/components/Main";
 import StyledNavigation from "@/components/Navigation";
 
-export default function ShowForm({ dates, setDates }) {
+export default function ShowDateForm({ dates, setDates }) {
   const router = useRouter();
   const site = router.query;
 

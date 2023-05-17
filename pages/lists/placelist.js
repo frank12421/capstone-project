@@ -65,7 +65,7 @@ export default function PlaceList({ places }) {
                 </StyledLink>
                 <StyledLink
                   href={{
-                    pathname: `/lists/adddateform`,
+                    pathname: `/lists/showdateform`,
                     query: { id: place.id },
                   }}
                   color={"darkred"}
