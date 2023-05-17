@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { StyledButton } from "./StyledButton.js";
-import { create } from "zustand";
+import { useImmer } from "use-immer";
+import { useCallback } from "react";
 
 const FormContainer = styled.form`
   display: grid;
@@ -27,12 +28,24 @@ const Label = styled.label`
 
 export default function Form({}) {
   const formName = "test";
+  const [dates, setDates] = useImmer([]);
+
+  console.log("dates:", dates);
 
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    onSubmit(data);
+    const id = Math.floor(Math.random() * 1000);
+    console.log("id:", id);
+    console.log(data);
+
+    setDates((draft) => {
+      draft.push({
+        id: id,
+        data: data,
+      });
+    });
   }
 
   return (
@@ -58,6 +71,7 @@ export default function Form({}) {
           {/* {defaultData ? "Update place" : "Add place"} */}
         </StyledButton>
       </FormContainer>
+      <p>Anzahl Termine:{dates.length} </p>
     </>
   );
 }
