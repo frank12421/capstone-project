@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import { StyledButton } from "./StyledButton.js";
 import { useImmer } from "use-immer";
-import { useCallback } from "react";
+import { useState } from "react";
 
 const FormContainer = styled.form`
-  display: grid;
-  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.2rem;
 `;
 
 const Input = styled.input`
@@ -29,6 +32,7 @@ const Label = styled.label`
 export default function Form({}) {
   const formName = "test";
   const [dates, setDates] = useImmer([]);
+  const [dateseries, setDateseries] = useState(false);
 
   console.log("dates:", dates);
 
@@ -48,14 +52,53 @@ export default function Form({}) {
     });
   }
 
+  const handelToggleDateseries = (event) => {
+    setDateseries(event.target.value === "series");
+  };
+
   return (
     <>
       <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
+        <Label htmlFor="singledate">Einzelner Termin</Label>
+        <Input
+          id="singledate"
+          name="dateform"
+          type="radio"
+          value="single"
+          onChange={handelToggleDateseries}
+        />
+        <Label htmlFor="dateseries">Termin Serie</Label>
+        <Input
+          id="dateseries"
+          name="dateform"
+          type="radio"
+          value="series"
+          onChange={handelToggleDateseries}
+        />
+        {dateseries && (
+          <>
+            <Label htmlFor="datefrequency">Stunde</Label>
+            <Input id="hour" name="datefrequency" type="radio" value="hour" />
+            <Label htmlFor="datefrequency">Tag</Label>
+            <Input id="day" name="datefrequency" type="radio" value="day" />
+            <Label htmlFor="datefrequency">Woche</Label>
+            <Input id="week" name="datefrequency" type="radio" value="week" />
+            <Label htmlFor="datefrequency">Jahr</Label>
+            <Input id="year" name="datefrequency" type="radio" value="year" />
+          </>
+        )}
         <Label htmlFor="date">Neuer Termin</Label>
         <Input
           id="date"
           name="date"
           type="date"
+          //   defaultValue={defaultData?.location}
+        />
+        <Label htmlFor="time">Zeit</Label>
+        <Input
+          id="time"
+          name="time"
+          type="time"
           //   defaultValue={defaultData?.location}
         />
         <Label htmlFor="description">Description</Label>
@@ -74,50 +117,4 @@ export default function Form({}) {
       <p>Anzahl Termine:{dates.length} </p>
     </>
   );
-}
-
-{
-  /* <Label htmlFor="singledate">Termin</Label>
-        <Input
-          id="singledate"
-          name="choosedate"
-          type="radio"
-          defaultValue={defaultData?.singledate}
-        />
-        <Label htmlFor="dateseries">Termin Serie</Label>
-        <Input
-          id="dateseries"
-          name="choosedate"
-          type="radio"
-          defaultValue={defaultData?.dateseries}
-        />
-
-        <Label htmlFor="name">Name</Label>
-        <Input
-          id="name"
-          name="name"
-          type="text"
-          defaultValue={defaultData?.name}
-        />
-        <Label htmlFor="image-url">Image Url</Label>
-        <Input
-          id="image-url"
-          name="image"
-          type="text"
-          defaultValue={defaultData?.image}
-        />
-        <Label htmlFor="location">Location</Label>
-        <Input
-          id="location"
-          name="location"
-          type="text"
-          defaultValue={defaultData?.location}
-        />
-        <Label htmlFor="map-url">Map Url</Label>
-        <Input
-          id="map-url"
-          name="mapURL"
-          type="text"
-          defaultValue={defaultData?.mapURL}
-        /> */
 }
