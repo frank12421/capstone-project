@@ -4,15 +4,13 @@ import { StyledHeader } from "@/components/Header";
 import { StyledMain } from "@/components/Main";
 import StyledNavigation from "@/components/Navigation";
 
-export default function ShowForm() {
+export default function ShowForm({ dates, setDates }) {
   const router = useRouter();
   const site = router.query;
 
   if (!site.id) {
     return null;
   }
-
-  console.log("Location:", site.id);
 
   return (
     <>
@@ -23,7 +21,7 @@ export default function ShowForm() {
         </StyledNavigation>
       </StyledHeader>
       <StyledMain>
-        <Form locationId={site.id} />
+        <Form locationId={site.id} dates={dates} setDates={setDates} />
       </StyledMain>
     </>
   );

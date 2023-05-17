@@ -41,6 +41,7 @@ export const StyledModifyCountButtonInactive = styled.button`
 `;
 
 export const StyledButton = styled.button`
+  margin-bottom: 0.5rem;
   color: ${({ color }) => color || "lightgrey"};
   background-color: lightgray;
   border: 1px solid darkgreen;

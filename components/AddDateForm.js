@@ -13,38 +13,30 @@ const FormContainer = styled.form`
 
 const Input = styled.input`
   padding: 0.5rem;
-  /* font-size: inherit; */
   border: 2px solid darkgreen;
   border-radius: 0.5rem;
 `;
 
 const Textarea = styled.textarea`
-  /* font-family: inherit; */
-  border: 3px solid darkgreen;
+  border: 2px solid darkgreen;
   border-radius: 0.5rem;
   padding: 0.5rem;
 `;
 
 const Label = styled.label`
-  /* font-weight: bold; */
+  font-weight: 400;
 `;
 
-export default function Form({ locationId }) {
+export default function Form({ locationId, dates, setDates }) {
   const formName = "test";
-  const [dates, setDates] = useImmer([]);
+
   const [dateseries, setDateseries] = useState(false);
-
-  console.log("Form - locationId:", locationId);
-
-  console.log("dates:", dates);
 
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     const id = Math.floor(Math.random() * 1000);
-    console.log("id:", id);
-    console.log(data);
 
     setDates((draft) => {
       draft.push({
@@ -69,7 +61,7 @@ export default function Form({ locationId }) {
           type="radio"
           value="single"
           onChange={handelToggleDateseries}
-          checked
+          required
         />
         <Label htmlFor="dateseries">Termin Serie</Label>
         <Input
@@ -102,12 +94,17 @@ export default function Form({ locationId }) {
           cols="30"
           rows="5"
           maxLength={100}
-          //   defaultValue={defaultData?.description}
         ></Textarea>
         <StyledButton type="submit" color="red">
           Speichern
         </StyledButton>
       </FormContainer>
+      <>
+        <p>Anzahl Termine: {dates.length}</p>
+        {/* {dates.map((date) => (
+          <p key={date.id}>Termin:{date.data}</p>
+        ))} */}
+      </>
     </>
   );
 }
