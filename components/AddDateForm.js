@@ -13,20 +13,20 @@ const FormContainer = styled.form`
 
 const Input = styled.input`
   padding: 0.5rem;
-  font-size: inherit;
-  border: 3px solid black;
+  /* font-size: inherit; */
+  border: 2px solid darkgreen;
   border-radius: 0.5rem;
 `;
 
 const Textarea = styled.textarea`
-  font-family: inherit;
-  border: 3px solid black;
+  /* font-family: inherit; */
+  border: 3px solid darkgreen;
   border-radius: 0.5rem;
   padding: 0.5rem;
 `;
 
 const Label = styled.label`
-  font-weight: bold;
+  /* font-weight: bold; */
 `;
 
 export default function Form({ locationId }) {
@@ -69,6 +69,7 @@ export default function Form({ locationId }) {
           type="radio"
           value="single"
           onChange={handelToggleDateseries}
+          checked
         />
         <Label htmlFor="dateseries">Termin Serie</Label>
         <Input
@@ -91,33 +92,22 @@ export default function Form({ locationId }) {
           </>
         )}
         <Label htmlFor="date">Neuer Termin</Label>
-        <Input
-          id="date"
-          name="date"
-          type="date"
-          //   defaultValue={defaultData?.location}
-        />
+        <Input id="date" name="date" type="date" required />
         <Label htmlFor="time">Zeit</Label>
-        <Input
-          id="time"
-          name="time"
-          type="time"
-          //   defaultValue={defaultData?.location}
-        />
+        <Input id="time" name="time" type="time" required />
         <Label htmlFor="description">Description</Label>
         <Textarea
           name="description"
           id="description"
           cols="30"
-          rows="10"
+          rows="5"
+          maxLength={100}
           //   defaultValue={defaultData?.description}
         ></Textarea>
-        <StyledButton type="submit">
-          Submit
-          {/* {defaultData ? "Update place" : "Add place"} */}
+        <StyledButton type="submit" color="red">
+          Speichern
         </StyledButton>
       </FormContainer>
-      <p>Anzahl Termine:{dates.length} </p>
     </>
   );
 }

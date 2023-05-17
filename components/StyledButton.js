@@ -20,7 +20,7 @@ export const StyledAddLink = styled(Link)`
   text-decoration: none;
 `;
 
-export const StyledButton = styled.button`
+export const StyledModifyCountButtonActive = styled.button`
   color: ${({ color }) => color || "lightgrey"};
   background-color: white;
   border-style: none;
@@ -32,10 +32,23 @@ export const StyledButton = styled.button`
   }
 `;
 
-export const StyledInactiveButton = styled.button`
+export const StyledModifyCountButtonInactive = styled.button`
   color: lightgrey;
   background-color: white;
   border-style: none;
   text-decoration: none;
   font-size: 4rem;
+`;
+
+export const StyledButton = styled.button`
+  color: ${({ color }) => color || "lightgrey"};
+  background-color: lightgray;
+  border: 1px solid darkgreen;
+  border-radius: 0.2rem;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  &:hover {
+    font-weight: 500;
+  }
 `;

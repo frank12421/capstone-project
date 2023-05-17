@@ -1,5 +1,11 @@
 import { plants } from "@/db/db";
-import { StyledButton, StyledInactiveButton } from "@/components/StyledButton";
+import {
+  StyledButton,
+  StyledInactiveButton,
+  StyledModifyCountButtonActive,
+  StyledModifyCountButtonInactive,
+  StyledModifyPlantCountButton,
+} from "@/components/StyledButton";
 import {
   StyledCard,
   StyledCardList,
@@ -73,19 +79,29 @@ export default function AddPlantToPlaceList({ places, setPlaces }) {
               <h2>{plant.name}</h2>
               <StyledContentContainer>
                 {showMinusButton ? (
-                  <StyledButton onClick={onClickMinusPlant} color="red">
+                  <StyledModifyCountButtonActive
+                    onClick={onClickMinusPlant}
+                    color="red"
+                  >
                     -
-                  </StyledButton>
+                  </StyledModifyCountButtonActive>
                 ) : (
-                  <StyledInactiveButton>-</StyledInactiveButton>
+                  <StyledModifyCountButtonInactive>
+                    -
+                  </StyledModifyCountButtonInactive>
                 )}
 
                 {showAddButton ? (
-                  <StyledButton onClick={onClickAddPlant} color="green">
+                  <StyledModifyCountButtonActive
+                    onClick={onClickAddPlant}
+                    color="green"
+                  >
                     +
-                  </StyledButton>
+                  </StyledModifyCountButtonActive>
                 ) : (
-                  <StyledInactiveButton>+</StyledInactiveButton>
+                  <StyledModifyCountButtonInactive>
+                    +
+                  </StyledModifyCountButtonInactive>
                 )}
                 <StyledCardList>
                   <StyledCardListItem>Type: {plant.type}</StyledCardListItem>
