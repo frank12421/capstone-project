@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import moment from "moment";
 
 const StyeldTabel = styled.section`
   width: 100%;
@@ -19,6 +20,20 @@ export default function ShowDates({ dates, places }) {
     return <h5>ShowDates-Function-no Date</h5>;
   }
 
+  function DefineWhen({ plantdate }) {
+    const today = moment().format(`YYYY-MM-DD`);
+    const weekofYear = moment().week();
+    console.log("Diese Woche", weekofYear);
+    console.log("Woche Plandate", moment(plantdate).week());
+    if (plantdate === today) {
+      return <p>Heute</p>;
+    } else if (moment(plantdate).week() === weekofYear) {
+      return <p>Diese Woche</p>;
+    } else {
+      return <p>{plantdate}</p>;
+    }
+  }
+
   return (
     <>
       <h5>ShowDates-Function</h5>
@@ -29,7 +44,8 @@ export default function ShowDates({ dates, places }) {
 
         {dates.map((date) => (
           <>
-            <p key={date.id}>{date.data.date}</p>
+            {/* <p key={date.id}>{date.data.date}</p> */}
+            <DefineWhen key={date.id} plantdate={date.data.date} />
             <p>{date.data.promptlist}</p>
             {places.find((place) => place.id === date.location) && (
               <p>{places[date.location - 1].name}</p>

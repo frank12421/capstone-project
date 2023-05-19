@@ -26,6 +26,13 @@ const Label = styled.label`
   font-weight: 400;
 `;
 
+const Select = styled.select`
+  border: 2px solid darkgreen;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: white;
+`;
+
 export default function DateForm({ locationId, dates, setDates }) {
   const formName = "test";
 
@@ -86,11 +93,11 @@ export default function DateForm({ locationId, dates, setDates }) {
       <Label htmlFor="time">Zeit</Label>
       <Input id="time" name="time" type="time" required />
       <Label htmlFor="promptlist">Stichwort</Label>
-      <select id="promptlist" name="promptlist" required>
+      <Select id="promptlist" name="promptlist" required>
         <option value="Gießen">Gießen</option>
         <option value="Düngen">Düngen</option>
         <option value="Sonstiges">Sonstiges</option>
-      </select>
+      </Select>
       <Label htmlFor="description">Description</Label>
       <Textarea
         name="description"
