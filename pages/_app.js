@@ -6,7 +6,6 @@ import { useImmer } from "use-immer";
 export default function App({ Component, pageProps }) {
   const [places, setPlaces] = useState(defaultplaces);
   const [dates, setDates] = useImmer([]);
-
   return (
     <>
       <GlobalStyle />
