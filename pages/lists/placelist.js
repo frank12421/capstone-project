@@ -4,6 +4,7 @@ import {
   StyledCardList,
   StyledContentContainer,
   StyledCardListItem,
+  StyledCardFooter,
 } from "@/components/Card";
 import { StyledHeader } from "@/components/Header";
 import { StyledMain } from "@/components/Main";
@@ -52,7 +53,7 @@ export default function PlaceList({ places }) {
                   </StyledCardListItem>
                 </StyledCardList>
               </StyledContentContainer>
-              <div>
+              <StyledCardFooter>
                 <StyledLink
                   href={{
                     pathname: `/lists/addplanttoplace`,
@@ -60,9 +61,18 @@ export default function PlaceList({ places }) {
                   }}
                   color={"green"}
                 >
-                  +
+                  Pflanzen bearbeiten
                 </StyledLink>
-              </div>
+                <StyledLink
+                  href={{
+                    pathname: `/lists/showdateform`,
+                    query: { id: place.id },
+                  }}
+                  color={"darkred"}
+                >
+                  Termin anlegen
+                </StyledLink>
+              </StyledCardFooter>
             </StyledCard>
           );
         })}

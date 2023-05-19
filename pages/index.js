@@ -1,10 +1,10 @@
 import Image from "next/image.js";
 import { StyledHeader } from "@/components/Header";
 import { StyledMain } from "@/components/Main";
-import { StyledNavigationLink } from "@/components/StyledButton";
 import StyledNavigation from "@/components/Navigation";
+import ShowDates from "@/components/ShowDates";
 
-export default function HomePage() {
+export default function HomePage({ dates, places }) {
   return (
     <>
       <StyledHeader>
@@ -19,6 +19,7 @@ export default function HomePage() {
           src={"/pictures/Header-Home.png"}
           style={{ objectFit: "contain" }}
         />
+        <ShowDates dates={dates} places={places} />
         <StyledNavigation color="darkgreen" navigationlink="/lists/plantlist">
           Alle Pflanzen anzeigen
         </StyledNavigation>

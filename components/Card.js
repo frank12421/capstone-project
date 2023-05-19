@@ -26,3 +26,9 @@ export const StyledCardList = styled.ul`
 export const StyledCardListItem = styled.li`
   font-weight: 400;
 `;
+
+export const StyledCardFooter = styled.section`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+`;
