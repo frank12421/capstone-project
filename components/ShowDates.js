@@ -4,51 +4,61 @@ import moment from "moment";
 const StyeldTabel = styled.section`
   width: 100%;
   padding: 10px;
-  display: grid;
-  grid-template-columns: 25% 25% 1fr;
-  grid-template-rows: 1fr;
-  grid-gap: 3px px;
+  display: flex;
+  flex-direction: column;
   background-color: bisque;
   margin-bottom: 20px;
 `;
 
-export default function ShowDates({ dates, places }) {
-  console.log("ShowDates-Dates", { dates });
-  // console.log("ShowDates-Places", places);
+const StyledRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
 
+export default function ShowDates({ dates, places }) {
   const sortDates = [...dates].sort(
     (a, b) => new Date(a.data.date) - new Date(b.data.date)
   );
-  console.log("SortList", sortDates);
 
-  function DefineWhen({ plantdate }) {
-    const today = moment().format(`YYYY-MM-DD`);
-    const weekofYear = moment().week();
-    // console.log("Diese Woche", weekofYear);
-    // console.log("Woche Plandate", moment(plantdate).week());
-    if (plantdate === today) {
+  function DefineWhen({ date }) {
+    if (date === moment().format(`YYYY-MM-DD`)) {
       return <p>Heute</p>;
-    } else if (moment(plantdate).week() === weekofYear) {
+    } else if (date === moment().add(1, `d`).format(`YYYY-MM-DD`)) {
+      return <p>Morgen</p>;
+    } else if (moment(date).week() === moment().week()) {
       return <p>Diese Woche</p>;
     } else {
-      return <p>{plantdate}</p>;
+      return <p>{date}</p>;
     }
+  }
+
+  function handelClickDate(event) {
+    console.log("Click-event", event.target);
+
+    return;
+    <></>;
   }
 
   return (
     <>
       <StyeldTabel>
-        <p key={"Wann"}>Wann</p>
-        <p key={"Was"}>Was</p>
-        <p key={"Wo"}>Wo</p>
+        <StyledRow key={"start"}>
+          <p>Wann</p>
+          <p>Was</p>
+          <p>Wo</p>
+        </StyledRow>
         {dates.length !== 0 &&
           sortDates.map((date) => (
             <>
-              <DefineWhen key={date.id} plantdate={date.data.date} />
-              <p>{date.data.promptlist}</p>
-              {places.find((place) => place.id === date.location) && (
-                <p>{places[date.location - 1].name}</p>
-              )}
+              <StyledRow key={date.id} onClick={handelClickDate(date.id)}>
+                <DefineWhen date={date.data.date} />
+                <p>{date.data.promptlist}</p>
+                {places.find((place) => place.id === date.location) && (
+                  <p>{places[date.location - 1].name}</p>
+                )}
+              </StyledRow>
             </>
           ))}
       </StyeldTabel>

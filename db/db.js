@@ -93,3 +93,39 @@ export const defaultplaces = [
     rainprotection: "Ohne",
   },
 ];
+
+export const defaultdates = [
+  {
+    id: 418,
+    location: "1",
+    data: {
+      dateform: "single",
+      date: "2024-06-19",
+      time: "03:59",
+      promptlist: "Düngen",
+      description: "Immer nur das guet zeug nehmen, bitte.",
+    },
+  },
+  {
+    id: 622,
+    location: "2",
+    data: {
+      dateform: "single",
+      date: "2023-05-20",
+      time: "03:59",
+      promptlist: "Gießen",
+      description: "Gib alles!",
+    },
+  },
+  {
+    id: 262,
+    location: "4",
+    data: {
+      dateform: "single",
+      date: "2023-05-21",
+      time: "03:59",
+      promptlist: "Sonstiges",
+      description: "Gib alles!",
+    },
+  },
+];
