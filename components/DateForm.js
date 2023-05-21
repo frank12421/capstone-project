@@ -84,6 +84,8 @@ export default function DateForm({ locationId, dates, setDates }) {
           <Input id="day" name="datefrequency" type="radio" value="day" />
           <Label htmlFor="datefrequency">Woche</Label>
           <Input id="week" name="datefrequency" type="radio" value="week" />
+          <Label htmlFor="datefrequency">Monat</Label>
+          <Input id="week" name="datefrequency" type="radio" value="month" />
           <Label htmlFor="datefrequency">Jahr</Label>
           <Input id="year" name="datefrequency" type="radio" value="year" />
         </>
@@ -98,7 +100,7 @@ export default function DateForm({ locationId, dates, setDates }) {
         <option value="Düngen">Düngen</option>
         <option value="Sonstiges">Sonstiges</option>
       </Select>
-      <Label htmlFor="description">Description</Label>
+      <Label htmlFor="description">Notiz</Label>
       <Textarea
         name="description"
         id="description"
