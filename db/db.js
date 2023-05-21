@@ -100,7 +100,7 @@ export const defaultdates = [
     location: "1",
     data: {
       dateform: "single",
-      date: "2024-06-19",
+      date: "2023-06-19",
       time: "03:59",
       promptlist: "Düngen",
       description: "Immer nur das guet zeug nehmen, bitte.",
@@ -133,7 +133,7 @@ export const defaultdates = [
     location: "1",
     data: {
       dateform: "series",
-      date: "2025-07-01",
+      date: "2023-05-22",
       datefrequency: "hour",
       time: "03:59",
       promptlist: "Sonstiges",
@@ -181,7 +181,7 @@ export const defaultdates = [
     location: "2",
     data: {
       dateform: "series",
-      date: "2025-07-21",
+      date: "2025-07-22",
       datefrequency: "year",
       time: "03:59",
       promptlist: "Sonstiges",

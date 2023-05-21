@@ -20,9 +20,13 @@ const StyledRow = styled.div`
 `;
 
 export default function ShowDates({ dates, places }) {
-  const sortDates = [...dates].sort(
-    (a, b) => new Date(a.data.date) - new Date(b.data.date)
-  );
+  const sortDates = [...dates]
+    .filter(
+      (date) =>
+        moment(date.data.date).format(`YYYY-MM-DD`) >=
+        moment().format(`YYYY-MM-DD`)
+    )
+    .sort((a, b) => new Date(a.data.date) - new Date(b.data.date));
 
   const [clickindex, setClickIndex] = useState(null);
 
@@ -42,11 +46,26 @@ export default function ShowDates({ dates, places }) {
     }
   }
 
-  function PlaceFind({ locationId }) {
+  function FindPlace({ locationId }) {
     return (
       places.find((place) => place.id === locationId) && (
         <>{places[locationId - 1].name}</>
       )
+    );
+  }
+
+  function SetDateSeries({ form, frequency }) {
+    return form === "single" ? (
+      <p>Einzeltermin</p>
+    ) : (
+      <p>
+        Terminserie:
+        {frequency === "hour" && <>stündlich</>}
+        {frequency === "day" && <>täglich</>}
+        {frequency === "week" && <>wöchentlich</>}
+        {frequency === "month" && <>monatlich</>}
+        {frequency === "year" && <>järlich</>}
+      </p>
     );
   }
 
@@ -65,7 +84,7 @@ export default function ShowDates({ dates, places }) {
                 <StyledRow key={date.id} onClick={() => handelClickDate(index)}>
                   <DefineWhen date={date.data.date} />
                   <p>{date.data.promptlist}</p>
-                  <PlaceFind locationId={date.location} />
+                  <FindPlace locationId={date.location} />
                 </StyledRow>
               ))}
           </StyeldTabel>
@@ -74,34 +93,14 @@ export default function ShowDates({ dates, places }) {
         <>
           <p>Datum:{sortDates[clickindex].data.date}</p>
           <p>Zeit:{sortDates[clickindex].data.time}</p>
-          {sortDates[clickindex].data.dateform === "single" && (
-            <p>Einzeltermin</p>
-          )}
-          {sortDates[clickindex].data.dateform === "series" && (
-            <p>
-              Terminserie:
-              {sortDates[clickindex].data.datefrequency === "hour" && (
-                <>stündlich</>
-              )}
-              {sortDates[clickindex].data.datefrequency === "day" && (
-                <>täglich</>
-              )}
-              {sortDates[clickindex].data.datefrequency === "week" && (
-                <>wöchentlich</>
-              )}
-              {sortDates[clickindex].data.datefrequency === "month" && (
-                <>monatlich</>
-              )}
-              {sortDates[clickindex].data.datefrequency === "year" && (
-                <>järlich</>
-              )}
-            </p>
-          )}
-
+          <SetDateSeries
+            form={sortDates[clickindex].data.dateform}
+            frequency={sortDates[clickindex].data.datefrequency}
+          />
           <p>Serie:{sortDates[clickindex].data.dateform}</p>
           <p>Stichwort:{sortDates[clickindex].data.promptlist}</p>
           <p>
-            Standort: <PlaceFind locationId={sortDates[clickindex].location} />
+            Standort: <FindPlace locationId={sortDates[clickindex].location} />
           </p>
           <p>Notiz:{sortDates[clickindex].data.description}</p>
           <button type="button" onClick={() => handelClickDate(null)}>
