@@ -2,7 +2,7 @@ import Image from "next/image.js";
 import { StyledHeader } from "@/components/Header";
 import { StyledMain } from "@/components/Main";
 import StyledNavigation from "@/components/Navigation";
-import ShowDates from "@/components/ShowDates";
+import ShowDateList from "@/components/ShowDateList";
 
 export default function HomePage({ dates, places }) {
   return (
@@ -19,7 +19,7 @@ export default function HomePage({ dates, places }) {
           src={"/pictures/Header-Home.png"}
           style={{ objectFit: "contain" }}
         />
-        <ShowDates dates={dates} places={places} />
+        <ShowDateList dates={dates} places={places} />
         <StyledNavigation color="darkgreen" navigationlink="/lists/plantlist">
           Alle Pflanzen anzeigen
         </StyledNavigation>
