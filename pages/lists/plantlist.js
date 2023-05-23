@@ -16,7 +16,7 @@ export default function PlantList() {
       <StyledHeader>
         <h1>Alle Pflanzen von Grow Green</h1>
         <StyledNavigation navigationlink="/" color="darkgreen">
-          zuück
+          zurück
         </StyledNavigation>
       </StyledHeader>
       <StyledMain>
