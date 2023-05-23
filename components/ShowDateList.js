@@ -5,7 +5,7 @@ import { useState } from "react";
 const StyeldDatesList = styled.section`
   width: 100%;
   margin: 0;
-  max-height: 140px;
+  max-height: 155px;
   display: flex;
   flex-direction: column;
   background-color: lightgrey;
@@ -22,13 +22,14 @@ const StyledDatesListRow = styled.ul`
   justify-items: start;
   list-style: none;
   padding-left: 0.5rem;
-  cursor: ${(props) => (props.$head ? "" : "pointer")};
+
   position: ${(props) => (props.$head ? "sticky" : "static")};
   top: ${(props) => (props.$head ? "0px" : "20px")};
   background-color: ${(props) => (props.$head ? "darkgray" : "")};
   color: ${(props) => (props.$head ? "white" : "black")};
+  cursor: ${(props) => (props.$hover ? "pointer" : "")};
   &:hover {
-    font-weight: ${(props) => (props.$head ? 300 : 900)};
+    font-weight: ${(props) => (props.$hover ? 900 : 300)};
   }
 `;
 
@@ -71,17 +72,27 @@ export default function ShowDateList({ dates, places }) {
   function handelClickDate(index) {
     setClickIndex(index);
   }
+  function DateListRow({ date, index }) {
+    let wert;
+    const currentDate = moment().format("YYYY-MM-DD");
+    const tomorrowDate = moment().add(1, "d").format("YYYY-MM-DD");
+    const thisDate = date.data.date;
 
-  function DefineWhen({ date }) {
-    if (date === moment().format(`YYYY-MM-DD`)) {
-      return <>Heute</>;
-    } else if (date === moment().add(1, `d`).format(`YYYY-MM-DD`)) {
-      return <>Morgen</>;
-    } else if (moment(date).week() === moment().week()) {
-      return <>Diese Woche</>;
-    } else {
-      return <>{date}</>;
-    }
+    thisDate === currentDate
+      ? (wert = "Heute")
+      : thisDate === tomorrowDate
+      ? (wert = "Morgen")
+      : moment(thisDate).week() === moment().week()
+      ? (wert = "Diese Woche")
+      : (wert = thisDate);
+
+    return (
+      <StyledDatesListRow $hover onClick={() => handelClickDate(index)}>
+        <p>{wert}</p>
+        <p>{date.data.promptlist}</p>
+        <FindPlace locationId={date.location} />
+      </StyledDatesListRow>
+    );
   }
 
   function FindPlace({ locationId }) {
@@ -107,6 +118,17 @@ export default function ShowDateList({ dates, places }) {
     );
   }
 
+  function CheckNoToday({ date, index }) {
+    if (index === 0 && date.data.date !== moment().format("YYYY-MM-DD"))
+      return (
+        <StyledDatesListRow>
+          <p>Heute nix</p>
+          <p>Chillen mit Grow Green</p>
+          <p>Wo immer du magst</p>
+        </StyledDatesListRow>
+      );
+  }
+
   return (
     <>
       {clickindex === null ? (
@@ -116,21 +138,16 @@ export default function ShowDateList({ dates, places }) {
             <p key="was">Was</p>
             <p key="wo">Wo</p>
           </StyledDatesListRow>
-          {dates.length !== 0 &&
+          {dates.length !== 0 ? (
             sortDates.map((date, index) => (
-              <StyledDatesListRow
-                key={date.id}
-                onClick={() => handelClickDate(index)}
-              >
-                <p>
-                  <DefineWhen date={date.data.date} />
-                </p>
-                <>{date.data.promptlist}</>
-                <p>
-                  <FindPlace locationId={date.location} />
-                </p>
-              </StyledDatesListRow>
-            ))}
+              <>
+                <CheckNoToday key="heutenix" date={date} index={index} />
+                <DateListRow key={date.id} date={date} index={index} />
+              </>
+            ))
+          ) : (
+            <StyledDatesListRow>Keine Termine</StyledDatesListRow>
+          )}
         </StyeldDatesList>
       ) : (
         <StyeldDatesList>
