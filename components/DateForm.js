@@ -26,9 +26,14 @@ const Label = styled.label`
   font-weight: 400;
 `;
 
-export default function DateForm({ locationId, dates, setDates }) {
-  const formName = "test";
+const Select = styled.select`
+  border: 2px solid darkgreen;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: white;
+`;
 
+export default function DateForm({ locationId, setDates }) {
   const [dateseries, setDateseries] = useState(false);
 
   function handleSubmit(event) {
@@ -51,7 +56,7 @@ export default function DateForm({ locationId, dates, setDates }) {
   };
 
   return (
-    <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
+    <FormContainer aria-labelledby="NewDateForPlaces" onSubmit={handleSubmit}>
       <Label htmlFor="singledate">Einzelner Termin</Label>
       <Input
         id="singledate"
@@ -77,6 +82,8 @@ export default function DateForm({ locationId, dates, setDates }) {
           <Input id="day" name="datefrequency" type="radio" value="day" />
           <Label htmlFor="datefrequency">Woche</Label>
           <Input id="week" name="datefrequency" type="radio" value="week" />
+          <Label htmlFor="datefrequency">Monat</Label>
+          <Input id="week" name="datefrequency" type="radio" value="month" />
           <Label htmlFor="datefrequency">Jahr</Label>
           <Input id="year" name="datefrequency" type="radio" value="year" />
         </>
@@ -86,12 +93,12 @@ export default function DateForm({ locationId, dates, setDates }) {
       <Label htmlFor="time">Zeit</Label>
       <Input id="time" name="time" type="time" required />
       <Label htmlFor="promptlist">Stichwort</Label>
-      <select id="promptlist" name="promptlist" required>
+      <Select id="promptlist" name="promptlist" required>
         <option value="Gießen">Gießen</option>
         <option value="Düngen">Düngen</option>
         <option value="Sonstiges">Sonstiges</option>
-      </select>
-      <Label htmlFor="description">Description</Label>
+      </Select>
+      <Label htmlFor="description">Notiz</Label>
       <Textarea
         name="description"
         id="description"

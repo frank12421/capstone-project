@@ -15,7 +15,7 @@ export default function ShowDateForm({ dates, setDates }) {
   return (
     <>
       <StyledHeader>
-        <h1>Hier legen Sie einen neue Termin an</h1>
+        <h1>Hier legen Sie einen neuen Termin an</h1>
         <StyledNavigation navigationlink="/lists/placelist" color="darkgreen">
           zurück
         </StyledNavigation>
