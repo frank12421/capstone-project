@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@next/font": "^13.3.0",
+    "dayjs": "^1.11.7",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
     "immer": "^10.0.2",

@@ -1,4 +1,5 @@
-import moment from "moment";
+import dayjs from "dayjs";
+
 import { useState } from "react";
 import {
   StyeldDatesList,
@@ -7,12 +8,12 @@ import {
   StyledDatesListRow,
 } from "./styled";
 
-export default function ShowDateList({ dates, places }) {
-  const sortDates = [...dates]
+export default function ShowDatesList({ dates, places }) {
+  const sortDates = dates
     .filter(
       (date) =>
-        moment(date.data.date).format(`YYYY-MM-DD`) >=
-        moment().format(`YYYY-MM-DD`)
+        dayjs(date.data.date).format(`YYYY-MM-DD`) >=
+        dayjs().format(`YYYY-MM-DD`)
     )
     .sort((a, b) => new Date(a.data.date) - new Date(b.data.date));
 
@@ -22,18 +23,21 @@ export default function ShowDateList({ dates, places }) {
     setClickIndex(index);
   }
   function DateListRow({ date, index }) {
-    let wert;
-    const currentDate = moment().format("YYYY-MM-DD");
-    const tomorrowDate = moment().add(1, "d").format("YYYY-MM-DD");
+    var weekOfYear = require("dayjs/plugin/weekOfYear");
+    dayjs.extend(weekOfYear);
+
+    const currentDate = dayjs().format("YYYY-MM-DD");
+    const tomorrowDate = dayjs().add(1, "day").format("YYYY-MM-DD");
     const thisDate = date.data.date;
 
-    thisDate === currentDate
-      ? (wert = "Heute")
-      : thisDate === tomorrowDate
-      ? (wert = "Morgen")
-      : moment(thisDate).week() === moment().week()
-      ? (wert = "Diese Woche")
-      : (wert = thisDate);
+    const wert =
+      thisDate === currentDate
+        ? "Heute"
+        : thisDate === tomorrowDate
+        ? "Morgen"
+        : dayjs(thisDate).week() === dayjs().week()
+        ? "Diese Woche"
+        : thisDate;
 
     return (
       <StyledDatesListRow $hover onClick={() => handelClickDate(index)}>
@@ -67,16 +71,14 @@ export default function ShowDateList({ dates, places }) {
     );
   }
 
-  function CheckNoToday({ date, index }) {
-    if (index === 0 && date.data.date !== moment().format("YYYY-MM-DD"))
-      return (
-        <StyledDatesListRow>
-          <p>Heute nix</p>
-          <p>Chillen</p>
-          <p>Wo immer du magst</p>
-        </StyledDatesListRow>
-      );
-  }
+  const noToday =
+    sortDates[0].data.date !== dayjs().format("YYYY-MM-DD") ? (
+      <StyledDatesListRow>
+        <p>Heute nix</p>
+        <p>Chillen</p>
+        <p>Wo immer du magst</p>
+      </StyledDatesListRow>
+    ) : null;
 
   return (
     <>
@@ -87,12 +89,10 @@ export default function ShowDateList({ dates, places }) {
             <p key="was">Was</p>
             <p key="wo">Wo</p>
           </StyledDatesListRow>
+          {noToday}
           {dates.length !== 0 ? (
             sortDates.map((date, index) => (
-              <>
-                <CheckNoToday key="heutenix" date={date} index={index} />
-                <DateListRow key={date.id} date={date} index={index} />
-              </>
+              <DateListRow key={date.id} date={date} index={index} />
             ))
           ) : (
             <StyledDatesListRow>Keine Termine</StyledDatesListRow>

@@ -33,9 +33,7 @@ const Select = styled.select`
   background-color: white;
 `;
 
-export default function DateForm({ locationId, dates, setDates }) {
-  const formName = "test";
-
+export default function DateForm({ locationId, setDates }) {
   const [dateseries, setDateseries] = useState(false);
 
   function handleSubmit(event) {
@@ -58,7 +56,7 @@ export default function DateForm({ locationId, dates, setDates }) {
   };
 
   return (
-    <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
+    <FormContainer aria-labelledby="NewDateForPlaces" onSubmit={handleSubmit}>
       <Label htmlFor="singledate">Einzelner Termin</Label>
       <Input
         id="singledate"
