@@ -1,10 +1,5 @@
 import useSWR from "swr";
 
-// export const fetcher = (...args) =>
-//   fetch(...args).then((response) => response.json());
-
-// export const usePlaces = () => useSWR(`/api/places`, fetcher);
-
 const fetcher = async (url) => {
   const response = await fetch(url);
   if (!response.ok) {

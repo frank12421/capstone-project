@@ -13,10 +13,6 @@ import Image from "next/image";
 import useFetch from "@/utils/helper";
 
 export default function ShowPlaceList() {
-  //   const { data } = usePlaces();
-  //   console.log("Places:", places);
-  //   console.log("Places1:", data);
-
   const { data: places, error, isLoading } = useFetch("places");
 
   if (isLoading) {
@@ -72,7 +68,7 @@ export default function ShowPlaceList() {
                 <StyledLink
                   href={{
                     pathname: `/lists/addplanttoplace`,
-                    query: { id: place.id },
+                    query: { id: place._id },
                   }}
                   color={"green"}
                 >
@@ -81,7 +77,7 @@ export default function ShowPlaceList() {
                 <StyledLink
                   href={{
                     pathname: `/lists/showdateform`,
-                    query: { id: place.id },
+                    query: { id: place._id },
                   }}
                   color={"darkred"}
                 >
