@@ -10,8 +10,23 @@ import { StyledHeader } from "@/components/Header";
 import { StyledMain } from "@/components/Main";
 import StyledNavigation from "@/components/Navigation";
 import Image from "next/image";
+import useFetch from "@/utils/helper";
 
-export default function ShowPlaceList({ places }) {
+export default function ShowPlaceList() {
+  //   const { data } = usePlaces();
+  //   console.log("Places:", places);
+  //   console.log("Places1:", data);
+
+  const { data: places, error, isLoading } = useFetch("places");
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <>
       <StyledHeader>
@@ -28,7 +43,7 @@ export default function ShowPlaceList({ places }) {
               : `/pictures/Place-People.png`;
 
           return (
-            <StyledCard border={"darkred"} key={place.id}>
+            <StyledCard border={"darkred"} key={place._id}>
               <h2>{place.name}</h2>
               <StyledContentContainer>
                 <Image
