@@ -26,6 +26,9 @@ export default function HomePage({ dates, places }) {
         <StyledNavigation color="darkred" navigationlink="/lists/placelist">
           Alle Standorte anzeigen
         </StyledNavigation>
+        <StyledNavigation color="tomato" navigationlink="/addplace">
+          Neue Standorte anlegen
+        </StyledNavigation>
       </StyledMain>
     </>
   );
