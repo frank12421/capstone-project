@@ -9,15 +9,13 @@ import Image from "next/image";
 import { StyledHeader } from "@/components/Header";
 import { StyledMain } from "@/components/Main";
 import StyledNavigation from "@/components/Navigation";
-import useFetch from "@/utils/helper";
+import { useAllPlants } from "@/utils/helper";
 
 export default function ShowPlantList() {
-  const { data: plants, error, isLoading } = useFetch("plants");
-
+  const { data: plants, error, isLoading } = useAllPlants();
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
   if (error) {
     return <div>Error: {error.message}</div>;
   }

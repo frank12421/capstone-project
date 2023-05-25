@@ -10,7 +10,7 @@ import { StyledHeader } from "@/components/Header";
 import { StyledMain } from "@/components/Main";
 import StyledNavigation from "@/components/Navigation";
 import Image from "next/image";
-import useFetch from "@/utils/helper";
+import { useFetch } from "@/utils/helper";
 
 export default function ShowPlaceList() {
   const { data: places, error, isLoading } = useFetch("places");
@@ -67,8 +67,7 @@ export default function ShowPlaceList() {
               <StyledCardFooter>
                 <StyledLink
                   href={{
-                    pathname: `/lists/addplanttoplace`,
-                    query: { id: place._id },
+                    pathname: `/place/${place._id}`,
                   }}
                   color={"green"}
                 >

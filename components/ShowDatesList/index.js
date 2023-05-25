@@ -41,9 +41,11 @@ export default function ShowDatesList({ dates, places }) {
 
     return (
       <StyledDatesListRow $hover onClick={() => handelClickDate(index)}>
-        <p>{wert}</p>
-        <p>{date.data.promptlist}</p>
-        <FindPlace locationId={date.location} />
+        <li>{wert}</li>
+        <li>{date.data.promptlist}</li>
+        <li>
+          <FindPlace locationId={date.location} />
+        </li>
       </StyledDatesListRow>
     );
   }
@@ -74,9 +76,9 @@ export default function ShowDatesList({ dates, places }) {
   const noToday =
     sortDates[0].data.date !== dayjs().format("YYYY-MM-DD") ? (
       <StyledDatesListRow>
-        <p>Heute nix</p>
-        <p>Chillen</p>
-        <p>Wo immer du magst</p>
+        <li>Heute nix</li>
+        <li>Chillen</li>
+        <li>Wo immer du magst</li>
       </StyledDatesListRow>
     ) : null;
 

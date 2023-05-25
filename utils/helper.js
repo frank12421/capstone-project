@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-const fetcher = async (url) => {
+export const fetcher = async (url) => {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error("An error occurred while fetching the data.");
@@ -8,12 +8,20 @@ const fetcher = async (url) => {
   return response.json();
 };
 
-const useFetch = (path) => {
+export const useFetch = (path) => {
   const { data, error } = useSWR(`/api/${path}`, fetcher);
-
   const isLoading = !data && !error;
-
   return { data, error, isLoading };
 };
 
-export default useFetch;
+export const useAllPlants = () => {
+  const { data, error } = useSWR(`/api/plants/`, fetcher);
+  const isLoading = !data && !error;
+  return { data, error, isLoading };
+};
+
+export const useOnePlant = (id) => {
+  const { data, error } = useSWR(`/api/plants/${id}`, fetcher);
+  const isLoading = !data && !error;
+  return { data, error, isLoading };
+};
