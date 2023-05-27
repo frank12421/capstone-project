@@ -13,11 +13,11 @@ export default async function handler(request, response) {
   } else if (request.method === "POST") {
     try {
       const placesData = request.body;
+
       await Places.create(placesData);
 
       response.status(201).json({ status: "Place created" });
     } catch (error) {
-      console.log(error);
       response.status(400).json({ error: error.message });
     }
   }

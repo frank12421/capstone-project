@@ -11,8 +11,29 @@ import {
   StyledModifyCountButtonActive,
   StyledModifyCountButtonInactive,
 } from "../StyledButton";
+import useSWRMutation from "swr/mutation";
+import { useRouter } from "next/router";
 
-export default function AllPlantsSortedtList({ id, placeData }) {
+async function sendRequest(url, { arg }) {
+  const response = await fetch(url, {
+    method: "PATCH",
+    body: JSON.stringify(arg),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (response.ok) {
+    await response.json();
+  } else {
+    console.error(`Error: ${response.status}`);
+  }
+}
+
+export default function AllPlantsSortedtList({ placeData }) {
+  const router = useRouter();
+  const site = router.query;
+  const { trigger } = useSWRMutation(`/api/places/${site.id}`, sendRequest);
   const { data, error, isLoading } = useSWR(`/api/plants/`, fetcher);
 
   if (error) {
@@ -27,35 +48,21 @@ export default function AllPlantsSortedtList({ id, placeData }) {
   const showAddButton = freePlaces <= 0 ? false : true;
   const showMinusButton = freePlaces >= placeData.capacity ? false : true;
 
-  function onClickAddPlant() {
-    console.log("click plus");
+  const onClickAddPlant = (value) => {
+    const addNewPlant = { plantid: value };
+    const options = { new: true };
+    const dataToUpdate = {
+      update: {
+        $push: { plants: addNewPlant },
+      },
+    };
 
-    // setPlaces(
+    trigger({ data: dataToUpdate, options });
+  };
 
-    //   places.map((place) => {
-    //     if (place.id === site.id) {
-    //       return { ...place, used: place.used + 1 };
-    //     } else {
-    //       return { ...place };
-    //     }
-    //   })
-    // );
-  }
-
-  function onClickMinusPlant() {
-    console.log("click minus");
-
-    //setPlaces(
-
-    //   places.map((place) => {
-    //     if (place.id === site.id) {
-    //       return { ...place, used: place.used - 1 };
-    //     } else {
-    //       return { ...place };
-    //     }
-    //   })
-    //);
-  }
+  const onClickMinusPlant = (value) => {
+    console.log("click minus", value);
+  };
 
   return (
     <StyledMain margintop="110">
@@ -63,10 +70,11 @@ export default function AllPlantsSortedtList({ id, placeData }) {
         return (
           <StyledCard border={"green"} key={plant._id}>
             <h2>{plant.name}</h2>
+            <h5>{plant._id}</h5>
             <StyledContentContainer>
               {showMinusButton ? (
                 <StyledModifyCountButtonActive
-                  onClick={onClickMinusPlant}
+                  onClick={() => onClickMinusPlant(plant._id)}
                   color="red"
                 >
                   -
@@ -79,7 +87,7 @@ export default function AllPlantsSortedtList({ id, placeData }) {
 
               {showAddButton ? (
                 <StyledModifyCountButtonActive
-                  onClick={onClickAddPlant}
+                  onClick={() => onClickAddPlant(plant._id)}
                   color="green"
                 >
                   +

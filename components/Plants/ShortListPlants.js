@@ -4,14 +4,13 @@
 import { useOnePlant } from "@/utils/helper";
 
 export default function ShortListPlants({ id }) {
-  console.log(id);
   const plant = useOnePlant(id);
 
   if (!plant.data) {
     return null;
   } else {
-    console.log("Pflanze", plant);
+    // console.log("Pflanze", plant);
     //hier kommt später noch ein counter rein
-    return <p>{plant.data.name}</p>;
+    return <>{plant.data.name}</>;
   }
 }

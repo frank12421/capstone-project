@@ -49,7 +49,7 @@ async function sendRequest(url, { arg }) {
 }
 
 export default function AddPlaceForm() {
-  const { trigger, isMutating } = useSWRMutation(`/api/places/`, sendRequest);
+  const { trigger } = useSWRMutation(`/api/places/`, sendRequest);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -58,10 +58,6 @@ export default function AddPlaceForm() {
     trigger(data);
   }
 
-  const handelToggleDateseries = (event) => {
-    setDateseries(event.target.value === "series");
-  };
-
   return (
     <FormContainer aria-labelledby="NewPlace" onSubmit={handleSubmit}>
       <Label htmlFor="name">Neuer Standort</Label>
@@ -69,7 +65,7 @@ export default function AddPlaceForm() {
       <Label htmlFor="capacity">Kapazität</Label>
       <Input id="capacity" name="capacity" type="number" required min={1} />
       <Label htmlFor="used">Belegt</Label>
-      <Input id="used" name="used" type="used" hidden />
+      <Input id="used" name="used" type="used" defaultValue="0" hidden />
       <Label htmlFor="lightratio">Lichtverhältnis</Label>
       <Select id="lightratio" name="lightratio" required>
         <option value="Sonne">Sonne</option>
