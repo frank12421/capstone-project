@@ -64,8 +64,6 @@ export default function AddPlaceForm() {
       <Input id="name" name="name" type="text" required />
       <Label htmlFor="capacity">Kapazität</Label>
       <Input id="capacity" name="capacity" type="number" required min={1} />
-      <Label htmlFor="used">Belegt</Label>
-      <Input id="used" name="used" type="used" defaultValue="0" hidden />
       <Label htmlFor="lightratio">Lichtverhältnis</Label>
       <Select id="lightratio" name="lightratio" required>
         <option value="Sonne">Sonne</option>

@@ -44,7 +44,7 @@ export default function AllPlantsSortedtList({ placeData }) {
   }
 
   const plantsSorted = [...data].sort((a, b) => (a.name > b.name ? 1 : -1));
-  const freePlaces = placeData.capacity - placeData.used;
+  const freePlaces = placeData.capacity - placeData.plants.length;
   const showAddButton = freePlaces <= 0 ? false : true;
   const showMinusButton = freePlaces >= placeData.capacity ? false : true;
 

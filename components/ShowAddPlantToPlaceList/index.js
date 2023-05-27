@@ -19,7 +19,6 @@ export default function ShowAddPlantToPlaceList() {
   if (!site.id) {
     return null;
   }
-
   return (
     <>
       <HeaderPlaceList placeData={data} />

@@ -4,7 +4,7 @@ import { StyledCard, StyledCardList, StyledCardListItem } from "../Card";
 import ShortListPlants from "../Plants/ShortListPlants";
 
 export default function HeaderPlaceList({ placeData }) {
-  const freePlaces = placeData.capacity - placeData.used;
+  const freePlaces = placeData.capacity - placeData.plants.length;
   const plantsHere = placeData.plants;
 
   return (
