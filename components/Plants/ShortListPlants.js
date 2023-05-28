@@ -1,16 +1,42 @@
-//Show a list of Plants for ond Place (id)
-// bekommt eine ids mit der Pfalnzen id, fetch die daten dazu und gibt den Namen zurück
-
+import useSWRMutation from "swr/mutation";
 import { useOnePlant } from "@/utils/helper";
 
-export default function ShortListPlants({ id }) {
-  const plant = useOnePlant(id);
+async function sendRequest(url, { arg }) {
+  const response = await fetch(url, {
+    method: "PATCH",
+    body: JSON.stringify(arg),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (response.ok) {
+    await response.json();
+  } else {
+    console.error(`Error: ${response.status}`);
+  }
+}
+
+export default function ShortListPlants({ plantId, placeId, uniquePlantId }) {
+  const plant = useOnePlant(plantId);
+  const { trigger } = useSWRMutation(`/api/places/${placeId}`, sendRequest);
+
+  const onClickMinusPlant = (uniquePlantId) => {
+    const options = { new: true };
+    const dataToUpdate = {
+      update: { $pull: { plants: { _id: uniquePlantId } } },
+    };
+    trigger({ data: dataToUpdate, options });
+  };
 
   if (!plant.data) {
     return null;
   } else {
-    // console.log("Pflanze", plant);
-    //hier kommt später noch ein counter rein
-    return <>{plant.data.name}</>;
+    return (
+      <>
+        <>{plant.data.name}</>
+        <button onClick={() => onClickMinusPlant(uniquePlantId)}>-</button>
+      </>
+    );
   }
 }

@@ -46,7 +46,6 @@ export default function AllPlantsSortedtList({ placeData }) {
   const plantsSorted = [...data].sort((a, b) => (a.name > b.name ? 1 : -1));
   const freePlaces = placeData.capacity - placeData.plants.length;
   const showAddButton = freePlaces <= 0 ? false : true;
-  const showMinusButton = freePlaces >= placeData.capacity ? false : true;
 
   const onClickAddPlant = (value) => {
     const addNewPlant = { plantid: value };
@@ -60,10 +59,6 @@ export default function AllPlantsSortedtList({ placeData }) {
     trigger({ data: dataToUpdate, options });
   };
 
-  const onClickMinusPlant = (value) => {
-    console.log("click minus", value);
-  };
-
   return (
     <StyledMain margintop="110">
       {plantsSorted.map((plant) => {
@@ -72,19 +67,6 @@ export default function AllPlantsSortedtList({ placeData }) {
             <h2>{plant.name}</h2>
             <h5>{plant._id}</h5>
             <StyledContentContainer>
-              {showMinusButton ? (
-                <StyledModifyCountButtonActive
-                  onClick={() => onClickMinusPlant(plant._id)}
-                  color="red"
-                >
-                  -
-                </StyledModifyCountButtonActive>
-              ) : (
-                <StyledModifyCountButtonInactive>
-                  -
-                </StyledModifyCountButtonInactive>
-              )}
-
               {showAddButton ? (
                 <StyledModifyCountButtonActive
                   onClick={() => onClickAddPlant(plant._id)}

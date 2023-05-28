@@ -21,7 +21,11 @@ export default function HeaderPlaceList({ placeData }) {
               <StyledCardList>
                 {plantsHere.map((plant) => (
                   <StyledCardListItem key={plant._id}>
-                    <ShortListPlants id={plant.plantid} />
+                    <ShortListPlants
+                      plantId={plant.plantid}
+                      placeId={placeData._id}
+                      uniquePlantId={plant._id}
+                    />
                   </StyledCardListItem>
                 ))}
               </StyledCardList>

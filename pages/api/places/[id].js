@@ -19,15 +19,11 @@ export default async function handler(request, response) {
     response.status(200).json({ message: `Product successfully updated.` });
   } else if (request.method === "PATCH") {
     const { data, options } = request.body;
-
     const updatedPlace = await Places.findByIdAndUpdate(
       id,
       data.update,
       options
     );
     response.status(200).json(updatedPlace);
-  } else if (request.method === "DELETE") {
-    await Places.findByIdAndDelete(id);
-    response.status(200).json({ message: `Product successfully deleted!` });
   }
 }
