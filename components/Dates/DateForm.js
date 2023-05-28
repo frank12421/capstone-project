@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { StyledButton } from "../Styling/StyledButton.js";
 import { useState } from "react";
+import useSWRMutation from "swr/mutation";
 
 const FormContainer = styled.form`
   display: flex;
@@ -33,22 +34,35 @@ const Select = styled.select`
   background-color: white;
 `;
 
+async function sendRequest(url, { arg }) {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(arg),
+  });
+
+  if (!response.ok) {
+    console.error(response.status);
+  }
+}
+
 export default function DateForm({ locationId, setDates }) {
+  const { trigger } = useSWRMutation(`/api/dates/`, sendRequest);
+
   const [dateseries, setDateseries] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-    const id = Math.floor(Math.random() * 1000);
+    const dataEntries = Object.fromEntries(formData);
 
-    setDates((draft) => {
-      draft.push({
-        id: id,
-        location: locationId,
-        data: data,
-      });
-    });
+    const data = {
+      location: locationId,
+      data: dataEntries,
+    };
+    trigger(data);
   }
 
   const handelToggleDateseries = (event) => {

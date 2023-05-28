@@ -1,21 +1,22 @@
 import dbConnect from "@/db/connect";
-import Places from "@/db/models/Places";
+import Dates from "@/db/models/Dates";
+import DateForPlaces from "@/db/models/Dates";
 
 export default async function handler(request, response) {
   await dbConnect();
   if (request.method === "GET") {
     try {
-      const places = await Places.find();
-      return response.status(200).json(places);
+      const dates = await Dates.find();
+      return response.status(200).json(dates);
     } catch (error) {
       return response.status(405).json({ message: "Method not allowed" });
     }
   } else if (request.method === "POST") {
     try {
-      const placesData = request.body;
-      await Places.create(placesData);
+      const dates = request.body;
+      await Dates.create(dates);
 
-      response.status(201).json({ status: "Place created" });
+      response.status(201).json({ status: "Date created" });
     } catch (error) {
       response.status(400).json({ error: error.message });
     }
