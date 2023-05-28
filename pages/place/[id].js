@@ -1,4 +1,4 @@
-import ShowAddPlantToPlaceList from "@/components/ShowAddPlantToPlaceList";
+import ShowAddPlantToPlaceList from "@/components/Plants/ShowAddPlantToPlaceList";
 
 export default function AddPlantToPlaceDetailsPage() {
   return (

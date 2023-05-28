@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import HeaderPlaceList from "../Places/HeaderPlaceList";
-import AllPlantsSortedtList from "../Plants/AllPlantsSortedList";
+import HeaderPlaceList from "../../Places/HeaderPlaceList";
+import AllPlantsSortedtList from "../AllPlantsSortedList";
 import useSWR from "swr";
 import { fetcher } from "@/utils/helper";
 

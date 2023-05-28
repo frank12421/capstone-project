@@ -1,14 +1,14 @@
-import { StyledLink } from "@/components/StyledButton";
+import { StyledLink } from "@/components/Styling/StyledButton";
 import {
   StyledCard,
   StyledCardList,
   StyledContentContainer,
   StyledCardListItem,
   StyledCardFooter,
-} from "@/components/Card";
-import { StyledHeader } from "@/components/Header";
-import { StyledMain } from "@/components/Main";
-import StyledNavigation from "@/components/Navigation";
+} from "@/components/Styling/Card";
+import { StyledHeader } from "@/components/Styling/Header";
+import { StyledMain } from "@/components/Styling/Main";
+import StyledNavigation from "@/components/Styling/Navigation";
 import Image from "next/image";
 import { useFetch } from "@/utils/helper";
 

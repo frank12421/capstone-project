@@ -1,16 +1,16 @@
 import { fetcher } from "@/utils/helper";
 import useSWR from "swr";
-import { StyledMain } from "../Main";
+import { StyledMain } from "../Styling/Main";
 import {
   StyledCard,
   StyledCardList,
   StyledCardListItem,
   StyledContentContainer,
-} from "../Card";
+} from "../Styling/Card";
 import {
   StyledModifyCountButtonActive,
   StyledModifyCountButtonInactive,
-} from "../StyledButton";
+} from "../Styling/StyledButton";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/router";
 

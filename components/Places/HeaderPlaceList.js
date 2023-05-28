@@ -1,6 +1,10 @@
-import { StyledHeader } from "../Header";
-import StyledNavigation from "../Navigation";
-import { StyledCard, StyledCardList, StyledCardListItem } from "../Card";
+import { StyledHeader } from "../Styling/Header";
+import StyledNavigation from "../Styling/Navigation";
+import {
+  StyledCard,
+  StyledCardList,
+  StyledCardListItem,
+} from "../Styling/Card";
 import ShortListPlants from "../Plants/ShortListPlants";
 
 export default function HeaderPlaceList({ placeData }) {

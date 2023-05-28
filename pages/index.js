@@ -1,8 +1,8 @@
 import Image from "next/image.js";
-import { StyledHeader } from "@/components/Header";
-import { StyledMain } from "@/components/Main";
-import StyledNavigation from "@/components/Navigation";
-import ShowDatesList from "@/components/ShowDatesList";
+import { StyledHeader } from "@/components/Styling/Header";
+import { StyledMain } from "@/components/Styling/Main";
+import StyledNavigation from "@/components/Styling/Navigation";
+import ShowDatesList from "@/components/Dates/ShowDatesList";
 
 export default function HomePage({ dates, places }) {
   return (

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { StyledButton } from "./StyledButton.js";
+import { StyledButton } from "../Styling/StyledButton.js";
 import { useState } from "react";
 
 const FormContainer = styled.form`

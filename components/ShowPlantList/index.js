@@ -4,11 +4,11 @@ import {
   StyledCardList,
   StyledCardListItem,
   StyledContentContainer,
-} from "@/components/Card";
+} from "@/components/Styling/Card";
 import Image from "next/image";
-import { StyledHeader } from "@/components/Header";
-import { StyledMain } from "@/components/Main";
-import StyledNavigation from "@/components/Navigation";
+import { StyledHeader } from "@/components/Styling/Header";
+import { StyledMain } from "@/components/Styling/Main";
+import StyledNavigation from "@/components/Styling/Navigation";
 import { useAllPlants } from "@/utils/helper";
 
 export default function ShowPlantList() {

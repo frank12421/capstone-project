@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { StyledButton } from "../StyledButton.js";
+import { StyledButton } from "../Styling/StyledButton.js";
 import useSWRMutation from "swr/mutation";
 
 const FormContainer = styled.form`

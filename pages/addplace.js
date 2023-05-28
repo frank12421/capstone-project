@@ -1,7 +1,7 @@
 import AddPlaceForm from "@/components/Places/AddPlaceForm";
-import StyledNavigation from "@/components/Navigation";
-import { StyledMain } from "@/components/Main";
-import { StyledHeader } from "@/components/Header";
+import StyledNavigation from "@/components/Styling/Navigation";
+import { StyledMain } from "@/components/Styling/Main";
+import { StyledHeader } from "@/components/Styling/Header";
 
 export default function addPlace() {
   return (
