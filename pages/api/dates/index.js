@@ -1,6 +1,5 @@
 import dbConnect from "@/db/connect";
 import Dates from "@/db/models/Dates";
-import DateForPlaces from "@/db/models/Dates";
 
 export default async function handler(request, response) {
   await dbConnect();

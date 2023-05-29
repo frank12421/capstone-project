@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-
 import { useState } from "react";
 import {
   StyeldDatesList,
@@ -7,18 +6,30 @@ import {
   StyledDatesDetailCardButton,
   StyledDatesListRow,
 } from "./styled";
-import { useFetch } from "@/utils/helper";
+import { useAllDates, useOnePlace } from "@/utils/helper";
 
-export default function ShowDatesList({ dates, places }) {
-  const sortDates = dates
+export default function ShowDatesList() {
+  const [clickindex, setClickIndex] = useState(null);
+  const { data: newDates, error, isLoading } = useAllDates();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (newDates.length === 0) {
+    return null;
+  }
+
+  const sortDates = newDates
     .filter(
       (date) =>
         dayjs(date.data.date).format(`YYYY-MM-DD`) >=
         dayjs().format(`YYYY-MM-DD`)
     )
     .sort((a, b) => new Date(a.data.date) - new Date(b.data.date));
-
-  const [clickindex, setClickIndex] = useState(null);
 
   function handelClickDate(index) {
     setClickIndex(index);
@@ -52,11 +63,12 @@ export default function ShowDatesList({ dates, places }) {
   }
 
   function FindPlace({ locationId }) {
-    return (
-      places.find((place) => place.id === locationId) && (
-        <>{places[locationId - 1].name}</>
-      )
-    );
+    const location = useOnePlace(locationId);
+    if (!location.data) {
+      return null;
+    } else {
+      return <>{location.data.name}</>;
+    }
   }
 
   function TranslateDateSeries({ form, frequency }) {
@@ -93,9 +105,9 @@ export default function ShowDatesList({ dates, places }) {
             <p key="wo">Wo</p>
           </StyledDatesListRow>
           {noToday}
-          {dates.length !== 0 ? (
+          {sortDates.length !== 0 ? (
             sortDates.map((date, index) => (
-              <DateListRow key={date.id} date={date} index={index} />
+              <DateListRow key={date._id} date={date} index={index} />
             ))
           ) : (
             <StyledDatesListRow>Keine Termine</StyledDatesListRow>

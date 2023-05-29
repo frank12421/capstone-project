@@ -4,10 +4,10 @@ const { Schema } = mongoose;
 const dataSchema = new Schema({
   dateform: { type: String, required: true },
   datefrequency: { type: String },
-  date: { type: Date, required: true },
+  date: { type: String, required: true },
   time: { type: String, required: true },
   promptlist: { type: String, required: true },
-  description: { type: String, required: true },
+  description: { type: String },
 });
 
 const dateForPlaceSchema = new Schema({

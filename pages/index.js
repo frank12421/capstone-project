@@ -19,7 +19,7 @@ export default function HomePage({ dates, places }) {
           src={"/pictures/Header-Home.png"}
           style={{ objectFit: "contain" }}
         />
-        <ShowDatesList dates={dates} places={places} />
+        <ShowDatesList />
         <StyledNavigation color="darkgreen" navigationlink="/lists/plantlist">
           Alle Pflanzen anzeigen
         </StyledNavigation>

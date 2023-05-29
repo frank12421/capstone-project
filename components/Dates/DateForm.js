@@ -105,7 +105,13 @@ export default function DateForm({ locationId, setDates }) {
       <Label htmlFor="date">Neuer Termin</Label>
       <Input id="date" name="date" type="date" required />
       <Label htmlFor="time">Zeit</Label>
-      <Input id="time" name="time" type="time" required />
+      <Input
+        id="time"
+        name="time"
+        type="time"
+        defaultValue="09:00:00"
+        required
+      />
       <Label htmlFor="promptlist">Stichwort</Label>
       <Select id="promptlist" name="promptlist" required>
         <option value="Gießen">Gießen</option>
