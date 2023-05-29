@@ -8,7 +8,7 @@ export default function HomePage({ dates, places }) {
   return (
     <>
       <StyledHeader>
-        <h1>Hello from Grow Green</h1>
+        <h1>Hello from Grow Green db</h1>
       </StyledHeader>
 
       <StyledMain>
