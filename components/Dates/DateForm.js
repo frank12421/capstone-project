@@ -1,38 +1,13 @@
-import styled from "styled-components";
-import { StyledButton } from "../Styling/StyledButton.js";
 import { useState } from "react";
 import useSWRMutation from "swr/mutation";
-
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 0.2rem;
-`;
-
-const Input = styled.input`
-  padding: 0.5rem;
-  border: 2px solid darkgreen;
-  border-radius: 0.5rem;
-`;
-
-const Textarea = styled.textarea`
-  border: 2px solid darkgreen;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-`;
-
-const Label = styled.label`
-  font-weight: 400;
-`;
-
-const Select = styled.select`
-  border: 2px solid darkgreen;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  background-color: white;
-`;
+import {
+  FormContainer,
+  Input,
+  Label,
+  Select,
+  SubmitButton,
+  Textarea,
+} from "../Styling/StyledForm.js";
 
 async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
@@ -70,7 +45,11 @@ export default function DateForm({ locationId, setDates }) {
   };
 
   return (
-    <FormContainer aria-labelledby="NewDateForPlaces" onSubmit={handleSubmit}>
+    <FormContainer
+      aria-labelledby="NewDateForPlaces"
+      onSubmit={handleSubmit}
+      backgroundColor="globalDateBackgroundColor"
+    >
       <Label htmlFor="singledate">Einzelner Termin</Label>
       <Input
         id="singledate"
@@ -126,9 +105,9 @@ export default function DateForm({ locationId, setDates }) {
         rows="5"
         maxLength={100}
       ></Textarea>
-      <StyledButton type="submit" color="red">
+      <SubmitButton type="submit" backgroundColor="globalPlantBackgroundColor">
         Speichern
-      </StyledButton>
+      </SubmitButton>
     </FormContainer>
   );
 }

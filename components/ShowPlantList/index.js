@@ -1,4 +1,3 @@
-import { plants } from "@/db/db";
 import {
   StyledCard,
   StyledCardList,
@@ -37,7 +36,7 @@ export default function ShowPlantList() {
                 : "/pictures/Plant2.png";
 
             return (
-              <StyledCard key={plant._id} border={"green"}>
+              <StyledCard key={plant._id} color={"globalPlantBackgroundColor"}>
                 <h2>{plant.name}</h2>
                 <StyledContentContainer>
                   <Image

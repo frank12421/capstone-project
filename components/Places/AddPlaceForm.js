@@ -1,38 +1,11 @@
-import styled from "styled-components";
-import { useState } from "react";
-import { StyledButton } from "../Styling/StyledButton.js";
 import useSWRMutation from "swr/mutation";
-
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 0.2rem;
-`;
-
-const Input = styled.input`
-  padding: 0.5rem;
-  border: 2px solid darkgreen;
-  border-radius: 0.5rem;
-`;
-
-const Textarea = styled.textarea`
-  border: 2px solid darkgreen;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-`;
-
-const Label = styled.label`
-  font-weight: 400;
-`;
-
-const Select = styled.select`
-  border: 2px solid darkgreen;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  background-color: white;
-`;
+import {
+  FormContainer,
+  Input,
+  Label,
+  Select,
+  SubmitButton,
+} from "../Styling/StyledForm.js";
 
 async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
@@ -59,7 +32,11 @@ export default function AddPlaceForm() {
   }
 
   return (
-    <FormContainer aria-labelledby="NewPlace" onSubmit={handleSubmit}>
+    <FormContainer
+      aria-labelledby="NewPlace"
+      onSubmit={handleSubmit}
+      backgroundColor="globalPlaceBackgroundColor"
+    >
       <Label htmlFor="name">Neuer Standort</Label>
       <Input id="name" name="name" type="text" required />
       <Label htmlFor="capacity">Kapazität</Label>
@@ -82,9 +59,9 @@ export default function AddPlaceForm() {
         <option value="Teilweise">Teilweise</option>
         <option value="Ohne">Ohne</option>
       </Select>
-      <StyledButton type="submit" color="red">
-        Speichern
-      </StyledButton>
+      <SubmitButton type="submit" backgroundColor="globalDateBackgroundColor">
+        Jetzt Speichern
+      </SubmitButton>
     </FormContainer>
   );
 }

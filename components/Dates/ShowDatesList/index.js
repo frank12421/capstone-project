@@ -7,6 +7,7 @@ import {
   StyledDatesListRow,
 } from "./styled";
 import { useAllDates, useOnePlace } from "@/utils/helper";
+import { StyledCard } from "@/components/Styling/Card";
 
 export default function ShowDatesList() {
   const [clickindex, setClickIndex] = useState(null);
@@ -98,23 +99,27 @@ export default function ShowDatesList() {
   return (
     <>
       {clickindex === null ? (
-        <StyeldDatesList>
-          <StyledDatesListRow $head>
-            <p key="wann">Wann</p>
-            <p key="was">Was</p>
-            <p key="wo">Wo</p>
-          </StyledDatesListRow>
-          {noToday}
-          {sortDates.length !== 0 ? (
-            sortDates.map((date, index) => (
-              <DateListRow key={date._id} date={date} index={index} />
-            ))
-          ) : (
-            <StyledDatesListRow>Keine Termine</StyledDatesListRow>
-          )}
-        </StyeldDatesList>
+        <StyledCard color="globalDateBackgroundColor">
+          <StyeldDatesList>
+            <StyledDatesListRow $head>
+              <p key="wann">Wann</p>
+              <p key="was">Was</p>
+              <p key="wo">Wo</p>
+            </StyledDatesListRow>
+            {noToday}
+            {sortDates.length !== 0 ? (
+              sortDates.map((date, index) => (
+                <DateListRow key={date._id} date={date} index={index} />
+              ))
+            ) : (
+              <StyledDatesListRow>Keine Termine</StyledDatesListRow>
+            )}
+          </StyeldDatesList>
+        </StyledCard>
       ) : (
-        <StyeldDatesList>
+        //</StyeldDatesList>
+        <StyledCard color="globalDateBackgroundColor">
+          {/* </StyledCard><StyeldDatesList> */}
           <StyledDatesDetailCard>
             <StyledDatesDetailCardButton
               type="button"
@@ -122,24 +127,21 @@ export default function ShowDatesList() {
             >
               X
             </StyledDatesDetailCardButton>
-
-            <p>Datum:</p>
-            <p>{sortDates[clickindex].data.date}</p>
-            <p>Zeit:</p>
-            <p>{sortDates[clickindex].data.time}</p>
+            <>Datum: {sortDates[clickindex].data.date} </> <> </>
+            <>Zeit: {sortDates[clickindex].data.time}</>
             <TranslateDateSeries
               form={sortDates[clickindex].data.dateform}
               frequency={sortDates[clickindex].data.datefrequency}
             />
-            <p>Serie:{sortDates[clickindex].data.dateform}</p>
-            <p>Stichwort:{sortDates[clickindex].data.promptlist}</p>
+            <>Stichwort:{sortDates[clickindex].data.promptlist} </>{" "}
             <>
-              Standort:{" "}
+              Standort:
               <FindPlace locationId={sortDates[clickindex].location} />
-            </>
-            <p>Notiz:{sortDates[clickindex].data.description}</p>
+            </>{" "}
+            <spa>Notiz:{sortDates[clickindex].data.description}</spa>
           </StyledDatesDetailCard>
-        </StyeldDatesList>
+        </StyledCard>
+        /* </StyeldDatesList> */
       )}
     </>
   );

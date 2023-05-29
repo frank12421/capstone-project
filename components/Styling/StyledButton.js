@@ -7,7 +7,9 @@ export const StyledLink = styled(Link)`
   padding: 8px;
   border-radius: 10px;
   color: white;
-  background-color: ${({ color }) => color || "lightgrey"};
+  background-color: ${(props) => `var(--${props.backgroundColor})`};
+
+  //background-color: ${({ color }) => color || "lightgrey"};
   text-decoration: none;
 `;
 

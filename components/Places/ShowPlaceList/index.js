@@ -39,7 +39,7 @@ export default function ShowPlaceList() {
               : `/pictures/Place-People.png`;
 
           return (
-            <StyledCard border={"darkred"} key={place._id}>
+            <StyledCard color={"globalPlaceBackgroundColor"} key={place._id}>
               <h2>{place.name}</h2>
               <StyledContentContainer>
                 <Image
@@ -69,7 +69,7 @@ export default function ShowPlaceList() {
                   href={{
                     pathname: `/place/${place._id}`,
                   }}
-                  color={"green"}
+                  backgroundColor={"globalPlantBackgroundColor"}
                 >
                   Pflanzen bearbeiten
                 </StyledLink>
@@ -78,7 +78,7 @@ export default function ShowPlaceList() {
                     pathname: `/lists/showdateform`,
                     query: { id: place._id },
                   }}
-                  color={"darkred"}
+                  backgroundColor={"globalDateBackgroundColor"}
                 >
                   Termin anlegen
                 </StyledLink>

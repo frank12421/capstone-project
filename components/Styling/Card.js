@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
 export const StyledCard = styled.section`
-  width: 80vw;
-  min-width: 355px;
+  width: 95%;
+  /* min-width: 355px; */
+  min-height: 100px;
+  height: auto;
   margin-top: 10px;
-  background-color: white;
-  border: 3px solid ${({ border }) => border};
-  border-radius: 0.7rem;
+  margin-bottom: 10px;
+  background-color: ${(props) => `var(--${props.color})`};
+  color: var(--globalLightColor);
+  box-shadow: var(--globalBorderShadow);
+  border-radius: 1rem;
   padding: 0.2rem 1rem;
   display: flex;
   flex-direction: column;

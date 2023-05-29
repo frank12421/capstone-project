@@ -1,5 +1,5 @@
 import ShowPlaceList from "@/components/Places/ShowPlaceList";
 
-export default function PlaceList({ places }) {
+export default function PlaceList() {
   return <ShowPlaceList />;
 }

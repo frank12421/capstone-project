@@ -1,14 +1,18 @@
 import Image from "next/image.js";
 import { StyledHeader } from "@/components/Styling/Header";
 import { StyledMain } from "@/components/Styling/Main";
-import StyledNavigation from "@/components/Styling/Navigation";
+import StyledNavigation, {
+  StyledCardLink,
+} from "@/components/Styling/Navigation";
 import ShowDatesList from "@/components/Dates/ShowDatesList";
+
+import { StyledCard } from "@/components/Styling/Card";
 
 export default function HomePage({ dates, places }) {
   return (
     <>
       <StyledHeader>
-        <h1>Hello from Grow Green db</h1>
+        <h1>Hello from Grow Green</h1>
       </StyledHeader>
 
       <StyledMain>
@@ -19,13 +23,18 @@ export default function HomePage({ dates, places }) {
           src={"/pictures/Header-Home.png"}
           style={{ objectFit: "contain" }}
         />
+
         <ShowDatesList />
-        <StyledNavigation color="darkgreen" navigationlink="/lists/plantlist">
-          Alle Pflanzen anzeigen
-        </StyledNavigation>
-        <StyledNavigation color="darkred" navigationlink="/lists/placelist">
-          Alle Standorte anzeigen
-        </StyledNavigation>
+        <StyledCardLink href={"lists/placelist"}>
+          <StyledCard color="globalPlaceBackgroundColor">
+            Alle Standorte anzeigen
+          </StyledCard>
+        </StyledCardLink>
+        <StyledCardLink href={"lists/plantlist"}>
+          <StyledCard color="globalPlantBackgroundColor">
+            Alle Pflanzen zeigen
+          </StyledCard>
+        </StyledCardLink>
         <StyledNavigation color="tomato" navigationlink="/addplace">
           Neue Standorte anlegen
         </StyledNavigation>

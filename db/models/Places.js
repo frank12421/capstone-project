@@ -3,7 +3,6 @@ const { Schema } = mongoose;
 
 const ObjektSchema = new Schema({
   plantid: { type: Schema.Types.ObjectId, ref: "Plants", required: true },
-  // Referenz auf ein Objekt in der "Plants"-Sammlung
 });
 
 const placesSchema = new Schema({
