@@ -26,18 +26,15 @@ export default function HomePage({ dates, places }) {
 
         <ShowDatesList />
         <StyledCardLink href={"lists/placelist"}>
-          <StyledCard color="globalPlaceBackgroundColor">
+          <StyledCard backgroundcolor="globalPlaceBackgroundColor">
             Alle Standorte anzeigen
           </StyledCard>
         </StyledCardLink>
         <StyledCardLink href={"lists/plantlist"}>
-          <StyledCard color="globalPlantBackgroundColor">
+          <StyledCard backgroundcolor="globalPlantBackgroundColor">
             Alle Pflanzen zeigen
           </StyledCard>
         </StyledCardLink>
-        <StyledNavigation color="tomato" navigationlink="/addplace">
-          Neue Standorte anlegen
-        </StyledNavigation>
       </StyledMain>
     </>
   );

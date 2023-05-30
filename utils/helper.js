@@ -32,6 +32,12 @@ export const useOnePlace = (id) => {
   return { data, error, isLoading };
 };
 
+export const useAllPlaces = () => {
+  const { data, error } = useSWR(`/api/places/`, fetcher);
+  const isLoading = !data && !error;
+  return { data, error, isLoading };
+};
+
 export const useAllDates = () => {
   const { data, error } = useSWR(`/api/dates/`, fetcher);
   const isLoading = !data && !error;

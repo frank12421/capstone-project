@@ -26,7 +26,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--globalAppBackgroundColor);
     color: var(--globalLightColor); 
-    /* outline: 1px solid black; */
     font-size: 0.8rem;
   }
 

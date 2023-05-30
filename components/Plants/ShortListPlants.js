@@ -1,5 +1,13 @@
 import useSWRMutation from "swr/mutation";
 import { useOnePlant } from "@/utils/helper";
+import PlantCardShort from "./PlantCardShort";
+import {
+  StyledModifyCountButtonActive,
+  StyledRoundButton,
+  StyledRoundButtonActiv,
+} from "../Styling/StyledButton";
+
+// delete in db the uniqueIdPlant from this location
 
 async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
@@ -33,10 +41,13 @@ export default function ShortListPlants({ plantId, placeId, uniquePlantId }) {
     return null;
   } else {
     return (
-      <>
-        <>{plant.data.name}</>
-        <button onClick={() => onClickMinusPlant(uniquePlantId)}>-</button>
-      </>
+      <PlantCardShort plant={plant.data} uniquePlantId={uniquePlantId}>
+        <StyledRoundButtonActiv
+          onClick={() => onClickMinusPlant(uniquePlantId)}
+        >
+          -
+        </StyledRoundButtonActiv>
+      </PlantCardShort>
     );
   }
 }

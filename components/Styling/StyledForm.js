@@ -4,7 +4,7 @@ export const FormContainer = styled.form`
   width: 95%;
   margin: 20px;
   padding: 20px 0px;
-  background-color: ${(props) => `var(--${props.backgroundColor})`};
+  background-color: ${(props) => `var(--${props.backgroundcolor})`};
   // background-color: var(--globalPlaceBackgroundColor);
   border-radius: var(--globalborderradius);
   display: flex;
@@ -43,7 +43,7 @@ export const SubmitButton = styled.button`
   ${sharedStyles};
   margin-top: 10px;
   padding: 0.7rem;
-  background-color: ${(props) => `var(--${props.backgroundColor})`};
+  background-color: ${(props) => `var(--${props.backgroundcolor})`};
   color: var(--globalSecondLightColor);
   cursor: pointer;
   &:hover {

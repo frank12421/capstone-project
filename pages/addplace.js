@@ -8,7 +8,7 @@ export default function addPlace() {
     <>
       <StyledHeader>
         <h1>Einen neuen Standort anlegen</h1>
-        <StyledNavigation navigationlink="/" color="darkgreen">
+        <StyledNavigation navigationlink="/lists/placelist">
           zurück
         </StyledNavigation>
       </StyledHeader>

@@ -48,7 +48,7 @@ export default function DateForm({ locationId, setDates }) {
     <FormContainer
       aria-labelledby="NewDateForPlaces"
       onSubmit={handleSubmit}
-      backgroundColor="globalDateBackgroundColor"
+      backgroundcolor="globalDateBackgroundColor"
     >
       <Label htmlFor="singledate">Einzelner Termin</Label>
       <Input
@@ -105,7 +105,7 @@ export default function DateForm({ locationId, setDates }) {
         rows="5"
         maxLength={100}
       ></Textarea>
-      <SubmitButton type="submit" backgroundColor="globalPlantBackgroundColor">
+      <SubmitButton type="submit" backgroundcolor="globalPlantBackgroundColor">
         Speichern
       </SubmitButton>
     </FormContainer>

@@ -1,4 +1,6 @@
-import { fetcher } from "@/utils/helper";
+// shows list of all plants at this location (siteId)
+
+import { fetcher, useOnePlace } from "@/utils/helper";
 import useSWR from "swr";
 import { StyledMain } from "../Styling/Main";
 import {
@@ -10,6 +12,9 @@ import {
 import {
   StyledModifyCountButtonActive,
   StyledModifyCountButtonInactive,
+  StyledRoundButton,
+  StyledRoundButtonActiv,
+  StyledRoundButtonInActive,
 } from "../Styling/StyledButton";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/router";
@@ -30,9 +35,11 @@ async function sendRequest(url, { arg }) {
   }
 }
 
-export default function AllPlantsSortedtList({ placeData }) {
+export default function AllPlantsSortedtList() {
   const router = useRouter();
   const site = router.query;
+  const place = useOnePlace(site.id);
+  const placeData = place.data;
   const { trigger } = useSWRMutation(`/api/places/${site.id}`, sendRequest);
   const { data, error, isLoading } = useSWR(`/api/plants/`, fetcher);
 
@@ -60,24 +67,25 @@ export default function AllPlantsSortedtList({ placeData }) {
   };
 
   return (
-    <StyledMain margintop="110">
+    <StyledMain margintop="140">
       {plantsSorted.map((plant) => {
         return (
-          <StyledCard border={"green"} key={plant._id}>
+          <StyledCard
+            backgroundcolor={"globalPlantBackgroundColor"}
+            key={plant._id}
+          >
             <h2>{plant.name}</h2>
             <h5>{plant._id}</h5>
             <StyledContentContainer>
               {showAddButton ? (
-                <StyledModifyCountButtonActive
+                <StyledRoundButtonActiv
                   onClick={() => onClickAddPlant(plant._id)}
                   color="green"
                 >
                   +
-                </StyledModifyCountButtonActive>
+                </StyledRoundButtonActiv>
               ) : (
-                <StyledModifyCountButtonInactive>
-                  +
-                </StyledModifyCountButtonInactive>
+                <StyledRoundButtonInActive>+</StyledRoundButtonInActive>
               )}
               <StyledCardList>
                 <StyledCardListItem>Type: {plant.type}</StyledCardListItem>

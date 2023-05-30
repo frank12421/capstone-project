@@ -99,7 +99,7 @@ export default function ShowDatesList() {
   return (
     <>
       {clickindex === null ? (
-        <StyledCard color="globalDateBackgroundColor">
+        <StyledCard backgroundcolor="globalDateBackgroundColor">
           <StyeldDatesList>
             <StyledDatesListRow $head>
               <p key="wann">Wann</p>
@@ -117,9 +117,7 @@ export default function ShowDatesList() {
           </StyeldDatesList>
         </StyledCard>
       ) : (
-        //</StyeldDatesList>
-        <StyledCard color="globalDateBackgroundColor">
-          {/* </StyledCard><StyeldDatesList> */}
+        <StyledCard backgroundcolor="globalDateBackgroundColor">
           <StyledDatesDetailCard>
             <StyledDatesDetailCardButton
               type="button"
@@ -138,7 +136,7 @@ export default function ShowDatesList() {
               Standort:
               <FindPlace locationId={sortDates[clickindex].location} />
             </>{" "}
-            <spa>Notiz:{sortDates[clickindex].data.description}</spa>
+            <p>Notiz:{sortDates[clickindex].data.description}</p>
           </StyledDatesDetailCard>
         </StyledCard>
         /* </StyeldDatesList> */

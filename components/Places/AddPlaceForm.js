@@ -35,7 +35,7 @@ export default function AddPlaceForm() {
     <FormContainer
       aria-labelledby="NewPlace"
       onSubmit={handleSubmit}
-      backgroundColor="globalPlaceBackgroundColor"
+      backgroundcolor="globalPlaceBackgroundColor"
     >
       <Label htmlFor="name">Neuer Standort</Label>
       <Input id="name" name="name" type="text" required />
@@ -59,7 +59,7 @@ export default function AddPlaceForm() {
         <option value="Teilweise">Teilweise</option>
         <option value="Ohne">Ohne</option>
       </Select>
-      <SubmitButton type="submit" backgroundColor="globalDateBackgroundColor">
+      <SubmitButton type="submit" backgroundcolor="globalDateBackgroundColor">
         Jetzt Speichern
       </SubmitButton>
     </FormContainer>
