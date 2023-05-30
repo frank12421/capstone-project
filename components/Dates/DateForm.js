@@ -23,7 +23,7 @@ async function sendRequest(url, { arg }) {
   }
 }
 
-export default function DateForm({ locationId, setDates }) {
+export default function DateForm({ locationId }) {
   const { trigger } = useSWRMutation(`/api/dates/`, sendRequest);
 
   const [dateseries, setDateseries] = useState(false);

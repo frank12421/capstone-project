@@ -98,9 +98,6 @@ export default function AllPlantsSortedtList() {
                 <StyledCardListItem>
                   Anbaueignung: {plant.cultivation_suitability}
                 </StyledCardListItem>
-                <StyledCardListItem>
-                  Standort: {plant.location}
-                </StyledCardListItem>
               </StyledCardList>
             </StyledContentContainer>
           </StyledCard>

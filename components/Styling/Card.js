@@ -28,6 +28,7 @@ export const StyledCardList = styled.ul`
   list-style: none;
 `;
 export const StyledCardListItem = styled.li`
+  font-size: 0.9rem;
   font-weight: 400;
 `;
 

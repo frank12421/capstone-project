@@ -18,7 +18,7 @@ export default function ShowPlaceList() {
   return (
     <>
       <StyledHeader>
-        <h1>Alle Standorte - New Grow Green</h1>
+        <h1>Alle Standorte - Grow Green</h1>
         <StyledNavigation navigationlink="/" color="darkgreen">
           zurück
         </StyledNavigation>

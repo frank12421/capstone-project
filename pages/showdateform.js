@@ -21,7 +21,7 @@ export default function ShowDateForm({ dates, setDates }) {
         </StyledNavigation>
       </StyledHeader>
       <StyledMain>
-        <DateForm locationId={site.id} dates={dates} setDates={setDates} />
+        <DateForm locationId={site.id} />
       </StyledMain>
     </>
   );

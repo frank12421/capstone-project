@@ -6,11 +6,7 @@ import {
   StyledCardList,
   StyledCardListItem,
 } from "../Styling/Card";
-import {
-  StyledModifyCountButtonActive,
-  StyledRoundButtonActiv,
-  StyledTextButton,
-} from "../Styling/StyledButton";
+import { StyledTextButton } from "../Styling/StyledButton";
 
 export default function HeaderPlantsAtThisPlaceList({
   placeData,
@@ -35,10 +31,14 @@ export default function HeaderPlantsAtThisPlaceList({
           <StyledCardListItem>
             Kapazität:{placeData.capacity} | Noch frei: {freePlaces}
           </StyledCardListItem>
+          <StyledCardListItem>
+            Licht: {placeData.lightratio} | Regenschutz:{" "}
+            {placeData.rainprotection}
+          </StyledCardListItem>
         </StyledCardList>
         <StyledCardFooter>
           <StyledTextButton type="button" onClick={toggleOnClick}>
-            {addPlant ? "Liste anzeigen" : "Neue Pflanze"}
+            {addPlant ? "Pflanzen am Standort" : "Eine neue Pflanze hinzufügen"}
           </StyledTextButton>
         </StyledCardFooter>
       </StyledCard>

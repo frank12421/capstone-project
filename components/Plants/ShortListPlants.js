@@ -1,13 +1,7 @@
 import useSWRMutation from "swr/mutation";
 import { useOnePlant } from "@/utils/helper";
 import PlantCardShort from "./PlantCardShort";
-import {
-  StyledModifyCountButtonActive,
-  StyledRoundButton,
-  StyledRoundButtonActiv,
-} from "../Styling/StyledButton";
-
-// delete in db the uniqueIdPlant from this location
+import { StyledRoundButtonActiv } from "../Styling/StyledButton";
 
 async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
