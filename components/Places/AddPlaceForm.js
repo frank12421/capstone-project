@@ -6,6 +6,7 @@ import {
   Select,
   SubmitButton,
 } from "../Styling/StyledForm.js";
+import { useState } from "react";
 
 async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
@@ -23,12 +24,15 @@ async function sendRequest(url, { arg }) {
 
 export default function AddPlaceForm() {
   const { trigger } = useSWRMutation(`/api/places/`, sendRequest);
+  const [savedStatus, setSavedStatus] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     trigger(data);
+    setSavedStatus(!savedStatus);
+    setTimeout(() => setSavedStatus(false), 2000);
   }
 
   return (
@@ -36,6 +40,7 @@ export default function AddPlaceForm() {
       aria-labelledby="NewPlace"
       onSubmit={handleSubmit}
       backgroundcolor="globalPlaceBackgroundColor"
+      autoComplete="off"
     >
       <Label htmlFor="name">Neuer Standort</Label>
       <Input id="name" name="name" type="text" required />
@@ -59,9 +64,18 @@ export default function AddPlaceForm() {
         <option value="Teilweise">Teilweise</option>
         <option value="Ohne">Ohne</option>
       </Select>
-      <SubmitButton type="submit" backgroundcolor="globalDateBackgroundColor">
-        Jetzt Speichern
-      </SubmitButton>
+      {!savedStatus ? (
+        <SubmitButton type="submit" backgroundcolor="globalDateBackgroundColor">
+          Jetzt Speichern
+        </SubmitButton>
+      ) : (
+        <SubmitButton
+          type="submit"
+          backgroundcolor="globalPlantBackgroundColor"
+        >
+          Gespeichert
+        </SubmitButton>
+      )}
     </FormContainer>
   );
 }

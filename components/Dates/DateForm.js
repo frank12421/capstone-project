@@ -1,10 +1,13 @@
 import { useState } from "react";
 import useSWRMutation from "swr/mutation";
 import {
+  FlexContainerRadio,
   FormContainer,
   Input,
   Label,
+  RadioButton,
   Select,
+  StyledFormSeries,
   SubmitButton,
   Textarea,
 } from "../Styling/StyledForm.js";
@@ -25,7 +28,7 @@ async function sendRequest(url, { arg }) {
 
 export default function DateForm({ locationId }) {
   const { trigger } = useSWRMutation(`/api/dates/`, sendRequest);
-
+  const [savedStatus, setSavedStatus] = useState(false);
   const [dateseries, setDateseries] = useState(false);
 
   function handleSubmit(event) {
@@ -38,6 +41,8 @@ export default function DateForm({ locationId }) {
       data: dataEntries,
     };
     trigger(data);
+    setSavedStatus(!savedStatus);
+    setTimeout(() => setSavedStatus(false), 2000);
   }
 
   const handelToggleDateseries = (event) => {
@@ -49,37 +54,60 @@ export default function DateForm({ locationId }) {
       aria-labelledby="NewDateForPlaces"
       onSubmit={handleSubmit}
       backgroundcolor="globalDateBackgroundColor"
+      autoComplete="off"
     >
-      <Label htmlFor="singledate">Einzelner Termin</Label>
-      <Input
-        id="singledate"
-        name="dateform"
-        type="radio"
-        value="single"
-        onChange={handelToggleDateseries}
-        required
-      />
-      <Label htmlFor="dateseries">Termin Serie</Label>
-      <Input
-        id="dateseries"
-        name="dateform"
-        type="radio"
-        value="series"
-        onChange={handelToggleDateseries}
-      />
+      <StyledFormSeries>
+        <Label htmlFor="singledate">Einzelner Termin</Label>
+        <RadioButton
+          id="singledate"
+          name="dateform"
+          type="radio"
+          value="single"
+          onChange={handelToggleDateseries}
+          required
+        />
+        <Label htmlFor="dateseries">Termin Serie</Label>
+        <RadioButton
+          id="dateseries"
+          name="dateform"
+          type="radio"
+          value="series"
+          onChange={handelToggleDateseries}
+        />
+      </StyledFormSeries>
       {dateseries && (
-        <>
+        <FlexContainerRadio>
           <Label htmlFor="datefrequency">Stunde</Label>
-          <Input id="hour" name="datefrequency" type="radio" value="hour" />
+          <RadioButton
+            id="hour"
+            name="datefrequency"
+            type="radio"
+            value="hour"
+          />
           <Label htmlFor="datefrequency">Tag</Label>
-          <Input id="day" name="datefrequency" type="radio" value="day" />
+          <RadioButton id="day" name="datefrequency" type="radio" value="day" />
           <Label htmlFor="datefrequency">Woche</Label>
-          <Input id="week" name="datefrequency" type="radio" value="week" />
+          <RadioButton
+            id="week"
+            name="datefrequency"
+            type="radio"
+            value="week"
+          />
           <Label htmlFor="datefrequency">Monat</Label>
-          <Input id="week" name="datefrequency" type="radio" value="month" />
+          <RadioButton
+            id="week"
+            name="datefrequency"
+            type="radio"
+            value="month"
+          />
           <Label htmlFor="datefrequency">Jahr</Label>
-          <Input id="year" name="datefrequency" type="radio" value="year" />
-        </>
+          <RadioButton
+            id="year"
+            name="datefrequency"
+            type="radio"
+            value="year"
+          />
+        </FlexContainerRadio>
       )}
       <Label htmlFor="date">Neuer Termin</Label>
       <Input id="date" name="date" type="date" required />
@@ -105,9 +133,24 @@ export default function DateForm({ locationId }) {
         rows="5"
         maxLength={100}
       ></Textarea>
-      <SubmitButton type="submit" backgroundcolor="globalPlantBackgroundColor">
+      {!savedStatus ? (
+        <SubmitButton
+          type="submit"
+          backgroundcolor="globalPlantBackgroundColor"
+        >
+          Jetzt Speichern
+        </SubmitButton>
+      ) : (
+        <SubmitButton
+          type="submit"
+          backgroundcolor="globalPlaceBackgroundColor"
+        >
+          Gespeichert
+        </SubmitButton>
+      )}
+      {/* <SubmitButton type="submit" backgroundcolor="globalPlantBackgroundColor">
         Speichern
-      </SubmitButton>
+      </SubmitButton> */}
     </FormContainer>
   );
 }

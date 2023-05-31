@@ -10,7 +10,7 @@ export const StyledCard = styled.section`
   color: var(--globalLightColor);
   box-shadow: var(--globalBorderShadow);
   border-radius: 1rem;
-  padding: 0.2rem 1rem;
+  padding: 0.8rem 1rem;
   display: flex;
   flex-direction: column;
 `;

@@ -31,7 +31,7 @@ export default function ShowPlantsThisPlace() {
       />
 
       {!addPlant ? (
-        <StyledCardColumnContainer margintop={"130px"}>
+        <StyledCardColumnContainer margintop={"160px"}>
           {data.plants.map((plant) => (
             <ShortListPlants
               key={plant._id}

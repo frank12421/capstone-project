@@ -8,14 +8,14 @@ export default createGlobalStyle`
   }
 
 html {
---globalAppBackgroundColor: #272440;
---globalPlantBackgroundColor: #30400D;
---globalPlaceBackgroundColor: #591202;
---globalDateBackgroundColor: #BF3605;
+--globalAppBackgroundColor: #1C3D59;
+--globalPlantBackgroundColor: #59551B;
+--globalPlaceBackgroundColor: #8C470B;
+--globalDateBackgroundColor: #8C1616;
 --globalLightColor: #FFDAB9;
 --globalSecondLightColor: #D3D2D2;
 --globalShadowColor: #39355a;
---globalNavigationBackgroundColor: #3C4973;
+--globalNavigationBackgroundColor: ##BF871F;
 --globalBorderShadow: var(--globalShadowColor) 0px 1px 0px,
     rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }

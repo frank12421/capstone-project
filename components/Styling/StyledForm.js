@@ -37,6 +37,34 @@ export const Textarea = styled.textarea`
   ${sharedStyles};
 `;
 
+export const FlexContainerRadio = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 20px 20px 20px;
+`;
+
+export const RadioButton = styled.input.attrs({ type: "radio" })`
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 15px;
+  height: 15px;
+  background-color: var(--globalSecondLightColor);
+  box-shadow: var(--globalBorderShadow);
+  border-radius: 50%;
+  &:checked {
+    background-color: var(--globalAppBackgroundColor);
+  }
+`;
+
+export const StyledFormSeries = styled.div`
+  display: grid;
+  grid-template-columns: 90% 10%;
+  gap: 10px;
+  padding-bottom: 10px;
+`;
+
 export const SubmitButton = styled.button`
   ${sharedStyles};
   margin-top: 10px;
