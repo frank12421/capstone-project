@@ -11,7 +11,6 @@ import { StyledCard } from "@/components/Styling/Card";
 import FindPlace from "@/components/Places/FindPlace";
 import TranslateDateSeries from "./TranslateDateSeries";
 import DateListRow from "./DateListRow";
-import handelClickDate from "./HandelClickDate";
 
 export default function ShowDatesList() {
   const [listentry, setListEntry] = useState(null);
@@ -74,9 +73,7 @@ export default function ShowDatesList() {
             <StyledDatesDetailCardButton
               type="button"
               aria-label="Zurück zur Listenansicht"
-              onClick={() =>
-                handelClickDate({ index: null, setListEntry: setListEntry })
-              }
+              onClick={() => setListEntry(null)}
             >
               X
             </StyledDatesDetailCardButton>

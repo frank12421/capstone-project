@@ -1,11 +1,6 @@
 import FindPlace from "@/components/Places/FindPlace";
 import dayjs from "dayjs";
 import { StyledDatesList } from "./styled";
-import handelClickDate from "./HandelClickDate";
-
-// function handelClickDate(index, setListEntry) {
-//   setListEntry(index);
-// }
 
 export default function DateListRow({ date, index, setListEntry }) {
   var weekOfYear = require("dayjs/plugin/weekOfYear");
@@ -15,7 +10,7 @@ export default function DateListRow({ date, index, setListEntry }) {
   const tomorrowDate = dayjs().add(1, "day").format("YYYY-MM-DD");
   const thisDate = date.data.date;
 
-  const relativTime =
+  const relativeTime =
     thisDate === currentDate
       ? "Heute"
       : thisDate === tomorrowDate
@@ -25,13 +20,8 @@ export default function DateListRow({ date, index, setListEntry }) {
       : thisDate;
 
   return (
-    <StyledDatesList
-      $hover
-      onClick={() =>
-        handelClickDate({ index: index, setListEntry: setListEntry })
-      }
-    >
-      <li>{relativTime}</li>
+    <StyledDatesList $hover onClick={() => setListEntry(index)}>
+      <li>{relativeTime}</li>
       <li>{date.data.promptlist}</li>
       <li>
         <FindPlace locationId={date.location} />

@@ -8,7 +8,7 @@ export default function TranslateDateSeries({ form, frequency }) {
       {frequency === "day" && <>täglich</>}
       {frequency === "week" && <>wöchentlich</>}
       {frequency === "month" && <>monatlich</>}
-      {frequency === "year" && <>järlich</>}
+      {frequency === "year" && <>jährlich</>}
     </p>
   );
 }
