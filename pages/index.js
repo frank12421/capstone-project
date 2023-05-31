@@ -7,6 +7,7 @@ import { StyledCard, StyledCardFooter } from "@/components/Styling/Card";
 import CountAllPlants from "@/components/Plants/CountAllPlants";
 import { StyledCardLink } from "@/components/Styling/StyledCardLink";
 import { StyledImage } from "@/components/Styling/StyledImage";
+import CountAllPlaces from "@/components/Places/CountAllPlaces";
 
 export default function HomePage({ dates, places }) {
   return (
@@ -27,6 +28,9 @@ export default function HomePage({ dates, places }) {
         <StyledCardLink href={"lists/placelist"}>
           <StyledCard backgroundcolor="globalPlaceBackgroundColor">
             Alle Standorte anzeigen
+            <StyledCardFooter>
+              <CountAllPlaces />
+            </StyledCardFooter>
           </StyledCard>
         </StyledCardLink>
 

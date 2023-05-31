@@ -49,6 +49,7 @@ export const StyledBigFigure = styled.p`
   margin: 0;
   font-size: 3rem;
   padding: 0;
+  justify-self: end;
 `;
 
 export const StyledBigText = styled.p`
@@ -57,6 +58,7 @@ export const StyledBigText = styled.p`
 `;
 
 export const StyledGridContainer = styled.section`
+  width: 80%;
   display: grid;
   grid-template-columns: 90% 10%;
   align-items: center;
