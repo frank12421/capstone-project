@@ -1,5 +1,5 @@
-import ShowAlPlantsThisPlaceList from "@/components/Plants/ShowAlPlantsThisPlaceList";
+import ShowPlantsThisPlace from "@/components/Plants/ShowPlantsThisPlace";
 
 export default function AddPlantToPlaceDetailsPage() {
-  return <ShowAlPlantsThisPlaceList />;
+  return <ShowPlantsThisPlace />;
 }

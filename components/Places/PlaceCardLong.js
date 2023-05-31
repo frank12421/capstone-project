@@ -2,14 +2,14 @@ import { StyledLink } from "@/components/Styling/StyledButton";
 import {
   StyledCard,
   StyledCardList,
-  StyledContentContainer,
+  StyledContentRowContainer,
   StyledCardListItem,
   StyledCardFooter,
 } from "@/components/Styling/Card";
 import Image from "next/image";
 
 export default function PlaceCardLong({ place }) {
-  const imgSrc =
+  const imageSource =
     place.location !== ""
       ? `/pictures/Place-${place.location}.png`
       : `/pictures/Place-People.png`;
@@ -17,9 +17,9 @@ export default function PlaceCardLong({ place }) {
   return (
     <StyledCard backgroundcolor={"globalPlaceBackgroundColor"} key={place._id}>
       <h2>{place.name}</h2>
-      <StyledContentContainer>
+      <StyledContentRowContainer>
         <Image
-          src={imgSrc}
+          src={imageSource}
           alt="Standort"
           width="50"
           height="100"
@@ -35,7 +35,7 @@ export default function PlaceCardLong({ place }) {
             Regenschutz: {place.rainprotection}
           </StyledCardListItem>
         </StyledCardList>
-      </StyledContentContainer>
+      </StyledContentRowContainer>
       <StyledCardFooter>
         <StyledLink
           href={{

@@ -1,5 +1,5 @@
 import AddPlaceForm from "@/components/Places/AddPlaceForm";
-import StyledNavigation from "@/components/Styling/Navigation";
+import StyledNavigationLink from "@/components/Styling/Navigation";
 import { StyledMain } from "@/components/Styling/Main";
 import { StyledHeader } from "@/components/Styling/Header";
 
@@ -7,10 +7,10 @@ export default function addPlace() {
   return (
     <>
       <StyledHeader>
-        <h1>Einen neuen Standort anlegen</h1>
-        <StyledNavigation navigationlink="/lists/placelist">
+        <h1 id="NewPlace">Einen neuen Standort anlegen</h1>
+        <StyledNavigationLink navigationlink="/lists/placelist">
           zurück
-        </StyledNavigation>
+        </StyledNavigationLink>
       </StyledHeader>
       <StyledMain>
         <AddPlaceForm />

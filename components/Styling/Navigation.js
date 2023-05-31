@@ -10,13 +10,6 @@ const StyledNavigationLink = styled(Link)`
   text-align: center;
 `;
 
-export const StyledCardLink = styled(Link)`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
-`;
-
 export default function StyledNavigation({ children, navigationlink, color }) {
   return (
     <StyledNavigationLink color={color} href={navigationlink}>

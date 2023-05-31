@@ -1,5 +1,5 @@
 import { StyledHeader } from "../Styling/Header";
-import StyledNavigation from "../Styling/Navigation";
+import StyledNavigationLink from "../Styling/Navigation";
 import {
   StyledCard,
   StyledCardFooter,
@@ -16,15 +16,14 @@ export default function HeaderPlantsAtThisPlaceList({
   const freePlaces = placeData.capacity - placeData.plants.length;
 
   function toggleOnClick() {
-    console.log(addPlant);
     setAddPlant(!addPlant);
   }
 
   return (
     <StyledHeader position="fixed">
-      <StyledNavigation navigationlink="/lists/placelist" color="darkgreen">
+      <StyledNavigationLink navigationlink="/lists/placelist" color="darkgreen">
         zurück
-      </StyledNavigation>
+      </StyledNavigationLink>
       <StyledCard backgroundcolor={"globalPlaceBackgroundColor"}>
         <h3>{placeData.name}</h3>
         <StyledCardList>

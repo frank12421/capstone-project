@@ -20,26 +20,6 @@ export const StyledAddLink = styled(Link)`
   text-decoration: none;
 `;
 
-// export const StyledModifyCountButtonActive = styled.button`
-//   color: ${({ color }) => color || "lightgrey"};
-//   background-color: white;
-//   border-style: none;
-//   text-decoration: none;
-//   font-size: 1rem;
-//   cursor: pointer;
-//   &:hover {
-//     font-weight: 900;
-//   }
-// `;
-
-// export const StyledModifyCountButtonInactive = styled.button`
-//   color: lightgrey;
-//   background-color: white;
-//   border-style: none;
-//   text-decoration: none;
-//   font-size: 4rem;
-// `;
-
 export const StyledButton = styled.button`
   margin-bottom: 0.5rem;
   color: ${({ color }) => color || "lightgrey"};
@@ -54,7 +34,7 @@ export const StyledButton = styled.button`
   }
 `;
 
-export const StyledRoundButtonActiv = styled.button`
+export const StyledRoundButtonActive = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,6 +82,5 @@ export const StyledTextButton = styled.button`
   color: var(--globalLightColor);
   background-color: #d96704;
   border: none;
-  text-decoration: none;
   cursor: pointer;
 `;

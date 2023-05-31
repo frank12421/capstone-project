@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const StyeldDatesList = styled.section`
+export const StyledDatesSection = styled.section`
   max-height: 150px;
   overflow-y: auto;
 `;
 
-export const StyledDatesListRow = styled.ul`
+export const StyledDatesList = styled.ul`
   margin: 0;
   display: grid;
   grid-template-columns: 25% 30% 1fr;

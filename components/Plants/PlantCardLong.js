@@ -2,12 +2,12 @@ import {
   StyledCard,
   StyledCardList,
   StyledCardListItem,
-  StyledContentContainer,
+  StyledContentRowContainer,
 } from "../Styling/Card";
 import Image from "next/image";
 
 export default function PlantCardLong({ plant }) {
-  const imgSrc =
+  const imageSource =
     plant.type === "Normal" ? "/pictures/Plant1.png" : "/pictures/Plant2.png";
 
   return (
@@ -17,9 +17,9 @@ export default function PlantCardLong({ plant }) {
         backgroundcolor={"globalPlantBackgroundColor"}
       >
         <h2>{plant.name}</h2>
-        <StyledContentContainer>
+        <StyledContentRowContainer>
           <Image
-            src={imgSrc}
+            src={imageSource}
             alt="Pflanze"
             width="50"
             height="100"
@@ -38,7 +38,7 @@ export default function PlantCardLong({ plant }) {
             </StyledCardListItem>
             <StyledCardListItem>Standort: {plant.location}</StyledCardListItem>
           </StyledCardList>
-        </StyledContentContainer>
+        </StyledContentRowContainer>
       </StyledCard>
     </>
   );

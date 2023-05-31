@@ -1,5 +1,3 @@
-// shows list of all plants at this location (siteId)
-
 import { fetcher, useOnePlace } from "@/utils/helper";
 import useSWR from "swr";
 import { StyledMain } from "../Styling/Main";
@@ -7,13 +5,10 @@ import {
   StyledCard,
   StyledCardList,
   StyledCardListItem,
-  StyledContentContainer,
+  StyledContentRowContainer,
 } from "../Styling/Card";
 import {
-  StyledModifyCountButtonActive,
-  StyledModifyCountButtonInactive,
-  StyledRoundButton,
-  StyledRoundButtonActiv,
+  StyledRoundButtonActive,
   StyledRoundButtonInActive,
 } from "../Styling/StyledButton";
 import useSWRMutation from "swr/mutation";
@@ -52,7 +47,7 @@ export default function AllPlantsSortedtList() {
 
   const plantsSorted = [...data].sort((a, b) => (a.name > b.name ? 1 : -1));
   const freePlaces = placeData.capacity - placeData.plants.length;
-  const showAddButton = freePlaces <= 0 ? false : true;
+  const showAddButton = freePlaces >= 0;
 
   const onClickAddPlant = (value) => {
     const addNewPlant = { plantid: value };
@@ -75,15 +70,15 @@ export default function AllPlantsSortedtList() {
             key={plant._id}
           >
             <h2>{plant.name}</h2>
-            <h5>{plant._id}</h5>
-            <StyledContentContainer>
+            <StyledContentRowContainer>
               {showAddButton ? (
-                <StyledRoundButtonActiv
+                <StyledRoundButtonActive
                   onClick={() => onClickAddPlant(plant._id)}
                   color="green"
+                  aria-label="Eine Pflanze zum Standort hinzufügen"
                 >
                   +
-                </StyledRoundButtonActiv>
+                </StyledRoundButtonActive>
               ) : (
                 <StyledRoundButtonInActive>+</StyledRoundButtonInActive>
               )}
@@ -99,7 +94,7 @@ export default function AllPlantsSortedtList() {
                   Anbaueignung: {plant.cultivation_suitability}
                 </StyledCardListItem>
               </StyledCardList>
-            </StyledContentContainer>
+            </StyledContentRowContainer>
           </StyledCard>
         );
       })}

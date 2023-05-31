@@ -1,6 +1,6 @@
 import { StyledHeader } from "@/components/Styling/Header";
 import { StyledMain } from "@/components/Styling/Main";
-import StyledNavigation from "@/components/Styling/Navigation";
+import StyledNavigationLink from "@/components/Styling/Navigation";
 import { useAllPlaces } from "@/utils/helper";
 import PlaceCardLong from "../PlaceCardLong";
 
@@ -19,12 +19,12 @@ export default function ShowPlaceList() {
     <>
       <StyledHeader>
         <h1>Alle Standorte - Grow Green</h1>
-        <StyledNavigation navigationlink="/" color="darkgreen">
+        <StyledNavigationLink navigationlink="/" color="darkgreen">
           zurück
-        </StyledNavigation>
-        <StyledNavigation color="tomato" navigationlink="/addplace">
+        </StyledNavigationLink>
+        <StyledNavigationLink color="tomato" navigationlink="/addplace">
           Einen neuen Standort anlegen
-        </StyledNavigation>
+        </StyledNavigationLink>
       </StyledHeader>
       <StyledMain>
         {places.map((place) => {

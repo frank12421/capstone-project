@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import { useOnePlace } from "@/utils/helper";
-import { StyledCardContainer } from "@/components/Styling/Card";
+import { StyledCardColumnContainer } from "@/components/Styling/Card";
 import ShortListPlants from "../ShortListPlants";
 import HeaderPlantsAtThisPlaceList from "../../Places/HeaderPlantsAtThisPlaceList";
 import { useState } from "react";
 import AllPlantsSortedtList from "../AllPlantsSortedList";
 
-export default function ShowAlPlantsThisPlaceList() {
+export default function ShowPlantsThisPlace() {
   const router = useRouter();
   const site = router.query;
   const { data, error, isLoading } = useOnePlace(site.id);
@@ -28,10 +28,10 @@ export default function ShowAlPlantsThisPlaceList() {
         placeData={data}
         setAddPlant={setAddPlant}
         addPlant={addPlant}
-      ></HeaderPlantsAtThisPlaceList>
+      />
 
       {!addPlant ? (
-        <StyledCardContainer margintop={"130px"}>
+        <StyledCardColumnContainer margintop={"130px"}>
           {data.plants.map((plant) => (
             <ShortListPlants
               key={plant._id}
@@ -40,7 +40,7 @@ export default function ShowAlPlantsThisPlaceList() {
               uniquePlantId={plant._id}
             />
           ))}
-        </StyledCardContainer>
+        </StyledCardColumnContainer>
       ) : (
         <AllPlantsSortedtList />
       )}

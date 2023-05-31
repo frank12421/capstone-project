@@ -1,12 +1,12 @@
-import Image from "next/image.js";
 import { StyledHeader } from "@/components/Styling/Header";
 import { StyledMain } from "@/components/Styling/Main";
-import StyledNavigation, {
-  StyledCardLink,
-} from "@/components/Styling/Navigation";
+
 import ShowDatesList from "@/components/Dates/ShowDatesList";
 
-import { StyledCard } from "@/components/Styling/Card";
+import { StyledCard, StyledCardFooter } from "@/components/Styling/Card";
+import CountAllPlants from "@/components/Plants/CountAllPlants";
+import { StyledCardLink } from "@/components/Styling/StyledCardLink";
+import { StyledImage } from "@/components/Styling/StyledImage";
 
 export default function HomePage({ dates, places }) {
   return (
@@ -16,12 +16,11 @@ export default function HomePage({ dates, places }) {
       </StyledHeader>
 
       <StyledMain>
-        <Image
+        <StyledImage
           width="350"
           height="150"
           alt="Pflanze"
           src={"/pictures/Header-Home.png"}
-          style={{ objectFit: "contain" }}
         />
 
         <ShowDatesList />
@@ -30,9 +29,13 @@ export default function HomePage({ dates, places }) {
             Alle Standorte anzeigen
           </StyledCard>
         </StyledCardLink>
+
         <StyledCardLink href={"lists/plantlist"}>
           <StyledCard backgroundcolor="globalPlantBackgroundColor">
             Alle Pflanzen zeigen
+            <StyledCardFooter>
+              <CountAllPlants />
+            </StyledCardFooter>
           </StyledCard>
         </StyledCardLink>
       </StyledMain>

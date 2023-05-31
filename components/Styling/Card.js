@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledCard = styled.section`
   width: 95%;
-  /* min-width: 355px; */
   min-height: 50px;
   height: auto;
   margin-top: 10px;
@@ -14,10 +13,10 @@ export const StyledCard = styled.section`
   padding: 0.2rem 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
 `;
 
-export const StyledContentContainer = styled.section`
+export const StyledContentRowContainer = styled.section`
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -35,12 +34,30 @@ export const StyledCardListItem = styled.li`
 export const StyledCardFooter = styled.section`
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
 `;
 
-export const StyledCardContainer = styled.section`
+export const StyledCardColumnContainer = styled.section`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: ${({ margintop }) => margintop};
+`;
+
+export const StyledBigFigure = styled.p`
+  margin: 0;
+  font-size: 3rem;
+  padding: 0;
+`;
+
+export const StyledBigText = styled.p`
+  margin: 0;
+  font-size: 1.5rem;
+`;
+
+export const StyledGridContainer = styled.section`
+  display: grid;
+  grid-template-columns: 90% 10%;
+  align-items: center;
 `;

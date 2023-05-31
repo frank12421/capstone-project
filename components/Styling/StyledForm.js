@@ -5,11 +5,9 @@ export const FormContainer = styled.form`
   margin: 20px;
   padding: 20px 0px;
   background-color: ${(props) => `var(--${props.backgroundcolor})`};
-  // background-color: var(--globalPlaceBackgroundColor);
   border-radius: var(--globalborderradius);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
 `;

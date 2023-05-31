@@ -16,7 +16,6 @@ html {
 --globalSecondLightColor: #D3D2D2;
 --globalShadowColor: #39355a;
 --globalNavigationBackgroundColor: #3C4973;
---globalborderradius: 15px;
 --globalBorderShadow: var(--globalShadowColor) 0px 1px 0px,
     rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }

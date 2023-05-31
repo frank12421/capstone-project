@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { StyledHeader } from "@/components/Styling/Header";
 import { StyledMain } from "@/components/Styling/Main";
-import StyledNavigation from "@/components/Styling/Navigation";
+import StyledNavigationLink from "@/components/Styling/Navigation";
 import DateForm from "@/components/Dates/DateForm";
 
 export default function ShowDateForm({ dates, setDates }) {
@@ -15,10 +15,13 @@ export default function ShowDateForm({ dates, setDates }) {
   return (
     <>
       <StyledHeader>
-        <h1>Hier legen Sie einen neuen Termin an</h1>
-        <StyledNavigation navigationlink="/lists/placelist" color="darkgreen">
+        <h1 id="NewDateForPlaces">Hier legen Sie einen neuen Termin an</h1>
+        <StyledNavigationLink
+          navigationlink="/lists/placelist"
+          color="darkgreen"
+        >
           zurück
-        </StyledNavigation>
+        </StyledNavigationLink>
       </StyledHeader>
       <StyledMain>
         <DateForm locationId={site.id} />
