@@ -1,17 +1,11 @@
 import styled from "styled-components";
 
-export const StyeldDatesList = styled.section`
-  width: 100%;
-  margin: 0;
-  max-height: 155px;
-  display: flex;
-  flex-direction: column;
-  background-color: lightgrey;
-  margin-bottom: 20px;
+export const StyledDatesSection = styled.section`
+  max-height: 150px;
   overflow-y: auto;
 `;
 
-export const StyledDatesListRow = styled.ul`
+export const StyledDatesList = styled.ul`
   margin: 0;
   display: grid;
   grid-template-columns: 25% 30% 1fr;
@@ -20,11 +14,13 @@ export const StyledDatesListRow = styled.ul`
   justify-items: start;
   list-style: none;
   padding-left: 0.5rem;
-
   position: ${(props) => (props.$head ? "sticky" : "static")};
   top: ${(props) => (props.$head ? "0px" : "20px")};
-  background-color: ${(props) => (props.$head ? "darkgray" : "")};
-  color: ${(props) => (props.$head ? "white" : "black")};
+  background-color: ${(props) =>
+    props.$head ? `var(--globalDateBackgroundColor)` : ``};
+  color: ${(props) =>
+    props.$head ? `var(--globalLightColor)` : `var(--globalSecondLightColor)`};
+  font-size: ${(props) => (props.$head ? "1rem" : "0.8rem")};
   cursor: ${(props) => (props.$hover ? "pointer" : "")};
   &:hover {
     font-weight: ${(props) => (props.$hover ? 900 : 300)};
@@ -34,19 +30,21 @@ export const StyledDatesListRow = styled.ul`
 export const StyledDatesDetailCard = styled.article`
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 1.4rem;
-  align-items: center;
-  justify-items: start;
-  padding: 10px 10px 10px 20px;
+  grid-template-columns: auto;
+  white-space: pre-wrap;
+  padding: 10px 10px 10px 5px;
 `;
 
 export const StyledDatesDetailCardButton = styled.button`
   position: absolute;
   top: 0;
   right: 0;
-  background-color: darkblue;
-  color: lightgray;
+  background-color: var(--globalLightColor);
+  color: var(--globalAppBackgroundColor);
+  box-shadow: var(--globalShadowColor) 0px 1px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  border-radius: 0.5rem;
+
   text-decoration: none;
   border-style: none;
   font-size: 1.5rem;

@@ -1,8 +1,12 @@
-import Image from "next/image.js";
-import { StyledHeader } from "@/components/Header";
-import { StyledMain } from "@/components/Main";
-import StyledNavigation from "@/components/Navigation";
-import ShowDatesList from "@/components/ShowDatesList";
+import { StyledHeader } from "@/components/Styling/Header";
+import { StyledMain } from "@/components/Styling/Main";
+
+import ShowDatesList from "@/components/Dates/ShowDatesList";
+
+import { StyledCard, StyledCardFooter } from "@/components/Styling/Card";
+import CountAllPlants from "@/components/Plants/CountAllPlants";
+import { StyledCardLink } from "@/components/Styling/StyledCardLink";
+import { StyledImage } from "@/components/Styling/StyledImage";
 
 export default function HomePage({ dates, places }) {
   return (
@@ -12,20 +16,28 @@ export default function HomePage({ dates, places }) {
       </StyledHeader>
 
       <StyledMain>
-        <Image
+        <StyledImage
           width="350"
           height="150"
           alt="Pflanze"
           src={"/pictures/Header-Home.png"}
-          style={{ objectFit: "contain" }}
         />
-        <ShowDatesList dates={dates} places={places} />
-        <StyledNavigation color="darkgreen" navigationlink="/lists/plantlist">
-          Alle Pflanzen anzeigen
-        </StyledNavigation>
-        <StyledNavigation color="darkred" navigationlink="/lists/placelist">
-          Alle Standorte anzeigen
-        </StyledNavigation>
+
+        <ShowDatesList />
+        <StyledCardLink href={"lists/placelist"}>
+          <StyledCard backgroundcolor="globalPlaceBackgroundColor">
+            Alle Standorte anzeigen
+          </StyledCard>
+        </StyledCardLink>
+
+        <StyledCardLink href={"lists/plantlist"}>
+          <StyledCard backgroundcolor="globalPlantBackgroundColor">
+            Alle Pflanzen zeigen
+            <StyledCardFooter>
+              <CountAllPlants />
+            </StyledCardFooter>
+          </StyledCard>
+        </StyledCardLink>
       </StyledMain>
     </>
   );

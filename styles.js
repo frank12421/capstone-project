@@ -7,11 +7,24 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
+html {
+--globalAppBackgroundColor: #272440;
+--globalPlantBackgroundColor: #30400D;
+--globalPlaceBackgroundColor: #591202;
+--globalDateBackgroundColor: #BF3605;
+--globalLightColor: #FFDAB9;
+--globalSecondLightColor: #D3D2D2;
+--globalShadowColor: #39355a;
+--globalNavigationBackgroundColor: #3C4973;
+--globalBorderShadow: var(--globalShadowColor) 0px 1px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+}
+
+body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: lightgoldenrodyellow;
-    /* outline: 1px solid black; */
+    background-color: var(--globalAppBackgroundColor);
+    color: var(--globalLightColor); 
     font-size: 0.8rem;
   }
 

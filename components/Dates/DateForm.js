@@ -1,54 +1,43 @@
-import styled from "styled-components";
-import { StyledButton } from "./StyledButton.js";
 import { useState } from "react";
+import useSWRMutation from "swr/mutation";
+import {
+  FormContainer,
+  Input,
+  Label,
+  Select,
+  SubmitButton,
+  Textarea,
+} from "../Styling/StyledForm.js";
 
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 0.2rem;
-`;
+async function sendRequest(url, { arg }) {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(arg),
+  });
 
-const Input = styled.input`
-  padding: 0.5rem;
-  border: 2px solid darkgreen;
-  border-radius: 0.5rem;
-`;
+  if (!response.ok) {
+    console.error(response.status);
+  }
+}
 
-const Textarea = styled.textarea`
-  border: 2px solid darkgreen;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-`;
+export default function DateForm({ locationId }) {
+  const { trigger } = useSWRMutation(`/api/dates/`, sendRequest);
 
-const Label = styled.label`
-  font-weight: 400;
-`;
-
-const Select = styled.select`
-  border: 2px solid darkgreen;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  background-color: white;
-`;
-
-export default function DateForm({ locationId, setDates }) {
   const [dateseries, setDateseries] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-    const id = Math.floor(Math.random() * 1000);
+    const dataEntries = Object.fromEntries(formData);
 
-    setDates((draft) => {
-      draft.push({
-        id: id,
-        location: locationId,
-        data: data,
-      });
-    });
+    const data = {
+      location: locationId,
+      data: dataEntries,
+    };
+    trigger(data);
   }
 
   const handelToggleDateseries = (event) => {
@@ -56,7 +45,11 @@ export default function DateForm({ locationId, setDates }) {
   };
 
   return (
-    <FormContainer aria-labelledby="NewDateForPlaces" onSubmit={handleSubmit}>
+    <FormContainer
+      aria-labelledby="NewDateForPlaces"
+      onSubmit={handleSubmit}
+      backgroundcolor="globalDateBackgroundColor"
+    >
       <Label htmlFor="singledate">Einzelner Termin</Label>
       <Input
         id="singledate"
@@ -91,7 +84,13 @@ export default function DateForm({ locationId, setDates }) {
       <Label htmlFor="date">Neuer Termin</Label>
       <Input id="date" name="date" type="date" required />
       <Label htmlFor="time">Zeit</Label>
-      <Input id="time" name="time" type="time" required />
+      <Input
+        id="time"
+        name="time"
+        type="time"
+        defaultValue="09:00:00"
+        required
+      />
       <Label htmlFor="promptlist">Stichwort</Label>
       <Select id="promptlist" name="promptlist" required>
         <option value="Gießen">Gießen</option>
@@ -106,9 +105,9 @@ export default function DateForm({ locationId, setDates }) {
         rows="5"
         maxLength={100}
       ></Textarea>
-      <StyledButton type="submit" color="red">
+      <SubmitButton type="submit" backgroundcolor="globalPlantBackgroundColor">
         Speichern
-      </StyledButton>
+      </SubmitButton>
     </FormContainer>
   );
 }
