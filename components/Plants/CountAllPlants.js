@@ -2,8 +2,6 @@ import { useAllPlaces, useAllPlants } from "@/utils/helper";
 import {
   StyledBigFigure,
   StyledBigText,
-  StyledCardColumnContainer,
-  StyledContentRowContainer,
   StyledGridContainer,
 } from "../Styling/Card";
 

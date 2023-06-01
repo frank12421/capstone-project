@@ -1,8 +1,11 @@
 import { useRouter } from "next/router";
 import { StyledHeader } from "@/components/Styling/Header";
 import { StyledMain } from "@/components/Styling/Main";
-import StyledNavigationLink from "@/components/Styling/Navigation";
+import StyledNavigationLink, {
+  StyledNavigationContainer,
+} from "@/components/Styling/Navigation";
 import DateForm from "@/components/Dates/DateForm";
+import Image from "next/image";
 
 export default function ShowDateForm({ dates, setDates }) {
   const router = useRouter();
@@ -14,14 +17,22 @@ export default function ShowDateForm({ dates, setDates }) {
 
   return (
     <>
-      <StyledHeader>
-        <h1 id="NewDateForPlaces">Hier legen Sie einen neuen Termin an</h1>
-        <StyledNavigationLink
-          navigationlink="/lists/placelist"
-          color="darkgreen"
-        >
-          zurück
-        </StyledNavigationLink>
+      <StyledHeader position="sticky">
+        <h1 id="NewDateForPlaces">Einen Termin anlegen</h1>
+        <StyledNavigationContainer>
+          <StyledNavigationLink
+            navigationlink="/lists/placelist"
+            color="transparent"
+          >
+            <Image
+              width="35"
+              height="35"
+              alt=""
+              src={"/pictures/arrow-left.svg"}
+              priority={true}
+            />
+          </StyledNavigationLink>
+        </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain>
         <DateForm locationId={site.id} />

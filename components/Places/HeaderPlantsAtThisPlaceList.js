@@ -1,12 +1,6 @@
-import { StyledHeader } from "../Styling/Header";
-import StyledNavigationLink from "../Styling/Navigation";
-import {
-  StyledCard,
-  StyledCardFooter,
-  StyledCardList,
-  StyledCardListItem,
-} from "../Styling/Card";
+import { CardContenGrid, StyledCard, StyledCardFooter } from "../Styling/Card";
 import { StyledTextButton } from "../Styling/StyledButton";
+import { StyledIconImage } from "../Styling/StyledImage";
 
 export default function HeaderPlantsAtThisPlaceList({
   placeData,
@@ -20,27 +14,39 @@ export default function HeaderPlantsAtThisPlaceList({
   }
 
   return (
-    <StyledHeader position="fixed">
-      <StyledNavigationLink navigationlink="/lists/placelist" color="darkgreen">
-        zurück
-      </StyledNavigationLink>
+    <>
       <StyledCard backgroundcolor={"globalPlaceBackgroundColor"}>
-        <h3>{placeData.name}</h3>
-        <StyledCardList>
-          <StyledCardListItem>
-            Kapazität:{placeData.capacity} | Noch frei: {freePlaces}
-          </StyledCardListItem>
-          <StyledCardListItem>
-            Licht: {placeData.lightratio} | Regenschutz:{" "}
-            {placeData.rainprotection}
-          </StyledCardListItem>
-        </StyledCardList>
+        <CardContenGrid>
+          <span>Kapazität: {placeData.capacity}</span>
+          <span>Noch frei: {freePlaces}</span>
+          <span>Licht: {placeData.lightratio}</span>
+          <span>Regenschutz: {placeData.rainprotection}</span>
+        </CardContenGrid>
+
         <StyledCardFooter>
           <StyledTextButton type="button" onClick={toggleOnClick}>
-            {addPlant ? "Pflanzen am Standort" : "Eine neue Pflanze hinzufügen"}
+            {addPlant ? (
+              <StyledIconImage
+                width="35"
+                height="35"
+                alt=""
+                src={"/pictures/align-justify.svg"}
+                priority={true}
+                align="right"
+              />
+            ) : (
+              <StyledIconImage
+                width="35"
+                height="35"
+                alt=""
+                src={"/pictures/add.svg"}
+                priority={true}
+                align="right"
+              />
+            )}
           </StyledTextButton>
         </StyledCardFooter>
       </StyledCard>
-    </StyledHeader>
+    </>
   );
 }

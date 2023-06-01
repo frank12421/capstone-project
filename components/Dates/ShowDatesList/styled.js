@@ -8,7 +8,7 @@ export const StyledDatesSection = styled.section`
 export const StyledDatesList = styled.ul`
   margin: 0;
   display: grid;
-  grid-template-columns: 25% 30% 1fr;
+  grid-template-columns: 30% 30% 1fr;
   grid-auto-rows: 1.4rem;
   align-items: center;
   justify-items: start;
@@ -20,7 +20,7 @@ export const StyledDatesList = styled.ul`
     props.$head ? `var(--globalDateBackgroundColor)` : ``};
   color: ${(props) =>
     props.$head ? `var(--globalLightColor)` : `var(--globalSecondLightColor)`};
-  font-size: ${(props) => (props.$head ? "1rem" : "0.8rem")};
+  font-size: ${(props) => (props.$head ? "1.2rem" : "0.95rem")};
   cursor: ${(props) => (props.$hover ? "pointer" : "")};
   &:hover {
     font-weight: ${(props) => (props.$hover ? 900 : 300)};
@@ -33,6 +33,7 @@ export const StyledDatesDetailCard = styled.article`
   grid-template-columns: auto;
   white-space: pre-wrap;
   padding: 10px 10px 10px 5px;
+  font-size: 0.9rem;
 `;
 
 export const StyledDatesDetailCardButton = styled.button`

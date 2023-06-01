@@ -1,18 +1,14 @@
 import { fetcher, useOnePlace } from "@/utils/helper";
 import useSWR from "swr";
-import { StyledMain } from "../Styling/Main";
 import {
-  StyledCard,
-  StyledCardList,
-  StyledCardListItem,
-  StyledContentRowContainer,
+  InfoLinkContainerButton,
+  InfoLinkContainerContent,
+  NewCardContainer,
 } from "../Styling/Card";
-import {
-  StyledRoundButtonActive,
-  StyledRoundButtonInActive,
-} from "../Styling/StyledButton";
+import {} from "../Styling/StyledButton";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/router";
+import { StyledIconImage } from "../Styling/StyledImage";
 
 async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
@@ -47,7 +43,7 @@ export default function AllPlantsSortedtList() {
 
   const plantsSorted = [...data].sort((a, b) => (a.name > b.name ? 1 : -1));
   const freePlaces = placeData.capacity - placeData.plants.length;
-  const showAddButton = freePlaces >= 0;
+  const showAddButton = freePlaces >= 1;
 
   const onClickAddPlant = (value) => {
     const addNewPlant = { plantid: value };
@@ -62,42 +58,35 @@ export default function AllPlantsSortedtList() {
   };
 
   return (
-    <StyledMain margintop="140">
+    <>
       {plantsSorted.map((plant) => {
         return (
-          <StyledCard
-            backgroundcolor={"globalPlantBackgroundColor"}
-            key={plant._id}
+          <NewCardContainer
+            key={data.plantid}
+            backgroundcolor="globalPlantBackgroundColor"
           >
-            <h2>{plant.name}</h2>
-            <StyledContentRowContainer>
-              {showAddButton ? (
-                <StyledRoundButtonActive
+            <InfoLinkContainerContent>
+              <h2>{plant.name}</h2>
+              <span>Type: {plant.type}</span> |{" "}
+              <span>Pflanzhöhe: {plant.plantheight}</span>
+              <h3>Anbaueignung: {plant.cultivation_suitability}</h3>
+            </InfoLinkContainerContent>
+            {showAddButton && (
+              <InfoLinkContainerButton>
+                <StyledIconImage
+                  width="35"
+                  height="35"
+                  alt=""
+                  src={"/pictures/add.svg"}
+                  priority={true}
+                  align="right"
                   onClick={() => onClickAddPlant(plant._id)}
-                  color="green"
-                  aria-label="Eine Pflanze zum Standort hinzufügen"
-                >
-                  +
-                </StyledRoundButtonActive>
-              ) : (
-                <StyledRoundButtonInActive>+</StyledRoundButtonInActive>
-              )}
-              <StyledCardList>
-                <StyledCardListItem>Type: {plant.type}</StyledCardListItem>
-                <StyledCardListItem>
-                  Pflanzdatum: {plant.plantingdate}
-                </StyledCardListItem>
-                <StyledCardListItem>
-                  Pflanzhöhe: {plant.plantheight}
-                </StyledCardListItem>
-                <StyledCardListItem>
-                  Anbaueignung: {plant.cultivation_suitability}
-                </StyledCardListItem>
-              </StyledCardList>
-            </StyledContentRowContainer>
-          </StyledCard>
+                />
+              </InfoLinkContainerButton>
+            )}
+          </NewCardContainer>
         );
       })}
-    </StyledMain>
+    </>
   );
 }
