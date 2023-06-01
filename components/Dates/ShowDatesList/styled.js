@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const StyledDatesSection = styled.section`
-  max-height: 150px;
-
+  max-height: 140px;
   overflow-y: auto;
 `;
 

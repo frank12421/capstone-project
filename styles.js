@@ -1,4 +1,15 @@
 import { createGlobalStyle } from "styled-components";
+import { Jost, Indie_Flower } from "@next/font/google";
+
+const jost = Jost({
+  weight: "300",
+  subsets: ["latin"],
+});
+
+const indie = Indie_Flower({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export default createGlobalStyle`
   *,
@@ -18,29 +29,32 @@ html {
 --globalNavigationBackgroundColor: ##BF871F;
 --globalBorderShadow: var(--globalShadowColor) 0px 1px 0px,
     rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+--scriptfond: ${indie.style.fontFamily}
 }
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: ${jost.style.fontFamily};
+
+    /* font-family: Arial, Helvetica, sans-serif; */
     background-color: var(--globalAppBackgroundColor);
     color: var(--globalLightColor); 
     font-size: 0.8rem;
   }
 
 h1 {
-  font-size: 1.2rem;
-  margin: 10px;
+  margin: 0;
 }
 
 h2 {
-font-size: 1rem;
-margin: 5px
+margin: 0;
 }
 
 h3 {
 font-size: 0.8rem;
 margin: 2px;
-
 }
+
+
+
 `;
