@@ -79,8 +79,8 @@ export const StyledRoundButtonInActive = styled.button`
 `;
 
 export const StyledTextButton = styled.button`
-  color: var(--globalLightColor);
-  background-color: #d96704;
+  /* color: var(--globalLightColor); */
+  background-color: transparent;
   border: none;
   cursor: pointer;
 `;

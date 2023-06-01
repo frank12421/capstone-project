@@ -5,7 +5,8 @@ export const FormContainer = styled.form`
   margin: 20px;
   padding: 20px 0px;
   background-color: ${(props) => `var(--${props.backgroundcolor})`};
-  border-radius: var(--globalborderradius);
+  box-shadow: var(--globalBorderShadow);
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;

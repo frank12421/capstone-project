@@ -77,7 +77,7 @@ export default function ShowDatesList() {
             >
               X
             </StyledDatesDetailCardButton>
-            Datum: {sortDates[listentry].data.date} Zeit:
+            Datum: {sortDates[listentry].data.date} | Zeit:
             {sortDates[listentry].data.time}
             <TranslateDateSeries
               form={sortDates[listentry].data.dateform}
@@ -86,7 +86,7 @@ export default function ShowDatesList() {
             Stichwort:{sortDates[listentry].data.promptlist}
             <>
               {" "}
-              Standort:
+              | Standort:
               <FindPlace locationId={sortDates[listentry].location} />
             </>
             <p>Notiz:{sortDates[listentry].data.description}</p>

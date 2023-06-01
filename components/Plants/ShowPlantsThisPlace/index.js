@@ -1,10 +1,16 @@
 import { useRouter } from "next/router";
 import { useOnePlace } from "@/utils/helper";
-import { StyledCardColumnContainer } from "@/components/Styling/Card";
 import ShortListPlants from "../ShortListPlants";
 import HeaderPlantsAtThisPlaceList from "../../Places/HeaderPlantsAtThisPlaceList";
 import { useState } from "react";
 import AllPlantsSortedtList from "../AllPlantsSortedList";
+import {
+  StyledNavigationContainer,
+  StyledNavigationLink,
+} from "@/components/Styling/Navigation";
+import Image from "next/image";
+import { StyledHeader } from "@/components/Styling/Header";
+import { StyledMain } from "@/components/Styling/Main";
 
 export default function ShowPlantsThisPlace() {
   const router = useRouter();
@@ -24,26 +30,41 @@ export default function ShowPlantsThisPlace() {
   }
   return (
     <>
-      <HeaderPlantsAtThisPlaceList
-        placeData={data}
-        setAddPlant={setAddPlant}
-        addPlant={addPlant}
-      />
-
-      {!addPlant ? (
-        <StyledCardColumnContainer margintop={"160px"}>
-          {data.plants.map((plant) => (
-            <ShortListPlants
-              key={plant._id}
-              plantId={plant.plantid}
-              placeId={site.id}
-              uniquePlantId={plant._id}
+      <StyledHeader position="sticky">
+        <h1>{data.name}</h1>
+        <StyledNavigationContainer>
+          <StyledNavigationLink href="/lists/placelist" color="transparent">
+            <Image
+              width="35"
+              height="35"
+              alt=""
+              src={"/pictures/arrow-left.svg"}
+              priority={true}
             />
-          ))}
-        </StyledCardColumnContainer>
-      ) : (
-        <AllPlantsSortedtList />
-      )}
+          </StyledNavigationLink>
+        </StyledNavigationContainer>
+        <HeaderPlantsAtThisPlaceList
+          placeData={data}
+          setAddPlant={setAddPlant}
+          addPlant={addPlant}
+        />
+      </StyledHeader>
+      <StyledMain gap="15" margintop="15">
+        {!addPlant ? (
+          <>
+            {data.plants.map((plant) => (
+              <ShortListPlants
+                key={plant._id}
+                plantId={plant.plantid}
+                placeId={site.id}
+                uniquePlantId={plant._id}
+              />
+            ))}
+          </>
+        ) : (
+          <AllPlantsSortedtList />
+        )}
+      </StyledMain>
     </>
   );
 }

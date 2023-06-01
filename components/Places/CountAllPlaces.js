@@ -16,7 +16,7 @@ export default function CountAllPlaces() {
   return (
     <>
       <StyledGridContainer>
-        <StyledBigText>Standorte: </StyledBigText>
+        <StyledBigText>Standorte gesamt: </StyledBigText>
         <StyledBigFigure>{countPlaces}</StyledBigFigure>
       </StyledGridContainer>
     </>

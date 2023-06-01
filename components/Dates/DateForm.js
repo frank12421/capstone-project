@@ -148,9 +148,6 @@ export default function DateForm({ locationId }) {
           Gespeichert
         </SubmitButton>
       )}
-      {/* <SubmitButton type="submit" backgroundcolor="globalPlantBackgroundColor">
-        Speichern
-      </SubmitButton> */}
     </FormContainer>
   );
 }

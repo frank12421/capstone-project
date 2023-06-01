@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export default function PlaceCardLong({ place }) {
   const imageSource =
-    place.location !== ""
+    place.location !== "Sonstiges"
       ? `/pictures/Place-${place.location}.png`
       : `/pictures/Place-People.png`;
 
@@ -21,8 +21,8 @@ export default function PlaceCardLong({ place }) {
         <Image
           src={imageSource}
           alt="Standort"
-          width="50"
-          height="100"
+          width="90"
+          height="90"
           style={{ objectFit: "contain" }}
         />
         <StyledCardList>

@@ -6,4 +6,6 @@ export const StyledMain = styled.main`
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
+  gap: ${({ gap }) => gap}px;
+  z-index: 10;
 `;

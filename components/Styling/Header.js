@@ -10,6 +10,7 @@ export const StyledHeader = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 200;
 `;
 
 export const StyledSubHeader = styled.div`
@@ -18,7 +19,7 @@ export const StyledSubHeader = styled.div`
 `;
 
 export const StyledHomeHeader = styled.header`
-  margin: 10px 10px 5px 10px;
+  padding: 10px 0px 0px 10px;
   width: 100%;
   position: sticky;
   font-size: 1.2rem;
@@ -26,4 +27,5 @@ export const StyledHomeHeader = styled.header`
   background-color: var(--globalAppBackgroundColor);
   display: flex;
   justify-content: center;
+  z-index: 100;
 `;

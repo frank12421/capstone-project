@@ -57,6 +57,7 @@ export default function AddPlaceForm() {
         <option value="Gewächshaus">Gewächshaus</option>
         <option value="Dach">Dach</option>
         <option value="Freiland">Freiland</option>
+        <option value="Sonstiges">Sonstiges</option>
       </Select>
       <Label htmlFor="rainprotection">Regenschutz</Label>
       <Select id="rainprotection" name="rainprotection" required>

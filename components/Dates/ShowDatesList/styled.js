@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledDatesSection = styled.section`
-  max-height: 140px;
+  max-height: 150px;
   overflow-y: auto;
 `;
 
@@ -33,6 +33,7 @@ export const StyledDatesDetailCard = styled.article`
   grid-template-columns: auto;
   white-space: pre-wrap;
   padding: 10px 10px 10px 5px;
+  font-size: 0.9rem;
 `;
 
 export const StyledDatesDetailCardButton = styled.button`

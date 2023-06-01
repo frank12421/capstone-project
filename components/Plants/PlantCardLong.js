@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function PlantCardLong({ plant }) {
   const imageSource =
-    plant.type === "Normal" ? "/pictures/Plant1.png" : "/pictures/Plant2.png";
+    plant.type === "Normal" ? "/pictures/Plant1.svg" : "/pictures/Plant2.svg";
 
   return (
     <>
@@ -24,19 +24,25 @@ export default function PlantCardLong({ plant }) {
             width="50"
             height="100"
             style={{ objectFit: "contain" }}
+            priority={true}
           />
           <StyledCardList>
             <StyledCardListItem>Type: {plant.type}</StyledCardListItem>
-            <StyledCardListItem>
+            {/* <StyledCardListItem>
               Pflanzdatum: {plant.plantingdate}
-            </StyledCardListItem>
+            </StyledCardListItem> */}
             <StyledCardListItem>
               Pflanzhöhe: {plant.plantheight}
             </StyledCardListItem>
             <StyledCardListItem>
               Anbaueignung: {plant.cultivation_suitability}
             </StyledCardListItem>
-            <StyledCardListItem>Standort: {plant.location}</StyledCardListItem>
+            <StyledCardListItem>
+              Fruchtform: {plant.fruit_shape}
+            </StyledCardListItem>
+            <StyledCardListItem>
+              Fruchtfarbe: {plant.fruit_color}
+            </StyledCardListItem>
           </StyledCardList>
         </StyledContentRowContainer>
       </StyledCard>
