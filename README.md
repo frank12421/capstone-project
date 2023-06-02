@@ -1,8 +1,41 @@
-# New Project
+# Grow Green - Gardening made easy 🍅
 
-This project was created from the neue fische next template.
+## Thiss App helps you manage your vegetable farm.
+
+![Screenshots](/public/screenshots/grow-green-screen.svg)
+
+In my example, it's about tomatoes, but of course, the app accepts everything that is healthy: 🍆🥦🫛🥕🌽🫑🌶️
+If you grow your own vegetables - from seed to harvest - you have some data to track and important dates that you shouldn't miss. So far, I have managed nearly 30 tomato varieties in an Excel list, which is cumbersome and not very practical.
+
+With Grow Green, you can create templates for your plants, set up locations, and assign the plants to these locations. This way, you'll have an accurate overview of the number of your plants, their location conditions, and much more. A calendar helps you manage your appointments and remember everything.
+
+### Planned Feature:
+
+You will later be able to accurately identify each plant via a QR code. You can maintain a notebook for each plant, document its development, and record harvest successes.
+
+Further suggestions are very welcome.
+
+The app will grow, just like the fruits and vegetables in your garden. The goal is to inspire many more people to start growing their own vegetables because they are healthier and tastier. 🍓🫐🍒"
+
+## Bootcamp at Neue Fische
+
+Grow Green was created as a React/Next.js project as part of the Web Developer Bootcamp at [Neue Fische](https://github.com/neuefische) . In the process, I learned an incredible amount and tried out as many things as possible in the app.  
+**Important: The app is created for mobile view. Please use your mobiles for the view!**
+
+My heartfelt thanks to the wonderful coaches: [Mareike](https://github.com/mbosselmann) + [Julia](https://github.com/julialoeschel).  
+Thank you for your support: Jan, Michael, Felix, Julia, Pet,...
 
 ## Development
+
+I work with:
+
+- React
+- Next.js
+- days.js
+- Node.js
+- MongoDB (Compas and Atlas)
+- mongoose
+- Styled Components
 
 ### CodeSandbox
 
