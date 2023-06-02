@@ -25,7 +25,7 @@ The app will grow, just like the fruits and vegetables in your garden. The goal 
 Grow Green was created as a React/Next.js project as part of the Web Developer Bootcamp by [Neue Fische](https://github.com/neuefische) . In the process, I learned an incredible amount and tried out as many things as possible in the app.  
 **Important: The app is created for mobile view. Please use your mobiles for the view!**
 
-My deepest gratitude goes to our coaches: [Mareike](https://github.com/mbosselmann) + [Julia](https://github.com/julialoeschel).  
+My deepest gratitude goes to our coaches: [Mareike](https://github.com/mbosselmann), [Julia](https://github.com/julialoeschel) and [Jan](https://github.com/djfarly) .  
 Thank you for your support: Jan, Michael, Felix, Jessica, Peter, Ceren, Diego, Martin, Paul, Ralf, Roland, Stefan, Thomas, Sven, ...
 
 ## Development
