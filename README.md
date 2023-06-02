@@ -2,12 +2,15 @@
 
 ## Thiss App helps you manage your vegetable farm.
 
-![Screenshots](/public/screenshots/grow-green-screen.svg)
+[![Screenshots from Grow Green](/public/screenshots/grow-green-screen.svg "Grow Green - Gardening made easy")](https://grow-green.vercel.app/)
 
 In my example, it's about tomatoes, but of course, the app accepts everything that is healthy: 🍆🥦🫛🥕🌽🫑🌶️
 If you grow your own vegetables - from seed to harvest - you have some data to track and important dates that you shouldn't miss. So far, I have managed nearly 30 tomato varieties in an Excel list, which is cumbersome and not very practical.
 
 With Grow Green, you can create templates for your plants, set up locations, and assign the plants to these locations. This way, you'll have an accurate overview of the number of your plants, their location conditions, and much more. A calendar helps you manage your appointments and remember everything.
+
+[If you like, click here to try Grow Green at Vercel: ](https://grow-green.vercel.app/)https://grow-green.vercel.app/  
+**Important: The app is created for mobile view. Please use your mobiles for the view!**
 
 ### Planned Feature:
 
