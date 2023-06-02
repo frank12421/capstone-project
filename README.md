@@ -26,7 +26,7 @@ Grow Green was created as a React/Next.js project as part of the Web Developer B
 **Important: The app is created for mobile view. Please use your mobiles for the view!**
 
 My deepest gratitude goes to our coaches: [Mareike](https://github.com/mbosselmann) + [Julia](https://github.com/julialoeschel).  
-Thank you for your support: Jan, Michael, Felix, Julia, Pet,...
+Thank you for your support: Jan, Michael, Felix, Jessica, Peter, Ceren, Diego, Martin, Paul, Ralf, Roland, Stefan, Thomas, Sven, ...
 
 ## Development
 
