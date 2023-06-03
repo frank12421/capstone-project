@@ -1,4 +1,5 @@
-import { CardContenGrid, StyledCard, StyledCardFooter } from "../Styling/Card";
+import { CardContenGrid, StyledCardFooter } from "../Styling/OldCard";
+import { CardContainer } from "../Styling/Card";
 import { StyledTextButton } from "../Styling/StyledButton";
 import { StyledIconImage } from "../Styling/StyledImage";
 
@@ -15,7 +16,7 @@ export default function HeaderPlantsAtThisPlaceList({
 
   return (
     <>
-      <StyledCard backgroundcolor={"globalPlaceBackgroundColor"}>
+      <CardContainer backgroundcolor={"globalPlaceBackgroundColor"}>
         <CardContenGrid>
           <span>Kapazität: {placeData.capacity}</span>
           <span>Noch frei: {freePlaces}</span>
@@ -46,7 +47,7 @@ export default function HeaderPlantsAtThisPlaceList({
             )}
           </StyledTextButton>
         </StyledCardFooter>
-      </StyledCard>
+      </CardContainer>
     </>
   );
 }

@@ -1,9 +1,7 @@
 import { useAllPlaces, useAllPlants } from "@/utils/helper";
-import {
-  StyledBigFigure,
-  StyledBigText,
-  StyledGridContainer,
-} from "../Styling/Card";
+import { StyledGridContainer } from "../Styling/OldCard";
+import { StyledBigFigure, StyledBigText } from "../Styling/Card";
+import InfoCard from "../Card/InfoCard";
 
 export default function CountAllPlants() {
   const places = useAllPlaces();
@@ -23,7 +21,10 @@ export default function CountAllPlants() {
   }
 
   return (
-    <>
+    <InfoCard
+      href={"lists/plantlist"}
+      backgroundcolor="globalPlantBackgroundColor"
+    >
       <StyledGridContainer>
         <StyledBigText>Alle Pflanzen:</StyledBigText>
         <StyledBigFigure>{sumOfLengths}</StyledBigFigure>
@@ -31,6 +32,6 @@ export default function CountAllPlants() {
         <StyledBigText>Pflanzensorten:</StyledBigText>
         <StyledBigFigure>{plants.data.length}</StyledBigFigure>
       </StyledGridContainer>
-    </>
+    </InfoCard>
   );
 }

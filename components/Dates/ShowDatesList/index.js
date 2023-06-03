@@ -6,11 +6,11 @@ import {
   StyledDatesDetailCardButton,
   StyledDatesList,
 } from "./styled";
-import { useAllDates, useOnePlace } from "@/utils/helper";
-import { StyledCard } from "@/components/Styling/Card";
+import { useAllDates } from "@/utils/helper";
 import FindPlace from "@/components/Places/FindPlace";
 import TranslateDateSeries from "./TranslateDateSeries";
 import DateListRow from "./DateListRow";
+import { CardContainer } from "@/components/Styling/Card";
 
 export default function ShowDatesList() {
   const [listentry, setListEntry] = useState(null);
@@ -38,7 +38,7 @@ export default function ShowDatesList() {
   return (
     <>
       {listentry === null ? (
-        <StyledCard backgroundcolor="globalDateBackgroundColor">
+        <CardContainer backgroundcolor="globalDateBackgroundColor">
           <StyledDatesSection>
             <StyledDatesList $head>
               <li key="wann">Wann</li>
@@ -66,9 +66,9 @@ export default function ShowDatesList() {
               <StyledDatesList>Keine Termine</StyledDatesList>
             )}
           </StyledDatesSection>
-        </StyledCard>
+        </CardContainer>
       ) : (
-        <StyledCard backgroundcolor="globalDateBackgroundColor">
+        <CardContainer backgroundcolor="globalDateBackgroundColor">
           <StyledDatesDetailCard>
             <StyledDatesDetailCardButton
               type="button"
@@ -91,7 +91,7 @@ export default function ShowDatesList() {
             </>
             <p>Notiz:{sortDates[listentry].data.description}</p>
           </StyledDatesDetailCard>
-        </StyledCard>
+        </CardContainer>
       )}
     </>
   );
