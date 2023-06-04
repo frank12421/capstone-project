@@ -3,12 +3,12 @@ import useSWR from "swr";
 import {
   InfoLinkContainerButton,
   InfoLinkContainerContent,
-  NewCardContainer,
-} from "../Styling/Card";
+} from "../Styling/OldCard";
 import {} from "../Styling/StyledButton";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/router";
 import { StyledIconImage } from "../Styling/StyledImage";
+import { CardContainer } from "../Card/Card.Styling";
 
 async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
@@ -61,7 +61,7 @@ export default function AllPlantsSortedtList() {
     <>
       {plantsSorted.map((plant) => {
         return (
-          <NewCardContainer
+          <CardContainer
             key={data.plantid}
             backgroundcolor="globalPlantBackgroundColor"
           >
@@ -84,7 +84,7 @@ export default function AllPlantsSortedtList() {
                 />
               </InfoLinkContainerButton>
             )}
-          </NewCardContainer>
+          </CardContainer>
         );
       })}
     </>

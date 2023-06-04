@@ -1,10 +1,8 @@
 import AddPlaceForm from "@/components/Places/AddPlaceForm";
-import StyledNavigationLink, {
-  StyledNavigationContainer,
-} from "@/components/Styling/Navigation";
+import { StyledNavigationContainer } from "@/components/Navigation/Navigation";
 import { StyledMain } from "@/components/Styling/Main";
 import { StyledHeader } from "@/components/Styling/Header";
-import Image from "next/image";
+import NavigationBack from "@/components/Navigation/NavigationBack";
 
 export default function addPlace() {
   return (
@@ -12,18 +10,7 @@ export default function addPlace() {
       <StyledHeader position="sticky">
         <h1>Neuen Standort anlegen</h1>
         <StyledNavigationContainer>
-          <StyledNavigationLink
-            navigationlink="/lists/placelist"
-            color="transparent"
-          >
-            <Image
-              width="35"
-              height="35"
-              alt=""
-              src={"/pictures/arrow-left.svg"}
-              priority={true}
-            />
-          </StyledNavigationLink>
+          <NavigationBack href="/lists/placelist" />
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain>

@@ -4,13 +4,10 @@ import ShortListPlants from "../ShortListPlants";
 import HeaderPlantsAtThisPlaceList from "../../Places/HeaderPlantsAtThisPlaceList";
 import { useState } from "react";
 import AllPlantsSortedtList from "../AllPlantsSortedList";
-import {
-  StyledNavigationContainer,
-  StyledNavigationLink,
-} from "@/components/Styling/Navigation";
-import Image from "next/image";
+import { StyledNavigationContainer } from "@/components/Navigation/Navigation";
 import { StyledHeader } from "@/components/Styling/Header";
 import { StyledMain } from "@/components/Styling/Main";
+import NavigationBack from "@/components/Navigation/NavigationBack";
 
 export default function ShowPlantsThisPlace() {
   const router = useRouter();
@@ -33,15 +30,7 @@ export default function ShowPlantsThisPlace() {
       <StyledHeader position="sticky">
         <h1>{data.name}</h1>
         <StyledNavigationContainer>
-          <StyledNavigationLink href="/lists/placelist" color="transparent">
-            <Image
-              width="35"
-              height="35"
-              alt=""
-              src={"/pictures/arrow-left.svg"}
-              priority={true}
-            />
-          </StyledNavigationLink>
+          <NavigationBack href="/lists/placelist" />
         </StyledNavigationContainer>
         <HeaderPlantsAtThisPlaceList
           placeData={data}

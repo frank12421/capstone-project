@@ -1,10 +1,10 @@
 import {
-  StyledCard,
   StyledCardList,
   StyledCardListItem,
   StyledContentRowContainer,
-} from "../Styling/Card";
+} from "../Styling/OldCard";
 import Image from "next/image";
+import { CardContainer } from "../Card/Card.Styling";
 
 export default function PlantCardLong({ plant }) {
   const imageSource =
@@ -12,7 +12,7 @@ export default function PlantCardLong({ plant }) {
 
   return (
     <>
-      <StyledCard
+      <CardContainer
         key={plant._id}
         backgroundcolor={"globalPlantBackgroundColor"}
       >
@@ -28,9 +28,6 @@ export default function PlantCardLong({ plant }) {
           />
           <StyledCardList>
             <StyledCardListItem>Type: {plant.type}</StyledCardListItem>
-            {/* <StyledCardListItem>
-              Pflanzdatum: {plant.plantingdate}
-            </StyledCardListItem> */}
             <StyledCardListItem>
               Pflanzhöhe: {plant.plantheight}
             </StyledCardListItem>
@@ -45,7 +42,7 @@ export default function PlantCardLong({ plant }) {
             </StyledCardListItem>
           </StyledCardList>
         </StyledContentRowContainer>
-      </StyledCard>
+      </CardContainer>
     </>
   );
 }

@@ -1,12 +1,12 @@
 import { StyledLink } from "@/components/Styling/StyledButton";
 import {
-  StyledCard,
   StyledCardList,
   StyledContentRowContainer,
   StyledCardListItem,
   StyledCardFooter,
-} from "@/components/Styling/Card";
+} from "@/components/Styling/OldCard";
 import Image from "next/image";
+import { CardContainer } from "../Card/Card.Styling";
 
 export default function PlaceCardLong({ place }) {
   const imageSource =
@@ -15,7 +15,10 @@ export default function PlaceCardLong({ place }) {
       : `/pictures/Place-People.png`;
 
   return (
-    <StyledCard backgroundcolor={"globalPlaceBackgroundColor"} key={place._id}>
+    <CardContainer
+      backgroundcolor={"globalPlaceBackgroundColor"}
+      key={place._id}
+    >
       <h2>{place.name}</h2>
       <StyledContentRowContainer>
         <Image
@@ -55,6 +58,6 @@ export default function PlaceCardLong({ place }) {
           Termin anlegen
         </StyledLink>
       </StyledCardFooter>
-    </StyledCard>
+    </CardContainer>
   );
 }
