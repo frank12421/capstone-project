@@ -8,7 +8,7 @@ import {} from "../Styling/StyledButton";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/router";
 import { StyledIconImage } from "../Styling/StyledImage";
-import { CardContainer } from "../Styling/Card";
+import { CardContainer } from "../Card/Card.Styling";
 
 async function sendRequest(url, { arg }) {
   const response = await fetch(url, {

@@ -27,6 +27,7 @@ html {
 --globalSecondLightColor: #D3D2D2;
 --globalShadowColor: #39355a;
 --globalNavigationBackgroundColor: #BF871F;
+--globalNavigationIconColor: #B2FFFF;
 --globalBorderShadow: var(--globalShadowColor) 0px 1px 0px,
     rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 --scriptfond: ${indie.style.fontFamily}

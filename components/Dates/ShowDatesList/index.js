@@ -10,7 +10,7 @@ import { useAllDates } from "@/utils/helper";
 import FindPlace from "@/components/Places/FindPlace";
 import TranslateDateSeries from "./TranslateDateSeries";
 import DateListRow from "./DateListRow";
-import { CardContainer } from "@/components/Styling/Card";
+import { CardContainer } from "@/components/Card/Card.Styling";
 
 export default function ShowDatesList() {
   const [listentry, setListEntry] = useState(null);
@@ -49,7 +49,7 @@ export default function ShowDatesList() {
               <StyledDatesList>
                 <li>Heute nix</li>
                 <li>Chillen</li>
-                <li>Wo immer du magst</li>
+                <li>im Garten</li>
               </StyledDatesList>
             ) : null}
 

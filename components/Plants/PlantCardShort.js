@@ -1,4 +1,4 @@
-import { CardContainer } from "../Styling/Card";
+import { CardContainer } from "../Card/Card.Styling";
 
 export default function PlantCardShort({ plant, uniquePlantId, children }) {
   return (

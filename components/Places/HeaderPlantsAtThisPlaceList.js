@@ -1,5 +1,5 @@
 import { CardContenGrid, StyledCardFooter } from "../Styling/OldCard";
-import { CardContainer } from "../Styling/Card";
+import { CardContainer } from "../Card/Card.Styling";
 import { StyledTextButton } from "../Styling/StyledButton";
 import { StyledIconImage } from "../Styling/StyledImage";
 

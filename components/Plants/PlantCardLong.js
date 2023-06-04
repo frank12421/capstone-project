@@ -4,7 +4,7 @@ import {
   StyledContentRowContainer,
 } from "../Styling/OldCard";
 import Image from "next/image";
-import { CardContainer } from "../Styling/Card";
+import { CardContainer } from "../Card/Card.Styling";
 
 export default function PlantCardLong({ plant }) {
   const imageSource =
@@ -28,9 +28,6 @@ export default function PlantCardLong({ plant }) {
           />
           <StyledCardList>
             <StyledCardListItem>Type: {plant.type}</StyledCardListItem>
-            {/* <StyledCardListItem>
-              Pflanzdatum: {plant.plantingdate}
-            </StyledCardListItem> */}
             <StyledCardListItem>
               Pflanzhöhe: {plant.plantheight}
             </StyledCardListItem>

@@ -1,6 +1,6 @@
 import { useAllPlaces, useAllPlants } from "@/utils/helper";
 import { StyledGridContainer } from "../Styling/OldCard";
-import { StyledBigFigure, StyledBigText } from "../Styling/Card";
+import { StyledBigFigure, StyledBigText } from "../Card/Card.Styling";
 import InfoCard from "../Card/InfoCard";
 
 export default function CountAllPlants() {

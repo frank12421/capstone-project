@@ -44,12 +44,12 @@ export const InfoLinkContainerContent = styled.section`
   margin: 0;
 `;
 
-// export const InfoLinkContainerButton = styled.div`
-//   position: absolute;
-//   bottom: 0;
-//   right: 5px;
-//   z-index: 1;
-// `;
+export const InfoLinkContainerButton = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  z-index: 1;
+`;
 
 export const CardContenGrid = styled.div`
   display: grid;

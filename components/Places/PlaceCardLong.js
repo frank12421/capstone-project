@@ -6,7 +6,7 @@ import {
   StyledCardFooter,
 } from "@/components/Styling/OldCard";
 import Image from "next/image";
-import { CardContainer } from "../Styling/Card";
+import { CardContainer } from "../Card/Card.Styling";
 
 export default function PlaceCardLong({ place }) {
   const imageSource =
