@@ -1,8 +1,8 @@
-import ShowPlantList from "@/components/ShowPlantList";
 import { StyledHeader } from "@/components/Styling/Header";
 import { StyledNavigationContainer } from "@/components/Navigation/Navigation";
 import NavigationBack from "@/components/Navigation/NavigationBack";
 import { StyledMain } from "@/components/Styling/Main";
+import PlantListCardLong from "@/components/Plants/PlantListCardLong";
 
 export default function PlantList() {
   return (
@@ -14,7 +14,7 @@ export default function PlantList() {
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain gap="15">
-        <ShowPlantList />
+        <PlantListCardLong />
       </StyledMain>
     </>
   );

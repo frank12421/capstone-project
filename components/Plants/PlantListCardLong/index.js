@@ -1,7 +1,7 @@
 import { useAllPlants } from "@/utils/helper";
-import PlantCardLong from "../Plants/PlantCardLong";
+import PlantCardLong from "../PlantCardLong";
 
-export default function ShowPlantList() {
+export default function PlantListCardLong() {
   const { data: plants, error, isLoading } = useAllPlants();
   if (isLoading) {
     return <div>Loading...</div>;
