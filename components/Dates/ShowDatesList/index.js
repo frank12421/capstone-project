@@ -3,7 +3,6 @@ import { useState } from "react";
 import {
   StyledDatesSection,
   StyledDatesDetailCard,
-  StyledDatesDetailCardButton,
   StyledDatesList,
 } from "./styled";
 import { useAllDates } from "@/utils/helper";
@@ -11,6 +10,7 @@ import FindPlace from "@/components/Places/FindPlace";
 import TranslateDateSeries from "./TranslateDateSeries";
 import DateListRow from "./DateListRow";
 import { CardContainer } from "@/components/Card/Card.Styling";
+import { StyledIconX } from "@/components/Styling/StyledIcon";
 
 export default function ShowDatesList() {
   const [listentry, setListEntry] = useState(null);
@@ -70,13 +70,11 @@ export default function ShowDatesList() {
       ) : (
         <CardContainer backgroundcolor="globalDateBackgroundColor">
           <StyledDatesDetailCard>
-            <StyledDatesDetailCardButton
-              type="button"
-              aria-label="Zurück zur Listenansicht"
+            <StyledIconX
+              color="globalNavigationIconColor"
+              align="right"
               onClick={() => setListEntry(null)}
-            >
-              X
-            </StyledDatesDetailCardButton>
+            />
             Datum: {sortDates[listentry].data.date} | Zeit:
             {sortDates[listentry].data.time}
             <TranslateDateSeries
