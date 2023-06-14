@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { LuInfo, LuArrowLeftCircle, LuPlusCircle } from "react-icons/lu";
+import {
+  LuInfo,
+  LuArrowLeftCircle,
+  LuPlusCircle,
+  LuMinusCircle,
+} from "react-icons/lu";
 
 export const StyledIconInfoCircle = styled(LuInfo)`
   color: var(--globalLightColor);
@@ -12,6 +17,11 @@ export const StyledIconArrowBack = styled(LuArrowLeftCircle)`
 `;
 
 export const StyledIconAdd = styled(LuPlusCircle)`
+  color: ${({ color }) => `var(--${color})`};
+  font-size: 2rem;
+`;
+
+export const StyledIconMinus = styled(LuMinusCircle)`
   color: ${({ color }) => `var(--${color})`};
   font-size: 2rem;
 `;

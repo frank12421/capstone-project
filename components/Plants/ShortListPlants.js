@@ -1,7 +1,6 @@
 import useSWRMutation from "swr/mutation";
 import { useOnePlant } from "@/utils/helper";
-import PlantCardShort from "./PlantCardShort";
-import { StyledIconImage } from "../Styling/StyledImage";
+import ButtonCard from "../Card/ButtonCard";
 
 async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
@@ -35,17 +34,14 @@ export default function ShortListPlants({ plantId, placeId, uniquePlantId }) {
     return null;
   } else {
     return (
-      <PlantCardShort plant={plant.data} uniquePlantId={uniquePlantId}>
-        <StyledIconImage
-          width="35"
-          height="35"
-          alt=""
-          src={"/pictures/minus.svg"}
-          priority={true}
-          align="right"
-          onClick={() => onClickMinusPlant(uniquePlantId)}
-        />
-      </PlantCardShort>
+      <ButtonCard
+        handleClick={() => onClickMinusPlant(uniquePlantId)}
+        backgroundcolor="globalPlantBackgroundColor"
+        buttonicon="minus"
+      >
+        <h2>{plant.data.name}</h2>
+        Code: {uniquePlantId}
+      </ButtonCard>
     );
   }
 }
