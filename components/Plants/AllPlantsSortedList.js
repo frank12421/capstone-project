@@ -62,7 +62,7 @@ export default function AllPlantsSortedtList() {
       {plantsSorted.map((plant) => {
         return (
           <CardContainer
-            key={data.plantid}
+            key={plant._id}
             backgroundcolor="globalPlantBackgroundColor"
           >
             <InfoLinkContainerContent>
