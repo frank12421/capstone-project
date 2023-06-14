@@ -25,5 +25,14 @@ export default async function handler(request, response) {
     } catch (error) {
       response.status(400).json({ error: error.message });
     }
+  } else if (request.method === "DELETE") {
+    try {
+      const { id } = request.body;
+      await Plant.findByIdAndRemove(id);
+
+      response.status(200).json({ status: "Plant deleted" });
+    } catch (error) {
+      response.status(400).json({ error: error.message });
+    }
   }
 }

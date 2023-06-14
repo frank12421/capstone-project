@@ -7,8 +7,8 @@ import {
 import {} from "../Styling/StyledButton";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/router";
-import { StyledIconImage } from "../Styling/StyledImage";
 import { CardContainer } from "../Card/Card.Styling";
+import { StyledIconAdd } from "../Styling/StyledIcon";
 
 async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
@@ -73,13 +73,8 @@ export default function AllPlantsSortedtList() {
             </InfoLinkContainerContent>
             {showAddButton && (
               <InfoLinkContainerButton>
-                <StyledIconImage
-                  width="35"
-                  height="35"
-                  alt=""
-                  src={"/pictures/add.svg"}
-                  priority={true}
-                  align="right"
+                <StyledIconAdd
+                  color="globalNavigationPlaceColor"
                   onClick={() => onClickAddPlant(plant._id)}
                 />
               </InfoLinkContainerButton>

@@ -1,7 +1,7 @@
 import { CardContenGrid, StyledCardFooter } from "../Styling/OldCard";
 import { CardContainer } from "../Card/Card.Styling";
 import { StyledTextButton } from "../Styling/StyledButton";
-import { StyledIconImage } from "../Styling/StyledImage";
+import { StyledIconAdd, StyledIconEqual } from "../Styling/StyledIcon";
 
 export default function HeaderPlantsAtThisPlaceList({
   placeData,
@@ -27,23 +27,12 @@ export default function HeaderPlantsAtThisPlaceList({
         <StyledCardFooter>
           <StyledTextButton type="button" onClick={toggleOnClick}>
             {addPlant ? (
-              <StyledIconImage
-                width="35"
-                height="35"
-                alt=""
-                src={"/pictures/align-justify.svg"}
-                priority={true}
+              <StyledIconEqual
                 align="right"
+                color="globalNavigationIconColor"
               />
             ) : (
-              <StyledIconImage
-                width="35"
-                height="35"
-                alt=""
-                src={"/pictures/add.svg"}
-                priority={true}
-                align="right"
-              />
+              <StyledIconAdd color="globalNavigationIconColor" />
             )}
           </StyledTextButton>
         </StyledCardFooter>

@@ -7,9 +7,12 @@ import {
 } from "@/components/Styling/OldCard";
 import { useAllPlants } from "@/utils/helper";
 import Image from "next/image";
+import PlantCardLong from "../PlantCardLong";
+import ButtonCard from "@/components/Card/ButtonCard";
 
 export default function PlantListCardLong() {
   const { data: plants, error, isLoading } = useAllPlants();
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
