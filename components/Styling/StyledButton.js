@@ -84,3 +84,19 @@ export const StyledTextButton = styled.button`
   border: none;
   cursor: pointer;
 `;
+
+export const StyledCircleButton = styled.button`
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  color: ${(props) => `var(--${props.color})`};
+  cursor: pointer;
+
+  &:hover {
+    background-color: #30400d;
+  }
+
+  &:active {
+    background-color: #d96704;
+  }
+`;
