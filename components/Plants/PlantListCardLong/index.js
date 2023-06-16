@@ -6,9 +6,23 @@ import {
 } from "@/components/Styling/OldCard";
 import { useAllPlants } from "@/utils/helper";
 import Image from "next/image";
+import useSWRMutation from "swr/mutation";
+
+async function sendRequest(url, { arg }) {
+  const response = await fetch(url, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    throw new Error("Failed to delete");
+  }
+
+  return response.json();
+}
 
 export default function PlantListCardLong() {
   const { data: plants, error, isLoading } = useAllPlants();
+  const { trigger } = useSWRMutation(`/api/plant/${plantId}`, sendRequest);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -18,11 +32,8 @@ export default function PlantListCardLong() {
   }
 
   const onClickMinusPlant = (plantId) => {
-    // const options = { new: true };
-    // const dataToUpdate = {
-    //   update: { $pull: { plants: { _id: uniquePlantId } } },
-    // };
-    // trigger({ data: dataToUpdate, options });
+    const options = { new: true };
+    trigger({ data: plantId, options });
     console.log("Click-Minus-Plant", plantId);
   };
 
