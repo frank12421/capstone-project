@@ -2,9 +2,9 @@ import {
   StyledCardList,
   StyledCardListItem,
   StyledContentRowContainer,
-} from "../Styling/OldCard";
+} from "../../Styling/OldCard";
 import Image from "next/image";
-import ButtonCard from "../Card/ButtonCard";
+import ButtonCard from "../../Card/ButtonCard";
 import { mutate } from "swr";
 
 export default function PlantCardLong({ plant }) {

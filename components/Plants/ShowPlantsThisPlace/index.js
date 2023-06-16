@@ -49,7 +49,6 @@ export default function ShowPlantsThisPlace() {
                 uniquePlantId={plant._id}
               />
             ))}
-            {console.log("Render-Plant-List")}{" "}
           </>
         ) : (
           <AllPlantsSortedtList />

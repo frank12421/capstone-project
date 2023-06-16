@@ -43,5 +43,5 @@ export const CardInfoLinkButton = styled.div`
   position: absolute;
   bottom: 0;
   right: 5px;
-  z-index: 500;
+  z-index: 100;
 `;

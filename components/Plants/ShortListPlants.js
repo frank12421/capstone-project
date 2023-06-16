@@ -3,8 +3,6 @@ import { useOnePlant } from "@/utils/helper";
 import ButtonCard from "../Card/ButtonCard";
 
 async function sendRequest(url, { arg }) {
-  console.log("URL=", url);
-  console.log("arg=", arg);
   const response = await fetch(url, {
     method: "PATCH",
     body: JSON.stringify(arg),
@@ -30,7 +28,6 @@ export default function ShortListPlants({ plantId, placeId, uniquePlantId }) {
       update: { $pull: { plants: { _id: uniquePlantId } } },
     };
     trigger({ data: dataToUpdate, options });
-    console.log("Click-Minus-ShortListPlants");
   };
 
   if (!plant.data) {
