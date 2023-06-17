@@ -92,11 +92,8 @@ export const StyledCircleButton = styled.button`
   color: ${(props) => `var(--${props.color})`};
   cursor: pointer;
 
-  &:hover {
-    background-color: #30400d;
-  }
-
+  &:hover,
   &:active {
-    background-color: #d96704;
+    color: var(--globalNavigationPlaceColor);
   }
 `;
