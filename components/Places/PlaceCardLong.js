@@ -1,11 +1,11 @@
 import { StyledLink } from "@/components/Styling/StyledButton";
 import {
-  StyledCardList,
-  StyledContentRowContainer,
-  StyledCardListItem,
+  CardContainer,
   StyledCardFooter,
-} from "@/components/Styling/OldCard";
-import { CardContainer } from "../Card/Card.Styling";
+  StyledCardList,
+  StyledCardListItem,
+  StyledContentRowContainer,
+} from "../Card/Card.Styling";
 import GreenhousePicture from "/public/pictures/Greenhouse.png";
 import OpenLandPicture from "/public/pictures/OpenLand.png";
 import RoofPicture from "/public/pictures/Roof.png";
@@ -61,7 +61,7 @@ export default function PlaceCardLong({ place }) {
         </StyledLink>
         <StyledLink
           href={{
-            pathname: `/showdateform`,
+            pathname: `/forms/showdateform`,
             query: { id: place._id },
           }}
           backgroundcolor={"globalDateBackgroundColor"}

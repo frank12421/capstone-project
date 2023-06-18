@@ -1,14 +1,8 @@
 import { fetcher, useOnePlace } from "@/utils/helper";
 import useSWR from "swr";
-import {
-  InfoLinkContainerButton,
-  InfoLinkContainerContent,
-} from "../Styling/OldCard";
-import {} from "../Styling/StyledButton";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/router";
-import { CardContainer } from "../Card/Card.Styling";
-import { StyledIconAdd } from "../Styling/StyledIcon";
+import ButtonCard from "../Card/ButtonCard";
 
 async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
@@ -61,25 +55,18 @@ export default function AllPlantsSortedtList() {
     <>
       {plantsSorted.map((plant) => {
         return (
-          <CardContainer
+          <ButtonCard
             key={plant._id}
-            backgroundcolor="globalPlantBackgroundColor"
+            backgroundcolor={"globalPlantBackgroundColor"}
+            buttonicon={showAddButton && "add"}
+            handleClick={() => onClickAddPlant(plant._id)}
           >
-            <InfoLinkContainerContent>
-              <h2>{plant.name}</h2>
-              <span>Type: {plant.type}</span> |{" "}
-              <span>Pflanzhöhe: {plant.plantheight}</span>
-              <h3>Anbaueignung: {plant.cultivation_suitability}</h3>
-            </InfoLinkContainerContent>
-            {showAddButton && (
-              <InfoLinkContainerButton>
-                <StyledIconAdd
-                  color="globalNavigationPlaceColor"
-                  onClick={() => onClickAddPlant(plant._id)}
-                />
-              </InfoLinkContainerButton>
-            )}
-          </CardContainer>
+            <h2>{plant.name}</h2>
+            <span>
+              Type: {plant.type} | Pflanzhöhe: {plant.plantheight}
+            </span>
+            <h3>Anbaueignung: {plant.cultivation_suitability}</h3>
+          </ButtonCard>
         );
       })}
     </>

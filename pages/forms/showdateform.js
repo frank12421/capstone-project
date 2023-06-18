@@ -18,7 +18,7 @@ export default function ShowDateForm({ dates, setDates }) {
       <StyledHeader position="sticky">
         <h1 id="NewDateForPlaces">Einen Termin anlegen</h1>
         <StyledNavigationContainer>
-          <NavigationBack href="lists/placelist" />
+          <NavigationBack href="/lists/placelist" />
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain>

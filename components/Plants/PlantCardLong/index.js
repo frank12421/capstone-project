@@ -1,13 +1,13 @@
-import {
-  StyledCardList,
-  StyledCardListItem,
-  StyledContentRowContainer,
-} from "../../Styling/OldCard";
 import ButtonCard from "../../Card/ButtonCard";
 import { mutate } from "swr";
 import TomatoPicture from "/public/pictures/TomatoPicture.png";
 import EggPlantPicture from "/public/pictures/EggPlantPicture.png";
 import { StyledPlantImage } from "@/components/Styling/StyledImage";
+import {
+  StyledCardList,
+  StyledCardListItem,
+  StyledContentRowContainer,
+} from "@/components/Card/Card.Styling";
 
 export default function PlantCardLong({ plant }) {
   const deletePlant = async (plantId) => {
