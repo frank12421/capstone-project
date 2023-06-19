@@ -45,3 +45,33 @@ export const CardInfoLinkButton = styled.div`
   right: 5px;
   z-index: 100;
 `;
+
+export const StyledCardList = styled.ul`
+  width: 100%;
+  margin: 0;
+  list-style: none;
+`;
+export const StyledCardListItem = styled.li`
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+`;
+
+export const StyledContentRowContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+`;
+
+export const StyledGridContainer = styled.section`
+  width: 80%;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  align-items: center;
+`;
+
+export const StyledCardFooter = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;

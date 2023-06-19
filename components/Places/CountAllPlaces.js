@@ -1,7 +1,10 @@
 import { useAllPlaces } from "@/utils/helper";
-import { StyledGridContainer } from "../Styling/OldCard";
-import { StyledBigFigure, StyledBigText } from "../Card/Card.Styling";
-import InfoCard from "../Card/InfoCard";
+import {
+  StyledBigFigure,
+  StyledBigText,
+  StyledGridContainer,
+} from "../Card/Card.Styling";
+import LinkCard from "../Card/LinkCard";
 
 export default function CountAllPlaces() {
   const places = useAllPlaces();
@@ -12,7 +15,7 @@ export default function CountAllPlaces() {
   const countPlaces = places.data.length;
 
   return (
-    <InfoCard
+    <LinkCard
       href={"lists/placelist"}
       backgroundcolor="globalPlaceBackgroundColor"
     >
@@ -20,6 +23,6 @@ export default function CountAllPlaces() {
         <StyledBigText>Standorte gesamt: </StyledBigText>
         <StyledBigFigure>{countPlaces}</StyledBigFigure>
       </StyledGridContainer>
-    </InfoCard>
+    </LinkCard>
   );
 }

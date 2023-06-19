@@ -1,18 +1,35 @@
 import { StyledLink } from "@/components/Styling/StyledButton";
 import {
-  StyledCardList,
-  StyledContentRowContainer,
-  StyledCardListItem,
+  CardContainer,
   StyledCardFooter,
-} from "@/components/Styling/OldCard";
-import Image from "next/image";
-import { CardContainer } from "../Card/Card.Styling";
+  StyledCardList,
+  StyledCardListItem,
+  StyledContentRowContainer,
+} from "../Card/Card.Styling";
+import GreenhousePicture from "/public/pictures/Greenhouse.png";
+import OpenLandPicture from "/public/pictures/OpenLand.png";
+import RoofPicture from "/public/pictures/Roof.png";
+import PeoplePicture from "/public/pictures/People.png";
+import { StyledPlaceImage } from "../Styling/StyledImage";
 
 export default function PlaceCardLong({ place }) {
-  const imageSource =
-    place.location !== "Sonstiges"
-      ? `/pictures/Place-${place.location}.png`
-      : `/pictures/Place-People.png`;
+  let imageSource;
+  switch (place.location) {
+    case "Dach":
+      imageSource = RoofPicture;
+      break;
+    case "Gewächshaus":
+      imageSource = GreenhousePicture;
+      break;
+    case "Freiland":
+      imageSource = OpenLandPicture;
+      break;
+    case "Sonstiges":
+      imageSource = PeoplePicture;
+      break;
+    default:
+      imageSource = OpenLandPicture;
+  }
 
   return (
     <CardContainer
@@ -21,13 +38,7 @@ export default function PlaceCardLong({ place }) {
     >
       <h2>{place.name}</h2>
       <StyledContentRowContainer>
-        <Image
-          src={imageSource}
-          alt="Standort"
-          width="90"
-          height="90"
-          style={{ objectFit: "contain" }}
-        />
+        <StyledPlaceImage src={imageSource} alt="Standort" />
         <StyledCardList>
           <StyledCardListItem>
             Kapazität: {place.plants.length} / {place.capacity}
@@ -50,7 +61,7 @@ export default function PlaceCardLong({ place }) {
         </StyledLink>
         <StyledLink
           href={{
-            pathname: `/showdateform`,
+            pathname: `/forms/showdateform`,
             query: { id: place._id },
           }}
           backgroundcolor={"globalDateBackgroundColor"}

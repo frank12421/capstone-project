@@ -2,8 +2,9 @@ import { StyledHomeHeader, StyledSubHeader } from "@/components/Styling/Header";
 import { StyledMain } from "@/components/Styling/Main";
 import ShowDatesList from "@/components/Dates/ShowDatesList";
 import CountAllPlants from "@/components/Plants/CountAllPlants";
-import { StyledImage } from "@/components/Styling/StyledImage";
+import { StyledHeadImage } from "@/components/Styling/StyledImage";
 import CountAllPlaces from "@/components/Places/CountAllPlaces";
+import HeadPic from "/public/pictures/GrowGreenHead.png";
 
 export default function HomePage({ dates, places }) {
   return (
@@ -15,15 +16,8 @@ export default function HomePage({ dates, places }) {
             <h2>Gärtnern leicht gemacht</h2>
           </StyledSubHeader>
         </div>
-        <StyledImage
-          width="150"
-          height="80"
-          alt="Pflanze"
-          src={"/pictures/GrowGreenHead.svg"}
-          priority={true}
-        />
+        <StyledHeadImage src={HeadPic} alt="Gezeichnete Pflanze" />
       </StyledHomeHeader>
-
       <StyledMain gap="20" margintop="30">
         <ShowDatesList />
         <CountAllPlaces />

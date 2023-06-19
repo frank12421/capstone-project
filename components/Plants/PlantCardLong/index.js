@@ -1,11 +1,13 @@
+import ButtonCard from "../../Card/ButtonCard";
+import { mutate } from "swr";
+import TomatoPicture from "/public/pictures/TomatoPicture.png";
+import EggPlantPicture from "/public/pictures/EggPlantPicture.png";
+import { StyledPlantImage } from "@/components/Styling/StyledImage";
 import {
   StyledCardList,
   StyledCardListItem,
   StyledContentRowContainer,
-} from "../../Styling/OldCard";
-import Image from "next/image";
-import ButtonCard from "../../Card/ButtonCard";
-import { mutate } from "swr";
+} from "@/components/Card/Card.Styling";
 
 export default function PlantCardLong({ plant }) {
   const deletePlant = async (plantId) => {
@@ -36,17 +38,9 @@ export default function PlantCardLong({ plant }) {
     >
       <h2>{plant.name}</h2>
       <StyledContentRowContainer>
-        <Image
-          src={
-            plant.type === "Normal"
-              ? "/pictures/Plant1.svg"
-              : "/pictures/Plant2.svg"
-          }
+        <StyledPlantImage
+          src={plant.type === "Normal" ? TomatoPicture : EggPlantPicture}
           alt="Pflanze"
-          width="50"
-          height="100"
-          style={{ objectFit: "contain" }}
-          priority
         />
         <StyledCardList>
           <StyledCardListItem>Type: {plant.type}</StyledCardListItem>

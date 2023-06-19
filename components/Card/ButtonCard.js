@@ -2,6 +2,7 @@ import { CardContainer, CardInfoLinkButton } from "./Card.Styling";
 import {
   StyledIconAdd,
   StyledIconArrowBack,
+  StyledIconEqual,
   StyledIconInfoCircle,
   StyledIconMinus,
 } from "../Styling/StyledIcon";
@@ -11,6 +12,7 @@ export default function ButtonCard({
   handleClick,
   backgroundcolor,
   buttonicon,
+  align,
   children,
 }) {
   return (
@@ -18,10 +20,11 @@ export default function ButtonCard({
       {children}
       <CardInfoLinkButton>
         <StyledCircleButton onClick={handleClick}>
-          {buttonicon === "minus" && <StyledIconMinus />}
-          {buttonicon === "add" && <StyledIconAdd />}
-          {buttonicon === "info" && <StyledIconInfoCircle />}
-          {buttonicon === "back" && <StyledIconArrowBack />}
+          {buttonicon === "minus" && <StyledIconMinus align={align} />}
+          {buttonicon === "add" && <StyledIconAdd align={align} />}
+          {buttonicon === "info" && <StyledIconInfoCircle align={align} />}
+          {buttonicon === "back" && <StyledIconArrowBack align={align} />}
+          {buttonicon === "equal" && <StyledIconEqual align={align} />}
         </StyledCircleButton>
       </CardInfoLinkButton>
     </CardContainer>
