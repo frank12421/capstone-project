@@ -15,7 +15,7 @@ export default function HeaderPlantsAtThisPlaceList({
     <>
       <ButtonCard
         backgroundcolor={"globalPlaceBackgroundColor"}
-        buttonicon={addPlant ? "add" : "equal"}
+        buttonicon={addPlant ? "equal" : "add"}
         handleClick={toggleOnClick}
       >
         <span>
