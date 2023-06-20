@@ -6,6 +6,7 @@ import {
   LuMinusCircle,
   LuCircleEqual,
   LuXCircle,
+  LuCheckCircle,
 } from "react-icons/lu";
 
 export const StyledIconInfoCircle = styled(LuInfo)`
@@ -40,6 +41,13 @@ export const StyledIconEqual = styled(LuCircleEqual)`
 `;
 
 export const StyledIconX = styled(LuXCircle)`
+  color: ${({ color }) => `var(--${color})`};
+  font-size: 2rem;
+  margin-left: ${(props) => (props.align === "right" ? "auto" : "initial")};
+  margin-right: ${(props) => (props.align === "left" ? "auto" : "initial")};
+`;
+
+export const StyledIconCheck = styled(LuCheckCircle)`
   color: ${({ color }) => `var(--${color})`};
   font-size: 2rem;
   margin-left: ${(props) => (props.align === "right" ? "auto" : "initial")};
