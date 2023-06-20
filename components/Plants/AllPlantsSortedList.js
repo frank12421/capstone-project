@@ -1,5 +1,4 @@
-import { fetcher, sendPatchRequest, useOnePlace } from "@/utils/helper";
-import useSWR from "swr";
+import { sendPatchRequest, useAllPlants, useOnePlace } from "@/utils/helper";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/router";
 import ButtonCard from "../Card/ButtonCard";
@@ -13,7 +12,8 @@ export default function AllPlantsSortedtList() {
     `/api/places/${site.id}`,
     sendPatchRequest
   );
-  const { data, error, isLoading } = useSWR(`/api/plants/`, fetcher);
+
+  const { data, error, isLoading } = useAllPlants();
 
   if (error) {
     return <div>Error: {error.message}</div>;

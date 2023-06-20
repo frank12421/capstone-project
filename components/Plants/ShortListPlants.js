@@ -2,7 +2,7 @@ import useSWRMutation from "swr/mutation";
 import { sendPatchRequest, useOnePlant } from "@/utils/helper";
 import ButtonCard from "../Card/ButtonCard";
 
-ShortListPlants({ plantId, placeId, uniquePlantId }) {
+export default function ShortListPlants({ plantId, placeId, uniquePlantId }) {
   const plant = useOnePlant(plantId);
   const { trigger } = useSWRMutation(
     `/api/places/${placeId}`,
