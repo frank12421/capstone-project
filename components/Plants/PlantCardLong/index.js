@@ -56,7 +56,7 @@ export default function PlantCardLong({ plant }) {
         key={plant._id}
         handleClick={() => setshowConfirmation(!showConfirmation)}
         backgroundcolor="globalPlantBackgroundColor"
-        buttonicon={!showConfirmation ? "minus" : null}
+        buttonicon={!showConfirmation ? "minus" : "X"}
       >
         <h2>{plant.name}</h2>
         <StyledContentRowContainer>
@@ -93,12 +93,6 @@ export default function PlantCardLong({ plant }) {
               onClick={() => handleConfirmClick(true, plant._id)}
             >
               <StyledIconCheck color="globalNavigationPlantColor" />
-            </StyledCircleButton>
-            <StyledCircleButton
-              type="button"
-              onClick={() => handleConfirmClick(false)}
-            >
-              <StyledIconX color="globalLightColor" />
             </StyledCircleButton>
           </StyledCardFooter>
         </CardContainer>

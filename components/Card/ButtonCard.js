@@ -5,6 +5,7 @@ import {
   StyledIconEqual,
   StyledIconInfoCircle,
   StyledIconMinus,
+  StyledIconX,
 } from "../Styling/StyledIcon";
 import { StyledCircleButton } from "../Styling/StyledButton";
 
@@ -25,6 +26,7 @@ export default function ButtonCard({
           {buttonicon === "info" && <StyledIconInfoCircle align={align} />}
           {buttonicon === "back" && <StyledIconArrowBack align={align} />}
           {buttonicon === "equal" && <StyledIconEqual align={align} />}
+          {buttonicon === "X" && <StyledIconX align={align} />}
         </StyledCircleButton>
       </CardInfoLinkButton>
     </CardContainer>
