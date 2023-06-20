@@ -11,23 +11,10 @@ import {
   SubmitButton,
   Textarea,
 } from "../Styling/StyledForm.js";
-
-async function sendRequest(url, { arg }) {
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(arg),
-  });
-
-  if (!response.ok) {
-    console.error(response.status);
-  }
-}
+import { sendPostRequest } from "@/utils/helper.js";
 
 export default function DateForm({ locationId }) {
-  const { trigger } = useSWRMutation(`/api/dates/`, sendRequest);
+  const { trigger } = useSWRMutation(`/api/dates/`, sendPostRequest);
   const [savedStatus, setSavedStatus] = useState(false);
   const [dateseries, setDateseries] = useState(false);
 

@@ -7,23 +7,10 @@ import {
   SubmitButton,
 } from "../Styling/StyledForm.js";
 import { useState } from "react";
-
-async function sendRequest(url, { arg }) {
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(arg),
-  });
-
-  if (!response.ok) {
-    console.error(response.status);
-  }
-}
+import { sendPostRequest } from "@/utils/helper.js";
 
 export default function AddPlaceForm() {
-  const { trigger } = useSWRMutation(`/api/places/`, sendRequest);
+  const { trigger } = useSWRMutation(`/api/places/`, sendPostRequest);
   const [savedStatus, setSavedStatus] = useState(false);
 
   function handleSubmit(event) {
