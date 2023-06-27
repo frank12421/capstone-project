@@ -1,10 +1,10 @@
-import ButtonCard from "../../Card/ButtonCard";
 import { mutate } from "swr";
 import TomatoPicture from "/public/pictures/TomatoPicture.png";
 import EggPlantPicture from "/public/pictures/EggPlantPicture.png";
 import { StyledPlantImage } from "@/components/Styling/StyledImage";
 import {
   CardContainer,
+  CardInfoLinkButton,
   StyledCardFooter,
   StyledCardList,
   StyledCardListItem,
@@ -12,8 +12,9 @@ import {
 } from "@/components/Card/Card.Styling";
 import { useEffect, useState, useRef } from "react";
 import {
-  StyledIconCheck,
-  StyledIconEqual,
+  StyledIconEdit,
+  StyledIconSettings,
+  StyledIconTrash,
 } from "@/components/Styling/StyledIcon";
 import { StyledCircleButton } from "@/components/Styling/StyledButton";
 import { router } from "next/router";
@@ -33,7 +34,7 @@ export default function PlantCardLong({ plant }) {
     }
   };
 
-  const handleConfirmClick = async (event, plantId) => {
+  const handleDeleteClick = async (event, plantId) => {
     if (event) {
       try {
         await deletePlant(plantId);
@@ -60,11 +61,9 @@ export default function PlantCardLong({ plant }) {
 
   return (
     <>
-      <ButtonCard
+      <CardContainer
         key={plant._id}
-        handleClick={() => setshowConfirmation(!showConfirmation)}
         backgroundcolor="globalPlantBackgroundColor"
-        buttonicon={!showConfirmation ? "minus" : "X"}
       >
         <h2>{plant.name}</h2>
         <StyledContentRowContainer>
@@ -88,25 +87,38 @@ export default function PlantCardLong({ plant }) {
             </StyledCardListItem>
           </StyledCardList>
         </StyledContentRowContainer>
-      </ButtonCard>
+        <CardInfoLinkButton>
+          <StyledCircleButton
+            onClick={() => setshowConfirmation(!showConfirmation)}
+          >
+            <StyledIconSettings />
+          </StyledCircleButton>
+        </CardInfoLinkButton>
+      </CardContainer>
+      {/* </></ButtonCard> */}
       {showConfirmation && (
         <CardContainer
           backgroundcolor="globalDateBackgroundColor"
           ref={confirmationRef}
         >
           <StyledCardFooter>
-            <h2>Wirklich löschen?</h2>
+            <h3>Pflanze löschen?</h3>
             <StyledCircleButton
               type="button"
-              onClick={() => handleConfirmClick(true, plant._id)}
+              onClick={() => handleDeleteClick(true, plant._id)}
             >
-              <StyledIconCheck color="globalNavigationPlantColor" />
+              <StyledIconTrash
+                size="1.5rem"
+                color="globalNavigationPlantColor"
+              />
             </StyledCircleButton>
+
+            <h3>Daten bearbeiten:</h3>
             <StyledCircleButton
               type="button"
               onClick={() => handleEditClick(plant._id)}
             >
-              <StyledIconEqual />
+              <StyledIconEdit size="1.5rem" color="globalNavigationIconColor" />
             </StyledCircleButton>
           </StyledCardFooter>
         </CardContainer>

@@ -7,6 +7,9 @@ import {
   LuCircleEqual,
   LuXCircle,
   LuCheckCircle,
+  LuSettings,
+  LuTrash2,
+  LuEdit3,
 } from "react-icons/lu";
 
 export const StyledIconInfoCircle = styled(LuInfo)`
@@ -48,6 +51,27 @@ export const StyledIconX = styled(LuXCircle)`
 `;
 
 export const StyledIconCheck = styled(LuCheckCircle)`
+  color: ${({ color }) => `var(--${color})`};
+  font-size: 2rem;
+  margin-left: ${(props) => (props.align === "right" ? "auto" : "initial")};
+  margin-right: ${(props) => (props.align === "left" ? "auto" : "initial")};
+`;
+
+export const StyledIconSettings = styled(LuSettings)`
+  color: ${({ color }) => `var(--${color})`};
+  font-size: 2rem;
+  margin-left: ${(props) => (props.align === "right" ? "auto" : "initial")};
+  margin-right: ${(props) => (props.align === "left" ? "auto" : "initial")};
+`;
+
+export const StyledIconTrash = styled(LuTrash2)`
+  color: ${({ color }) => `var(--${color})`};
+  font-size: 2rem;
+  margin-left: ${(props) => (props.align === "right" ? "auto" : "initial")};
+  margin-right: ${(props) => (props.align === "left" ? "auto" : "initial")};
+`;
+
+export const StyledIconEdit = styled(LuEdit3)`
   color: ${({ color }) => `var(--${color})`};
   font-size: 2rem;
   margin-left: ${(props) => (props.align === "right" ? "auto" : "initial")};

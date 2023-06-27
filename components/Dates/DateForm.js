@@ -11,10 +11,10 @@ import {
   SubmitButton,
   Textarea,
 } from "../Styling/StyledForm.js";
-import { sendPostRequest } from "@/utils/helper.js";
+import { sendRequest } from "@/utils/helper.js";
 
 export default function DateForm({ locationId }) {
-  const { trigger } = useSWRMutation(`/api/dates/`, sendPostRequest);
+  const { trigger } = useSWRMutation(`/api/dates/`, sendRequest);
   const [savedStatus, setSavedStatus] = useState(false);
   const [dateseries, setDateseries] = useState(false);
 
@@ -27,7 +27,7 @@ export default function DateForm({ locationId }) {
       location: locationId,
       data: dataEntries,
     };
-    trigger(data);
+    trigger({ method: "POST", data });
     setSavedStatus(!savedStatus);
     setTimeout(() => setSavedStatus(false), 2000);
   }

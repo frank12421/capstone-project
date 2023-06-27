@@ -61,7 +61,6 @@ export async function sendPatchRequest(url, { arg }) {
 }
 
 export async function sendRequest(url, { arg }) {
-  console.log("arg=", arg);
   const response = await fetch(url, {
     method: arg.method,
     body: JSON.stringify(arg),
