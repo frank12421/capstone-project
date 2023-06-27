@@ -7,17 +7,22 @@ import {
   SubmitButton,
 } from "../Styling/StyledForm.js";
 import { useState } from "react";
-import { sendPostRequest } from "@/utils/helper.js";
+import { sendRequest } from "@/utils/helper.js";
 
-export default function AddPlantForm() {
-  const { trigger } = useSWRMutation(`/api/plants/`, sendPostRequest);
+export default function AddPlantForm({ url, plantData }) {
   const [savedStatus, setSavedStatus] = useState(false);
+
+  const { trigger } = useSWRMutation(url, sendRequest);
 
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-    trigger(data);
+    const newData = Object.fromEntries(formData);
+
+    plantData
+      ? trigger({ method: "PATCH", newData })
+      : trigger({ method: "POST", newData });
+
     setSavedStatus(!savedStatus);
     setTimeout(() => setSavedStatus(false), 2000);
   }
@@ -27,12 +32,21 @@ export default function AddPlantForm() {
       aria-labelledby="NewPlant"
       onSubmit={handleSubmit}
       backgroundcolor="globalPlantBackgroundColor"
-      autoComplete="off"
     >
       <Label htmlFor="name">Name</Label>
-      <Input id="name" type="text" name="name" />
+      <Input
+        id="name"
+        type="text"
+        name="name"
+        defaultValue={plantData && plantData.name}
+      />
       <Label htmlFor="type">Typ</Label>
-      <Input id="type" type="text" name="type" />
+      <Input
+        id="type"
+        type="text"
+        name="type"
+        defaultValue={plantData && plantData.type}
+      />
       <Label htmlFor="plantheight">Pflanzenhöhe</Label>
       <Input
         id="plantheight"
@@ -40,11 +54,13 @@ export default function AddPlantForm() {
         name="plantheight"
         min="1"
         max="500"
+        defaultValue={plantData && plantData.plantheight}
       />
       <Label htmlFor="cultivation_suitability">Anbaueignung</Label>
       <Select
         id="cultivation_suitability"
         name="cultivation_suitability"
+        defaultValue={plantData && plantData.cultivation_suitability}
         required
       >
         <option value="Gewächshaus">Gewächshaus</option>
@@ -53,9 +69,19 @@ export default function AddPlantForm() {
         <option value="Sonstiges">Sonstiges</option>
       </Select>
       <Label htmlFor="fruit_shape">Fruchtform</Label>
-      <Input id="fruit_shape" type="text" name="fruit_shape" />
+      <Input
+        id="fruit_shape"
+        type="text"
+        name="fruit_shape"
+        defaultValue={plantData && plantData.fruit_shape}
+      />
       <Label htmlFor="fruit_color">Fruchtfarbe</Label>
-      <Input id="fruit_color" type="text" name="fruit_color" />
+      <Input
+        id="fruit_color"
+        type="text"
+        name="fruit_color"
+        defaultValue={plantData && plantData.fruit_color}
+      />
       {!savedStatus ? (
         <SubmitButton type="submit" backgroundcolor="globalDateBackgroundColor">
           Jetzt Speichern

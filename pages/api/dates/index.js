@@ -12,7 +12,7 @@ export default async function handler(request, response) {
     }
   } else if (request.method === "POST") {
     try {
-      const dates = request.body;
+      const dates = request.body.data;
       await Dates.create(dates);
 
       response.status(201).json({ status: "Date created" });

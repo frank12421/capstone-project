@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const FormContainer = styled.form`
   width: 95%;
-  margin: 20px;
   padding: 20px 0px;
   background-color: ${(props) => `var(--${props.backgroundcolor})`};
   box-shadow: var(--globalBorderShadow);

@@ -17,6 +17,9 @@ export default createGlobalStyle`
   *::after {
     box-sizing: border-box;
   }
+  *:focus {
+  scroll-padding-block-end: 8vh;
+}
 
 html {
 --globalAppBackgroundColor: #1C3D59;

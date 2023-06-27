@@ -43,22 +43,26 @@ export const useAllDates = () => {
   const isLoading = !data && !error;
   return { data, error, isLoading };
 };
-export async function sendPostRequest(url, { arg }) {
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(arg),
-  });
 
-  if (!response.ok) {
-    console.error(response.status);
-  }
-}
 export async function sendPatchRequest(url, { arg }) {
   const response = await fetch(url, {
     method: "PATCH",
+    body: JSON.stringify(arg),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (response.ok) {
+    await response.json();
+  } else {
+    console.error(`Error: ${response.status}`);
+  }
+}
+
+export async function sendRequest(url, { arg }) {
+  const response = await fetch(url, {
+    method: arg.method,
     body: JSON.stringify(arg),
     headers: {
       "Content-Type": "application/json",

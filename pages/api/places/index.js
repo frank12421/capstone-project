@@ -12,7 +12,7 @@ export default async function handler(request, response) {
     }
   } else if (request.method === "POST") {
     try {
-      const placesData = request.body;
+      const placesData = request.body.data;
       await Places.create(placesData);
 
       response.status(201).json({ status: "Place created" });

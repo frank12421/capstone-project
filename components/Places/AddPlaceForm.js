@@ -7,17 +7,17 @@ import {
   SubmitButton,
 } from "../Styling/StyledForm.js";
 import { useState } from "react";
-import { sendPostRequest } from "@/utils/helper.js";
+import { sendRequest } from "@/utils/helper.js";
 
 export default function AddPlaceForm() {
-  const { trigger } = useSWRMutation(`/api/places/`, sendPostRequest);
+  const { trigger } = useSWRMutation(`/api/places/`, sendRequest);
   const [savedStatus, setSavedStatus] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    trigger(data);
+    trigger({ method: "POST", data });
     setSavedStatus(!savedStatus);
     setTimeout(() => setSavedStatus(false), 2000);
   }

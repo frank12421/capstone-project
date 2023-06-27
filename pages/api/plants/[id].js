@@ -3,7 +3,6 @@ import Plant from "@/db/models/Plant";
 
 export default async function handler(request, response) {
   await dbConnect();
-
   if (request.method === "GET") {
     try {
       const { id } = request.query;
@@ -12,6 +11,11 @@ export default async function handler(request, response) {
     } catch (error) {
       return response.status(404).json({ status: "Not Found" });
     }
+  } else if (request.method === "PATCH") {
+    const { id } = request.query;
+    const { newData, options } = request.body;
+    const updatedPlant = await Plant.findByIdAndUpdate(id, newData, options);
+    response.status(200).json(updatedPlant);
   } else if (request.method === "DELETE") {
     try {
       const { id } = request.query;
