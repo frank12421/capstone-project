@@ -14,7 +14,7 @@ export default function addPlant(id) {
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain>
-        <AddPlantForm />
+        <AddPlantForm url="/api/plants/" />
       </StyledMain>
     </>
   );

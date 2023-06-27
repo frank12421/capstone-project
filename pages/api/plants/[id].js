@@ -12,8 +12,10 @@ export default async function handler(request, response) {
       return response.status(404).json({ status: "Not Found" });
     }
   } else if (request.method === "PATCH") {
+    console.log("api/plant/id-Patch", request.body);
     const { id } = request.query;
     const { newData, options } = request.body;
+    console.log("newData", newData);
     const updatedPlant = await Plant.findByIdAndUpdate(id, newData, options);
     response.status(200).json(updatedPlant);
   } else if (request.method === "DELETE") {

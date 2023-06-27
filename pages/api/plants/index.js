@@ -12,7 +12,7 @@ export default async function handler(request, response) {
     }
   } else if (request.method === "POST") {
     try {
-      const plantData = request.body;
+      const plantData = request.body.newData;
       await Plant.create(plantData);
 
       response.status(201).json({ status: "Plant created" });

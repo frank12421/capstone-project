@@ -7,27 +7,22 @@ import {
   SubmitButton,
 } from "../Styling/StyledForm.js";
 import { useState } from "react";
-import { sendPatchRequest, sendPostRequest } from "@/utils/helper.js";
+import { sendRequest } from "@/utils/helper.js";
 
-export default function AddPlantForm({ plantData }) {
+export default function AddPlantForm({ url, plantData }) {
   const [savedStatus, setSavedStatus] = useState(false);
-  let myURL;
 
-  if (!plantData) {
-    myURL = `/api/plants/`;
-  } else {
-    myURL = `/api/plants/${plantData._id}`;
-  }
-
-  const { trigger: postTrigger } = useSWRMutation(myURL, sendPostRequest);
-  const { trigger: patchTrigger } = useSWRMutation(myURL, sendPatchRequest);
+  const { trigger } = useSWRMutation(url, sendRequest);
 
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const newData = Object.fromEntries(formData);
 
-    plantData ? patchTrigger({ newData }) : postTrigger(newData);
+    plantData
+      ? trigger({ method: "PATCH", newData })
+      : trigger({ method: "POST", newData });
+
     setSavedStatus(!savedStatus);
     setTimeout(() => setSavedStatus(false), 2000);
   }

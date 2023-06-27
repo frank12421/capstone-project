@@ -33,7 +33,7 @@ export default function EditPlant() {
           </StyledNavigationContainer>
         </StyledHeader>
         <StyledMain>
-          <AddPlantForm plantData={data} />
+          <AddPlantForm url={`/api/plants/${data._id}`} plantData={data} />
         </StyledMain>
       </>
     </>
