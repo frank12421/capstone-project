@@ -11,8 +11,12 @@ import {
   StyledContentRowContainer,
 } from "@/components/Card/Card.Styling";
 import { useEffect, useState, useRef } from "react";
-import { StyledIconCheck, StyledIconX } from "@/components/Styling/StyledIcon";
+import {
+  StyledIconCheck,
+  StyledIconEqual,
+} from "@/components/Styling/StyledIcon";
 import { StyledCircleButton } from "@/components/Styling/StyledButton";
+import { router } from "next/router";
 
 export default function PlantCardLong({ plant }) {
   const [showConfirmation, setshowConfirmation] = useState(false);
@@ -39,6 +43,10 @@ export default function PlantCardLong({ plant }) {
     } else {
       setshowConfirmation(false);
     }
+  };
+
+  const handleEditClick = (id) => {
+    router.push(`/plant/${id}`);
   };
 
   useEffect(() => {
@@ -93,6 +101,12 @@ export default function PlantCardLong({ plant }) {
               onClick={() => handleConfirmClick(true, plant._id)}
             >
               <StyledIconCheck color="globalNavigationPlantColor" />
+            </StyledCircleButton>
+            <StyledCircleButton
+              type="button"
+              onClick={() => handleEditClick(plant._id)}
+            >
+              <StyledIconEqual />
             </StyledCircleButton>
           </StyledCardFooter>
         </CardContainer>

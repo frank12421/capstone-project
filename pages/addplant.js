@@ -4,7 +4,7 @@ import { StyledHeader } from "@/components/Styling/Header";
 import NavigationBack from "@/components/Navigation/NavigationBack";
 import AddPlantForm from "@/components/Plants/AddPlantForm";
 
-export default function addPlant() {
+export default function addPlant(id) {
   return (
     <>
       <StyledHeader position="sticky">
