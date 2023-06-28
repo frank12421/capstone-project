@@ -14,12 +14,18 @@ import OpenLandPicture from "/public/pictures/OpenLand.png";
 import RoofPicture from "/public/pictures/Roof.png";
 import PeoplePicture from "/public/pictures/People.png";
 import { StyledPlaceImage } from "../Styling/StyledImage";
-import { useState } from "react";
-import { StyledIconSettings, StyledIconTrash } from "../Styling/StyledIcon";
+import { useEffect, useRef, useState } from "react";
+import {
+  StyledIconEdit,
+  StyledIconSettings,
+  StyledIconTrash,
+} from "../Styling/StyledIcon";
 import { mutate } from "swr";
+import { router } from "next/router";
 
 export default function PlaceCardLong({ place }) {
   const [toggleSettings, setToggleSettings] = useState(false);
+  const confirmationRef = useRef(null);
 
   let imageSource;
   switch (place.location) {
@@ -38,6 +44,11 @@ export default function PlaceCardLong({ place }) {
     default:
       imageSource = OpenLandPicture;
   }
+
+  const handleEditClick = (id) => {
+    router.push(`/place/${id}`);
+  };
+
   const deletePlace = async (placeId) => {
     const response = await fetch(`/api/places/${placeId}`, {
       method: "DELETE",
@@ -61,6 +72,15 @@ export default function PlaceCardLong({ place }) {
       setToggleSettings(false);
     }
   };
+
+  useEffect(() => {
+    if (toggleSettings && confirmationRef.current) {
+      confirmationRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }
+  }, [toggleSettings]);
 
   return (
     <>
@@ -92,18 +112,28 @@ export default function PlaceCardLong({ place }) {
         </CardInfoLinkButton>
       </CardContainer>
       {toggleSettings && (
-        <CardContainer backgroundcolor="globalDateBackgroundColor">
-          <h3>Pflanze löschen?</h3>
+        <CardContainer
+          backgroundcolor="globalDateBackgroundColor"
+          ref={confirmationRef}
+        >
+          <h3>Standort löschen?</h3>
           <StyledCircleButton
             type="button"
             onClick={() => handleDeleteClick(true, place._id)}
           >
             <StyledIconTrash color="globalNavigationPlantColor" />
           </StyledCircleButton>
+          <h3>Standort bearbeiten:</h3>
+          <StyledCircleButton
+            type="button"
+            onClick={() => handleEditClick(place._id)}
+          >
+            <StyledIconEdit color="globalNavigationIconColor" />
+          </StyledCircleButton>
 
           <StyledLink
             href={{
-              pathname: `/place/${place._id}`,
+              pathname: `/place/plant/${place._id}`,
             }}
             backgroundcolor={"globalPlantBackgroundColor"}
           >
