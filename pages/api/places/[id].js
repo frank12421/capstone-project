@@ -25,5 +25,13 @@ export default async function handler(request, response) {
       options
     );
     response.status(200).json(updatedPlace);
+  } else if (request.method === "DELETE") {
+    try {
+      const { id } = request.query;
+      await Places.findByIdAndRemove(id);
+      response.status(200).json({ status: "Place deleted" });
+    } catch (error) {
+      response.status(400).json({ error: error.message });
+    }
   }
 }
