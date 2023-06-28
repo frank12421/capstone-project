@@ -11,20 +11,6 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-export const StyledButton = styled.button`
-  margin-bottom: 0.5rem;
-  color: ${({ color }) => color || "lightgrey"};
-  background-color: lightgray;
-  border: 1px solid darkgreen;
-  border-radius: 0.2rem;
-  text-decoration: none;
-  font-size: 1rem;
-  cursor: pointer;
-  &:hover {
-    font-weight: 500;
-  }
-`;
-
 export const StyledTextButton = styled.button`
   background-color: transparent;
   border: none;

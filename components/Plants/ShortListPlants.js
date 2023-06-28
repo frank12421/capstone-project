@@ -1,35 +1,38 @@
 import useSWRMutation from "swr/mutation";
-
-import ButtonCard from "../Card/ButtonCard";
-import { sendPatchRequest, useOnePlant } from "@/utils/helper";
+import { sendRequest, useOnePlant } from "@/utils/helper";
+import { CardContainer, CardInfoLinkButton } from "../Card/Card.Styling";
+import { StyledIconMinus } from "../Styling/StyledIcon";
+import { StyledCircleButton } from "../Styling/StyledButton";
 
 export default function ShortListPlants({ plantId, placeId, uniquePlantId }) {
   const plant = useOnePlant(plantId);
-  const { trigger } = useSWRMutation(
-    `/api/places/${placeId}`,
-    sendPatchRequest
-  );
+  const { trigger } = useSWRMutation(`/api/places/${placeId}`, sendRequest);
 
   const onClickMinusPlant = (uniquePlantId) => {
     const options = { new: true };
     const dataToUpdate = {
       update: { $pull: { plants: { _id: uniquePlantId } } },
     };
-    trigger({ data: dataToUpdate, options });
+    trigger({ method: "PATCH", data: dataToUpdate, options });
   };
 
   if (!plant.data) {
     return null;
   } else {
     return (
-      <ButtonCard
-        handleClick={() => onClickMinusPlant(uniquePlantId)}
-        backgroundcolor="globalPlantBackgroundColor"
-        buttonicon="minus"
-      >
+      <CardContainer backgroundcolor="globalPlantBackgroundColor">
         <h2>{plant.data.name}</h2>
         Code: {uniquePlantId}
-      </ButtonCard>
+        <CardInfoLinkButton>
+          <StyledCircleButton
+            type="button"
+            onClick={() => onClickMinusPlant(uniquePlantId)}
+            color="globalNavigationPlaceColor"
+          >
+            <StyledIconMinus />
+          </StyledCircleButton>
+        </CardInfoLinkButton>
+      </CardContainer>
     );
   }
 }

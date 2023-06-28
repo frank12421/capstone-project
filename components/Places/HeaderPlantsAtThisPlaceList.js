@@ -1,4 +1,6 @@
-import ButtonCard from "../Card/ButtonCard";
+import { CardContainer, CardInfoLinkButton } from "../Card/Card.Styling";
+import { StyledCircleButton } from "../Styling/StyledButton";
+import { StyledIconAdd, StyledIconEqual } from "../Styling/StyledIcon";
 
 export default function HeaderPlantsAtThisPlaceList({
   placeData,
@@ -13,11 +15,7 @@ export default function HeaderPlantsAtThisPlaceList({
 
   return (
     <>
-      <ButtonCard
-        backgroundcolor={"globalPlaceBackgroundColor"}
-        buttonicon={addPlant ? "equal" : "add"}
-        handleClick={toggleOnClick}
-      >
+      <CardContainer backgroundcolor={"globalPlaceBackgroundColor"}>
         <span>
           Kapazität: {placeData.capacity} | Noch frei: {freePlaces}
         </span>
@@ -25,7 +23,16 @@ export default function HeaderPlantsAtThisPlaceList({
           Licht: {placeData.lightratio} | Regenschutz:{" "}
           {placeData.rainprotection}
         </span>
-      </ButtonCard>
+        <CardInfoLinkButton>
+          <StyledCircleButton
+            type="button"
+            onClick={toggleOnClick}
+            color="globalNavigationPlantColor"
+          >
+            {addPlant ? <StyledIconEqual /> : <StyledIconAdd />}
+          </StyledCircleButton>
+        </CardInfoLinkButton>
+      </CardContainer>
     </>
   );
 }

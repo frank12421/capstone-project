@@ -7,13 +7,6 @@ export const fetcher = async (url) => {
   }
   return response.json();
 };
-
-export const useFetch = (path) => {
-  const { data, error } = useSWR(`/api/${path}`, fetcher);
-  const isLoading = !data && !error;
-  return { data, error, isLoading };
-};
-
 export const useAllPlants = () => {
   const { data, error } = useSWR(`/api/plants/`, fetcher);
   const isLoading = !data && !error;
@@ -43,22 +36,6 @@ export const useAllDates = () => {
   const isLoading = !data && !error;
   return { data, error, isLoading };
 };
-
-export async function sendPatchRequest(url, { arg }) {
-  const response = await fetch(url, {
-    method: "PATCH",
-    body: JSON.stringify(arg),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  if (response.ok) {
-    await response.json();
-  } else {
-    console.error(`Error: ${response.status}`);
-  }
-}
 
 export async function sendRequest(url, { arg }) {
   const response = await fetch(url, {

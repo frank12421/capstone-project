@@ -1,18 +1,16 @@
-import { sendPatchRequest, useAllPlants, useOnePlace } from "@/utils/helper";
+import { sendRequest, useAllPlants, useOnePlace } from "@/utils/helper";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/router";
-import ButtonCard from "../Card/ButtonCard";
+import { CardContainer, CardInfoLinkButton } from "../Card/Card.Styling";
+import { StyledCircleButton } from "../Styling/StyledButton";
+import { StyledIconAdd } from "../Styling/StyledIcon";
 
 export default function AllPlantsSortedtList() {
   const router = useRouter();
   const site = router.query;
   const place = useOnePlace(site.id);
   const placeData = place.data;
-  const { trigger } = useSWRMutation(
-    `/api/places/${site.id}`,
-    sendPatchRequest
-  );
-
+  const { trigger } = useSWRMutation(`/api/places/${site.id}`, sendRequest);
   const { data, error, isLoading } = useAllPlants();
 
   if (error) {
@@ -35,25 +33,32 @@ export default function AllPlantsSortedtList() {
       },
     };
 
-    trigger({ data: dataToUpdate, options });
+    trigger({ method: "PATCH", data: dataToUpdate, options });
   };
 
   return (
     <>
       {plantsSorted.map((plant) => {
         return (
-          <ButtonCard
+          <CardContainer
             key={plant._id}
             backgroundcolor={"globalPlantBackgroundColor"}
-            buttonicon={showAddButton && "add"}
-            handleClick={() => onClickAddPlant(plant._id)}
           >
             <h2>{plant.name}</h2>
             <span>
               Type: {plant.type} | Pflanzhöhe: {plant.plantheight}
             </span>
             <h3>Anbaueignung: {plant.cultivation_suitability}</h3>
-          </ButtonCard>
+            <CardInfoLinkButton>
+              <StyledCircleButton
+                type="button"
+                onClick={() => onClickAddPlant(plant._id)}
+                color="globalNavigationPlaceColor"
+              >
+                <StyledIconAdd />
+              </StyledCircleButton>
+            </CardInfoLinkButton>
+          </CardContainer>
         );
       })}
     </>
