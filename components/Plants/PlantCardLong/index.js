@@ -106,10 +106,7 @@ export default function PlantCardLong({ plant }) {
               type="button"
               onClick={() => handleDeleteClick(true, plant._id)}
             >
-              <StyledIconTrash
-                size="1.5rem"
-                color="globalNavigationPlantColor"
-              />
+              <StyledIconTrash color="globalNavigationPlantColor" />
             </StyledCircleButton>
 
             <h3>Daten bearbeiten:</h3>
@@ -117,7 +114,7 @@ export default function PlantCardLong({ plant }) {
               type="button"
               onClick={() => handleEditClick(plant._id)}
             >
-              <StyledIconEdit size="1.5rem" color="globalNavigationIconColor" />
+              <StyledIconEdit color="globalNavigationIconColor" />
             </StyledCircleButton>
           </StyledCardFooter>
         </CardContainer>

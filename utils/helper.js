@@ -7,13 +7,6 @@ export const fetcher = async (url) => {
   }
   return response.json();
 };
-
-export const useFetch = (path) => {
-  const { data, error } = useSWR(`/api/${path}`, fetcher);
-  const isLoading = !data && !error;
-  return { data, error, isLoading };
-};
-
 export const useAllPlants = () => {
   const { data, error } = useSWR(`/api/plants/`, fetcher);
   const isLoading = !data && !error;
