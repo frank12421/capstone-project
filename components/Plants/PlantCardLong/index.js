@@ -95,7 +95,6 @@ export default function PlantCardLong({ plant }) {
           </StyledCircleButton>
         </CardInfoLinkButton>
       </CardContainer>
-      {/* </></ButtonCard> */}
       {showConfirmation && (
         <CardContainer
           backgroundcolor="globalDateBackgroundColor"

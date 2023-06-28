@@ -1,7 +1,8 @@
 import useSWRMutation from "swr/mutation";
-
-import ButtonCard from "../Card/ButtonCard";
 import { sendRequest, useOnePlant } from "@/utils/helper";
+import { CardContainer, CardInfoLinkButton } from "../Card/Card.Styling";
+import { StyledIconMinus } from "../Styling/StyledIcon";
+import { StyledCircleButton } from "../Styling/StyledButton";
 
 export default function ShortListPlants({ plantId, placeId, uniquePlantId }) {
   const plant = useOnePlant(plantId);
@@ -19,14 +20,19 @@ export default function ShortListPlants({ plantId, placeId, uniquePlantId }) {
     return null;
   } else {
     return (
-      <ButtonCard
-        handleClick={() => onClickMinusPlant(uniquePlantId)}
-        backgroundcolor="globalPlantBackgroundColor"
-        buttonicon="minus"
-      >
+      <CardContainer backgroundcolor="globalPlantBackgroundColor">
         <h2>{plant.data.name}</h2>
         Code: {uniquePlantId}
-      </ButtonCard>
+        <CardInfoLinkButton>
+          <StyledCircleButton
+            type="button"
+            onClick={() => onClickMinusPlant(uniquePlantId)}
+            color="globalNavigationPlaceColor"
+          >
+            <StyledIconMinus />
+          </StyledCircleButton>
+        </CardInfoLinkButton>
+      </CardContainer>
     );
   }
 }

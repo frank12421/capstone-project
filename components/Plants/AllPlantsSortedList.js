@@ -1,7 +1,9 @@
 import { sendRequest, useAllPlants, useOnePlace } from "@/utils/helper";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/router";
-import ButtonCard from "../Card/ButtonCard";
+import { CardContainer, CardInfoLinkButton } from "../Card/Card.Styling";
+import { StyledCircleButton } from "../Styling/StyledButton";
+import { StyledIconAdd } from "../Styling/StyledIcon";
 
 export default function AllPlantsSortedtList() {
   const router = useRouter();
@@ -38,18 +40,25 @@ export default function AllPlantsSortedtList() {
     <>
       {plantsSorted.map((plant) => {
         return (
-          <ButtonCard
+          <CardContainer
             key={plant._id}
             backgroundcolor={"globalPlantBackgroundColor"}
-            buttonicon={showAddButton && "add"}
-            handleClick={() => onClickAddPlant(plant._id)}
           >
             <h2>{plant.name}</h2>
             <span>
               Type: {plant.type} | Pflanzhöhe: {plant.plantheight}
             </span>
             <h3>Anbaueignung: {plant.cultivation_suitability}</h3>
-          </ButtonCard>
+            <CardInfoLinkButton>
+              <StyledCircleButton
+                type="button"
+                onClick={() => onClickAddPlant(plant._id)}
+                color="globalNavigationPlaceColor"
+              >
+                <StyledIconAdd />
+              </StyledCircleButton>
+            </CardInfoLinkButton>
+          </CardContainer>
         );
       })}
     </>
