@@ -1,4 +1,4 @@
-import { sendPatchRequest, useAllPlants, useOnePlace } from "@/utils/helper";
+import { sendRequest, useAllPlants, useOnePlace } from "@/utils/helper";
 import useSWRMutation from "swr/mutation";
 import { useRouter } from "next/router";
 import ButtonCard from "../Card/ButtonCard";
@@ -8,11 +8,7 @@ export default function AllPlantsSortedtList() {
   const site = router.query;
   const place = useOnePlace(site.id);
   const placeData = place.data;
-  const { trigger } = useSWRMutation(
-    `/api/places/${site.id}`,
-    sendPatchRequest
-  );
-
+  const { trigger } = useSWRMutation(`/api/places/${site.id}`, sendRequest);
   const { data, error, isLoading } = useAllPlants();
 
   if (error) {
@@ -35,7 +31,7 @@ export default function AllPlantsSortedtList() {
       },
     };
 
-    trigger({ data: dataToUpdate, options });
+    trigger({ method: "PATCH", data: dataToUpdate, options });
   };
 
   return (

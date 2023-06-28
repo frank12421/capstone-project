@@ -1,6 +1,6 @@
 # Grow Green - Gardening made easy 🍅
 
-## Thiss App helps you to manage your vegetable farm.
+## This App helps you to manage your vegetable farm.
 
 [![Screenshots from Grow Green](/public/screenshots/grow-green-screen.svg "Grow Green - Gardening made easy")](https://grow-green.vercel.app/)
 

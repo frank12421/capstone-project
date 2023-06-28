@@ -44,22 +44,6 @@ export const useAllDates = () => {
   return { data, error, isLoading };
 };
 
-export async function sendPatchRequest(url, { arg }) {
-  const response = await fetch(url, {
-    method: "PATCH",
-    body: JSON.stringify(arg),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  if (response.ok) {
-    await response.json();
-  } else {
-    console.error(`Error: ${response.status}`);
-  }
-}
-
 export async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
     method: arg.method,
