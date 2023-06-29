@@ -11,9 +11,34 @@ import {
   StyledIconTrash,
 } from "@/components/Styling/StyledIcon";
 import { useState } from "react";
+import { mutate } from "swr";
 
-export default function DateCardLong({ date, location }) {
+export default function DateCardLong({ oneDate }) {
+  const date = oneDate.data;
   const [toggleSettings, setToggleSettings] = useState(false);
+
+  const deleteDate = async (dateId) => {
+    const response = await fetch(`/api/dates/${dateId}`, {
+      method: "DELETE",
+    });
+    if (response.ok) {
+      mutate(`/api/dates/`);
+    } else {
+      throw new Error("Failed to delete");
+    }
+  };
+
+  const handleDeleteClick = async (event, dateId) => {
+    if (event) {
+      try {
+        await deleteDate(dateId);
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      setToggleSettings(false);
+    }
+  };
 
   return (
     <>
@@ -22,7 +47,7 @@ export default function DateCardLong({ date, location }) {
           {date.date} | {date.time}
         </h2>
         <h3>
-          {date.promptlist} {`>`} <FindPlace locationId={location} />{" "}
+          {date.promptlist} {`>`} <FindPlace locationId={oneDate.location} />{" "}
         </h3>
         <TranslateDateSeries
           form={date.dateform}
@@ -45,10 +70,10 @@ export default function DateCardLong({ date, location }) {
           backgroundcolor="globalDateBackgroundColor"
           //ref={confirmationRef}
         >
-          <h3>Standort löschen?</h3>
+          <h3>Termin löschen?</h3>
           <StyledCircleButton
             type="button"
-            //onClick={() => handleDeleteClick(true, place._id)}
+            onClick={() => handleDeleteClick(true, oneDate._id)}
           >
             <StyledIconTrash color="globalNavigationPlantColor" />
           </StyledCircleButton>

@@ -22,7 +22,6 @@ import {
 } from "../Styling/StyledIcon";
 import { mutate } from "swr";
 import { router } from "next/router";
-import { deleteDate } from "@/utils/helper";
 
 export default function PlaceCardLong({ place }) {
   const [toggleSettings, setToggleSettings] = useState(false);
@@ -56,7 +55,6 @@ export default function PlaceCardLong({ place }) {
     });
     if (response.ok) {
       mutate(`/api/places/`);
-      //      deleteDate(placeId);
     } else {
       throw new Error("Failed to delete");
     }

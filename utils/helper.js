@@ -52,7 +52,3 @@ export async function sendRequest(url, { arg }) {
     console.error(`Error: ${response.status}`);
   }
 }
-
-export async function deleteDate(placeId) {
-  console.log("deleteDate-id", placeId);
-}

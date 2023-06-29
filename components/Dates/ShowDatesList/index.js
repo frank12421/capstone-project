@@ -25,13 +25,7 @@ export default function ShowDatesList() {
     <>
       {sortDates.map((date) => {
         console.log("Date", date);
-        return (
-          <DateCardLong
-            key={date._id}
-            date={date.data}
-            location={date.location}
-          />
-        );
+        return <DateCardLong key={date._id} oneDate={date} />;
       })}
     </>
   );
