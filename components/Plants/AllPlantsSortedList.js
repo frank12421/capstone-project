@@ -9,6 +9,7 @@ export default function AllPlantsSortedtList() {
   const router = useRouter();
   const site = router.query;
   const place = useOnePlace(site.id);
+  console.log("site_id:", site.id);
   const placeData = place.data;
   const { trigger } = useSWRMutation(`/api/places/${site.id}`, sendRequest);
   const { data, error, isLoading } = useAllPlants();
@@ -28,9 +29,7 @@ export default function AllPlantsSortedtList() {
     const addNewPlant = { plantid: value };
     const options = { new: true };
     const dataToUpdate = {
-      update: {
-        $push: { plants: addNewPlant },
-      },
+      $push: { plants: addNewPlant },
     };
 
     trigger({ method: "PATCH", data: dataToUpdate, options });

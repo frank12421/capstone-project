@@ -14,7 +14,7 @@ export default function addPlace() {
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain>
-        <AddPlaceForm />
+        <AddPlaceForm url={`/api/places/`} />
       </StyledMain>
     </>
   );
