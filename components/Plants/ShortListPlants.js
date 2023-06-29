@@ -10,13 +10,9 @@ export default function ShortListPlants({ plantId, placeId, uniquePlantId }) {
 
   const onClickMinusPlant = (uniquePlantId) => {
     const options = { new: true };
-    // const dataToUpdate = {
-    //   update: { $pull: { plants: { _id: uniquePlantId } } },
-    // };
     const dataToUpdate = {
       $pull: { plants: { _id: uniquePlantId } },
     };
-
     trigger({ method: "PATCH", data: dataToUpdate, options });
   };
 
