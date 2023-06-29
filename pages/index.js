@@ -1,6 +1,6 @@
 import { StyledHomeHeader, StyledSubHeader } from "@/components/Styling/Header";
 import { StyledMain } from "@/components/Styling/Main";
-import ShowDatesList from "@/components/Dates/ShowDatesList";
+import ShowShortDatesList from "@/components/Dates/ShowShortDatesList";
 import CountAllPlants from "@/components/Plants/CountAllPlants";
 import { StyledHeadImage } from "@/components/Styling/StyledImage";
 import CountAllPlaces from "@/components/Places/CountAllPlaces";
@@ -19,7 +19,7 @@ export default function HomePage({ dates, places }) {
         <StyledHeadImage src={HeadPic} alt="Gezeichnete Pflanze" />
       </StyledHomeHeader>
       <StyledMain gap="20" margintop="30">
-        <ShowDatesList />
+        <ShowShortDatesList />
         <CountAllPlaces />
         <CountAllPlants />
       </StyledMain>
