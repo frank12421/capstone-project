@@ -12,7 +12,6 @@ export default async function handler(request, response) {
       return response.status(404).json({ status: "Not Found" });
     }
   } else if (request.method === "PATCH") {
-    console.log("api-dates-id");
     const { id } = request.query;
     const { data, options } = request.body;
     const updatedDate = await Dates.findByIdAndUpdate(id, data, options);

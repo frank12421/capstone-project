@@ -53,7 +53,6 @@ export default function DateCardLong({ oneDate }) {
         <h3>
           {date.promptlist} {`>`} <FindPlace locationId={oneDate.location} />{" "}
         </h3>
-        {oneDate.location}
         <TranslateDateSeries
           form={date.dateform}
           frequency={date.datefrequency}

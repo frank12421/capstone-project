@@ -6,12 +6,12 @@ import DateForm from "@/components/Dates/DateForm";
 import NavigationBack from "@/components/Navigation/NavigationBack";
 
 export default function ShowDateForm({ dates, setDates }) {
-  const router = useRouter();
-  const site = router.query;
+  // const router = useRouter();
+  // const site = router.query;
 
-  if (!site.id) {
-    return null;
-  }
+  // if (!site.id) {
+  //   return null;
+  // }
 
   return (
     <>
@@ -22,7 +22,7 @@ export default function ShowDateForm({ dates, setDates }) {
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain>
-        <DateForm locationId={site.id} />
+        <DateForm url={`/api/dates/`} />
       </StyledMain>
     </>
   );

@@ -14,7 +14,10 @@ export default function DatesList() {
         <h1>Termine | Grow Green</h1>
         <StyledNavigationContainer>
           <NavigationBack href="/" />
-          {/* <NavigationAdd href="/addplant" color="globalNavigationPlantColor" /> */}
+          <NavigationAdd
+            href="/forms/showdateform/"
+            color="globalDateBackgroundColor"
+          />
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain gap="15">

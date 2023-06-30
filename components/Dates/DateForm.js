@@ -12,12 +12,13 @@ import {
   Textarea,
 } from "../Styling/StyledForm.js";
 import { sendRequest, useAllPlaces } from "@/utils/helper.js";
-import FindPlace from "../Places/FindPlace.js";
 
 export default function DateForm({ url, dateData }) {
   const { trigger } = useSWRMutation(url, sendRequest);
   const [savedStatus, setSavedStatus] = useState(false);
-  const [dateseries, setDateseries] = useState(dateData.data.dateform);
+  const [dateseries, setDateseries] = useState(
+    dateData ? dateData.data.dateform : "single"
+  );
   const { data: allPlaces, error, isLoading } = useAllPlaces();
   if (isLoading) {
     return <div>Loading...</div>;
@@ -35,7 +36,6 @@ export default function DateForm({ url, dateData }) {
       location: dataEntries.location,
       data: dataEntries,
     };
-
     dateData
       ? trigger({ method: "PATCH", data })
       : trigger({ method: "POST", data });
@@ -54,10 +54,13 @@ export default function DateForm({ url, dateData }) {
       onSubmit={handleSubmit}
       backgroundcolor="globalDateBackgroundColor"
     >
-      {/* <FindPlace locationId={dateData.location} /> */}
       <Label htmlFor="location">Standort</Label>
       {allPlaces && allPlaces.length > 0 && (
-        <Select id="location" name="location" defaultValue={dateData.location}>
+        <Select
+          id="location"
+          name="location"
+          defaultValue={dateData ? dateData.location : ""}
+        >
           {allPlaces.map((place) => {
             return (
               <option key={place._id} value={place._id}>
@@ -138,7 +141,7 @@ export default function DateForm({ url, dateData }) {
         id="date"
         name="date"
         type="date"
-        defaultValue={dateData.data.date}
+        defaultValue={dateData ? dateData.data.date : null}
         required
       />
       <Label htmlFor="time">Zeit</Label>
@@ -153,7 +156,7 @@ export default function DateForm({ url, dateData }) {
       <Select
         id="promptlist"
         name="promptlist"
-        defaultValue={dateData.data.promptlist}
+        defaultValue={dateData ? dateData.data.promptlist : null}
         required
       >
         <option value="Gießen">Gießen</option>
@@ -167,7 +170,7 @@ export default function DateForm({ url, dateData }) {
         cols="30"
         rows="5"
         maxLength={100}
-        defaultValue={dateData.data.description}
+        defaultValue={dateData ? dateData.data.description : null}
       ></Textarea>
       {!savedStatus ? (
         <SubmitButton
