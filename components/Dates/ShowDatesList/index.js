@@ -4,7 +4,6 @@ import dayjs from "dayjs";
 
 export default function ShowDatesList() {
   const { data: dates, error, isLoading } = useAllDates();
-  console.log("Dates:", dates);
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -24,7 +23,6 @@ export default function ShowDatesList() {
   return (
     <>
       {sortDates.map((date) => {
-        console.log("Date", date);
         return <DateCardLong key={date._id} oneDate={date} />;
       })}
     </>

@@ -12,6 +12,7 @@ import {
 } from "@/components/Styling/StyledIcon";
 import { useState } from "react";
 import { mutate } from "swr";
+import { router } from "next/router";
 
 export default function DateCardLong({ oneDate }) {
   const date = oneDate.data;
@@ -26,6 +27,9 @@ export default function DateCardLong({ oneDate }) {
     } else {
       throw new Error("Failed to delete");
     }
+  };
+  const handleEditClick = (id) => {
+    router.push(`/date/${id}`);
   };
 
   const handleDeleteClick = async (event, dateId) => {
@@ -49,6 +53,7 @@ export default function DateCardLong({ oneDate }) {
         <h3>
           {date.promptlist} {`>`} <FindPlace locationId={oneDate.location} />{" "}
         </h3>
+        {oneDate.location}
         <TranslateDateSeries
           form={date.dateform}
           frequency={date.datefrequency}
@@ -80,7 +85,7 @@ export default function DateCardLong({ oneDate }) {
           <h3>Standort bearbeiten:</h3>
           <StyledCircleButton
             type="button"
-            //onClick={() => handleEditClick(place._id)}
+            onClick={() => handleEditClick(oneDate._id)}
           >
             <StyledIconEdit color="globalNavigationIconColor" />
           </StyledCircleButton>
