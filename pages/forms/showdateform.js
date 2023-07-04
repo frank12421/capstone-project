@@ -1,28 +1,26 @@
-import { useRouter } from "next/router";
 import { StyledHeader } from "@/components/Styling/Header";
 import { StyledMain } from "@/components/Styling/Main";
 import { StyledNavigationContainer } from "@/components/Navigation/Navigation";
 import DateForm from "@/components/Dates/DateForm";
 import NavigationBack from "@/components/Navigation/NavigationBack";
+import { useRouter } from "next/router";
 
-export default function ShowDateForm({ dates, setDates }) {
-  const router = useRouter();
-  const site = router.query;
-
-  if (!site.id) {
-    return null;
-  }
+export default function ShowDateForm() {
+const router = useRouter()
+const titel = router.query.titel;
+const backLink= router.query.navibacklink;
+const id = router.query.id;
 
   return (
     <>
       <StyledHeader position="sticky">
-        <h1 id="NewDateForPlaces">Einen Termin anlegen</h1>
+        <h1 id="NewDateForPlaces">{titel}</h1>
         <StyledNavigationContainer>
-          <NavigationBack href="/lists/placelist" />
+          <NavigationBack href={`${backLink}`} />
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain>
-        <DateForm locationId={site.id} />
+        <DateForm url={`/api/dates/`} id={id}/>
       </StyledMain>
     </>
   );

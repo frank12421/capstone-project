@@ -13,8 +13,8 @@ export default async function handler(request, response) {
     }
   } else if (request.method === "PATCH") {
     const { id } = request.query;
-    const { newData, options } = request.body;
-    const updatedDate = await Dates.findByIdAndUpdate(id, newData, options);
+    const { data, options } = request.body;
+    const updatedDate = await Dates.findByIdAndUpdate(id, data, options);
     response.status(200).json(updatedDate);
   } else if (request.method === "DELETE") {
     try {

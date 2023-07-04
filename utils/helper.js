@@ -37,6 +37,12 @@ export const useAllDates = () => {
   return { data, error, isLoading };
 };
 
+export const useOneDate = (id) => {
+  const { data, error } = useSWR(`/api/dates/${id}`, fetcher);
+  const isLoading = !data && !error;
+  return { data, error, isLoading };
+};
+
 export async function sendRequest(url, { arg }) {
   const response = await fetch(url, {
     method: arg.method,
@@ -51,8 +57,4 @@ export async function sendRequest(url, { arg }) {
   } else {
     console.error(`Error: ${response.status}`);
   }
-}
-
-export async function deleteDate(placeId) {
-  console.log("deleteDate-id", placeId);
 }
