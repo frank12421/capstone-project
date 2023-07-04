@@ -13,11 +13,11 @@ import {
 } from "../Styling/StyledForm.js";
 import { sendRequest, useAllPlaces } from "@/utils/helper.js";
 
-export default function DateForm({ url, dateData }) {
+export default function DateForm({ url, editDate, id }) {
   const { trigger } = useSWRMutation(url, sendRequest);
   const [savedStatus, setSavedStatus] = useState(false);
   const [dateseries, setDateseries] = useState(
-    dateData ? dateData.data.dateform : "single"
+    editDate ? editDate.data.dateform : "single"
   );
   const { data: allPlaces, error, isLoading } = useAllPlaces();
   if (isLoading) {
@@ -36,7 +36,7 @@ export default function DateForm({ url, dateData }) {
       location: dataEntries.location,
       data: dataEntries,
     };
-    dateData
+    editDate
       ? trigger({ method: "PATCH", data })
       : trigger({ method: "POST", data });
 
@@ -59,7 +59,10 @@ export default function DateForm({ url, dateData }) {
         <Select
           id="location"
           name="location"
-          defaultValue={dateData ? dateData.location : ""}
+          defaultValue={
+            id ? id : (editDate ? editDate.location : null)
+          }
+            
         >
           {allPlaces.map((place) => {
             return (
@@ -100,7 +103,7 @@ export default function DateForm({ url, dateData }) {
             name="datefrequency"
             type="radio"
             value="hour"
-            defaultChecked={dateData.data.datefrequency === "hour"}
+            defaultChecked={editDate && editDate.data.datefrequency === "hour"}
           />
           <Label htmlFor="datefrequency">Tag</Label>
           <RadioButton
@@ -108,7 +111,7 @@ export default function DateForm({ url, dateData }) {
             name="datefrequency"
             type="radio"
             value="day"
-            defaultChecked={dateData.data.datefrequency === "day"}
+            defaultChecked={editDate && editDate.data.datefrequency === "day"}
           />
           <Label htmlFor="datefrequency">Woche</Label>
           <RadioButton
@@ -116,7 +119,7 @@ export default function DateForm({ url, dateData }) {
             name="datefrequency"
             type="radio"
             value="week"
-            defaultChecked={dateData.data.datefrequency === "week"}
+            defaultChecked={editDate && editDate.data.datefrequency === "week"}
           />
           <Label htmlFor="datefrequency">Monat</Label>
           <RadioButton
@@ -124,7 +127,7 @@ export default function DateForm({ url, dateData }) {
             name="datefrequency"
             type="radio"
             value="month"
-            defaultChecked={dateData.data.datefrequency === "month"}
+            defaultChecked={editDate && editDate.data.datefrequency === "month"}
           />
           <Label htmlFor="datefrequency">Jahr</Label>
           <RadioButton
@@ -132,7 +135,7 @@ export default function DateForm({ url, dateData }) {
             name="datefrequency"
             type="radio"
             value="year"
-            defaultChecked={dateData.data.datefrequency === "year"}
+            defaultChecked={editDate && editDate.data.datefrequency === "year"}
           />
         </FlexContainerRadio>
       )}
@@ -141,7 +144,7 @@ export default function DateForm({ url, dateData }) {
         id="date"
         name="date"
         type="date"
-        defaultValue={dateData ? dateData.data.date : null}
+        defaultValue={editDate ? editDate.data.date : null}
         required
       />
       <Label htmlFor="time">Zeit</Label>
@@ -149,14 +152,14 @@ export default function DateForm({ url, dateData }) {
         id="time"
         name="time"
         type="time"
-        defaultValue={dateData ? dateData.data.time : "09:00:00"}
+        defaultValue={editDate ? editDate.data.time : "09:00:00"}
         required
       />
       <Label htmlFor="promptlist">Stichwort</Label>
       <Select
         id="promptlist"
         name="promptlist"
-        defaultValue={dateData ? dateData.data.promptlist : null}
+        defaultValue={editDate ? editDate.data.promptlist : null}
         required
       >
         <option value="Gießen">Gießen</option>
@@ -170,7 +173,7 @@ export default function DateForm({ url, dateData }) {
         cols="30"
         rows="5"
         maxLength={100}
-        defaultValue={dateData ? dateData.data.description : null}
+        defaultValue={editDate ? editDate.data.description : null}
       ></Textarea>
       {!savedStatus ? (
         <SubmitButton

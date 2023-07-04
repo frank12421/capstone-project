@@ -40,9 +40,10 @@ export default function ShowShortDatesList() {
     <LinkCard
       href={"lists/dateslist"}
       backgroundcolor="globalDateBackgroundColor"
+      color="globalLightColor"
+      
     >
       {listentry === null ? (
-        // <CardContainer backgroundcolor="globalDateBackgroundColor">
         <StyledDatesSection>
           <StyledDatesList $head>
             <li key="wann">Wann</li>
@@ -77,7 +78,7 @@ export default function ShowShortDatesList() {
             <StyledIconX
               color="globalNavigationIconColor"
               align="right"
-              onClick={() => setListEntry(null)}
+//              onClick={() => setListEntry(null)}
             />
             Datum: {sortDates[listentry].data.date} | Zeit:
             {sortDates[listentry].data.time}

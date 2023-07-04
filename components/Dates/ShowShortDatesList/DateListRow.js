@@ -20,7 +20,7 @@ export default function DateListRow({ date, index, setListEntry }) {
       : thisDate;
 
   return (
-    <StyledDatesList $hover onClick={() => setListEntry(index)}>
+    <StyledDatesList $hover > 
       <li>{relativeTime}</li>
       <li>{date.data.promptlist}</li>
       <li>

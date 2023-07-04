@@ -141,7 +141,7 @@ export default function PlaceCardLong({ place }) {
           <StyledLink
             href={{
               pathname: `/forms/showdateform`,
-              query: { id: place._id },
+              query: { id: place._id, navibacklink:"/lists/placelist/",titel:"Termin anlegen"},
             }}
             backgroundcolor={"globalDateBackgroundColor"}
           >

@@ -28,13 +28,12 @@ export default function EditDate() {
       <>
         <StyledHeader position="sticky">
           <h1>Termin bearbeiten</h1>
-          {site.id}
           <StyledNavigationContainer>
             <NavigationBack href="/lists/dateslist" />
           </StyledNavigationContainer>
         </StyledHeader>
         <StyledMain>
-          <DateForm url={`/api/dates/${data._id}`} dateData={data} />
+          <DateForm url={`/api/dates/${data._id}`} editDate={data} />
         </StyledMain>
       </>
     </>
