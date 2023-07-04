@@ -29,3 +29,19 @@ export const StyledCircleButton = styled.button`
     color: var(--globalNavigationPlaceColor);
   }
 `;
+
+export const StyledSubCardButton = styled.button`
+background-color: ${(props) => `var(--${props.backgroundcolor})`};
+color: ${(props) => `var(--${props.color})`};
+height: 2.2em;
+box-shadow: var(--globalBorderShadow);
+border-style: none;
+border-radius: 10px;
+border: none;
+text-decoration: none;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 5px;
+cursor: pointer;
+`

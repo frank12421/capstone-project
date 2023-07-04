@@ -18,7 +18,9 @@ import {
 } from "@/components/Styling/StyledIcon";
 import { StyledCircleButton } from "@/components/Styling/StyledButton";
 import { router } from "next/router";
-
+import { StyledSubCardContainer } from "@/components/Styling/StyledSubCard";
+import { SubCardDelete } from "@/components/SubCards/SubCardDelete";
+import { SubCardEdit } from "@/components/SubCards/SubCardEdit";
 export default function PlantCardLong({ plant }) {
   const [showConfirmation, setshowConfirmation] = useState(false);
   const confirmationRef = useRef(null);
@@ -94,31 +96,18 @@ export default function PlantCardLong({ plant }) {
             <StyledIconSettings />
           </StyledCircleButton>
         </CardInfoLinkButton>
-      </CardContainer>
-      {showConfirmation && (
-        <CardContainer
-          backgroundcolor="globalDateBackgroundColor"
-          ref={confirmationRef}
-        >
-          <StyledCardFooter>
-            <h3>Pflanze löschen?</h3>
-            <StyledCircleButton
-              type="button"
-              onClick={() => handleDeleteClick(true, plant._id)}
-            >
-              <StyledIconTrash color="globalNavigationPlantColor" />
-            </StyledCircleButton>
+     {showConfirmation && (
+<StyledSubCardContainer  ref={confirmationRef}         
+>
+<SubCardDelete onClick={() => handleDeleteClick(true, plant._id)}
+color="globalNavigationPlantColor" backgroundcolor="globalDateBackgroundColor">Pflanze löschen</SubCardDelete>
 
-            <h3>Daten bearbeiten:</h3>
-            <StyledCircleButton
-              type="button"
-              onClick={() => handleEditClick(plant._id)}
-            >
-              <StyledIconEdit color="globalNavigationIconColor" />
-            </StyledCircleButton>
-          </StyledCardFooter>
-        </CardContainer>
-      )}
+<SubCardEdit onClick={() => handleEditClick(plant._id)}
+color="globalPlantBackgroundColor" backgroundcolor="globalNavigationPlantColor">Pflanze bearbeiten</SubCardEdit>
+</StyledSubCardContainer>
+
+     )}
+           </CardContainer>
     </>
   );
 }

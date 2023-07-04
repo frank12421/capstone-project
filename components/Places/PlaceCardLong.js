@@ -22,6 +22,8 @@ import {
 } from "../Styling/StyledIcon";
 import { mutate } from "swr";
 import { router } from "next/router";
+import { StyledSubCardContainer } from "../Styling/StyledSubCard";
+import { SubCardDelete } from "../SubCards/SubCardDelete";
 
 export default function PlaceCardLong({ place }) {
   const [toggleSettings, setToggleSettings] = useState(false);
@@ -109,6 +111,17 @@ export default function PlaceCardLong({ place }) {
             <StyledIconSettings />
           </StyledCircleButton>
         </CardInfoLinkButton>
+        {toggleSettings && (
+        
+        <StyledSubCardContainer>
+<SubCardDelete onClick={() => handleDeleteClick(true, place._id)}
+color="globalLightColor" backgroundcolor="globalDateBackgroundColor">Standort löschen</SubCardDelete>
+
+</StyledSubCardContainer>
+        
+        
+)}
+
       </CardContainer>
       {toggleSettings && (
         <CardContainer
