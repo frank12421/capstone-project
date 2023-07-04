@@ -40,7 +40,6 @@ export default function ShowShortDatesList() {
     <LinkCard
       href={"lists/dateslist"}
       backgroundcolor="globalDateBackgroundColor"
-      color="globalLightColor"
       
     >
       {listentry === null ? (

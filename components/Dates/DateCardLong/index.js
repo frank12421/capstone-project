@@ -81,7 +81,7 @@ export default function DateCardLong({ oneDate }) {
           >
             <StyledIconTrash color="globalNavigationPlantColor" />
           </StyledCircleButton>
-          <h3>Standort bearbeiten:</h3>
+          <h3>Termin bearbeiten:</h3>
           <StyledCircleButton
             type="button"
             onClick={() => handleEditClick(oneDate._id)}

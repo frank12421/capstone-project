@@ -33,6 +33,7 @@ html {
 --globalNavigationIconColor: #B2FFFF;
 --globalNavigationPlantColor: #A1B41D;
 --globalNavigationPlaceColor: #D2691E;
+--globalNavigationDateColor: #FF4D4D;
 --globalBorderShadow: var(--globalShadowColor) 0px 1px 0px,
     rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 --scriptfond: ${indie.style.fontFamily}
