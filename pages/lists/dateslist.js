@@ -15,7 +15,7 @@ export default function DatesList({navibacklink, titel, id, color}) {
           <NavigationAdd href="/forms/showdateform/" 
           color="globalNavigationDateColor" 
           navibacklink="/lists/dateslist" 
-          titel="Einen neue Termin anlegen"/>
+          titel="Einen neuen Termin anlegen"/>
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain gap="15">
