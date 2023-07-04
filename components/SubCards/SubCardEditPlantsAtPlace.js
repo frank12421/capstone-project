@@ -1,11 +1,12 @@
 import { StyledSubCardLink } from "../Styling/StyledButton";
-import {
-  StyledIconCalenderPlus,
-  StyledIconSprout,
-} from "../Styling/StyledIcon";
+import { StyledIconSprout } from "../Styling/StyledIcon";
 
-export function SubCardEditPlants({ href, backgroundcolor, color, children }) {
-  console.log("href=", { href });
+export function SubCardEditPlantsAtPlace({
+  href,
+  backgroundcolor,
+  color,
+  children,
+}) {
   return (
     <StyledSubCardLink
       href={href}

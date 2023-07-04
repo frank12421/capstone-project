@@ -17,9 +17,9 @@ import { mutate } from "swr";
 import { router } from "next/router";
 import { StyledSubCardContainer } from "../Styling/StyledSubCard";
 import { SubCardDelete } from "../SubCards/SubCardDelete";
-import { SubCardEditPlace } from "../SubCards/SubCardEditPlace";
+import { SubCardEdit } from "../SubCards/SubCardEdit";
 import { SubCardAddDate } from "../SubCards/SubCardAddDate";
-import { SubCardEditPlants } from "../SubCards/SubCardEditPlants";
+import { SubCardEditPlantsAtPlace } from "../SubCards/SubCardEditPlantsAtPlace";
 
 export default function PlaceCardLong({ place }) {
   const [toggleSettings, setToggleSettings] = useState(false);
@@ -114,13 +114,13 @@ export default function PlaceCardLong({ place }) {
             Löschen
           </SubCardDelete>
 
-          <SubCardEditPlace
+          <SubCardEdit
             onClick={() => handleEditClick(place._id)}
             color="globalNavigationIconColor"
             backgroundcolor="globalNavigationPlaceColor"
           >
             Bearbeiten
-          </SubCardEditPlace>
+          </SubCardEdit>
 
           <SubCardAddDate
             href={{
@@ -137,7 +137,7 @@ export default function PlaceCardLong({ place }) {
             Termin anlegen
           </SubCardAddDate>
 
-          <SubCardEditPlants
+          <SubCardEditPlantsAtPlace
             href={{
               pathname: `/place/plant/${place._id}`,
             }}
@@ -145,7 +145,7 @@ export default function PlaceCardLong({ place }) {
             backgroundcolor="globalPlantBackgroundColor"
           >
             Pflanzen bearbeiten
-          </SubCardEditPlants>
+          </SubCardEditPlantsAtPlace>
         </StyledSubCardContainer>
       )}
     </CardContainer>

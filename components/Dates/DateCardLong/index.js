@@ -5,17 +5,13 @@ import {
 import FindPlace from "@/components/Places/FindPlace";
 import TranslateDateSeries from "../TranslateDateSeries";
 import { StyledCircleButton } from "@/components/Styling/StyledButton";
-import {
-  StyledIconEdit,
-  StyledIconSettings,
-  StyledIconTrash,
-} from "@/components/Styling/StyledIcon";
+import { StyledIconSettings } from "@/components/Styling/StyledIcon";
 import { useState } from "react";
 import { mutate } from "swr";
 import { router } from "next/router";
 import { StyledSubCardContainer } from "@/components/Styling/StyledSubCard";
 import { SubCardDelete } from "@/components/SubCards/SubCardDelete";
-import { SubCardEdit } from "@/components/SubCards/SubCardEditPlace";
+import { SubCardEdit } from "@/components/SubCards/SubCardEdit";
 
 export default function DateCardLong({ oneDate }) {
   const date = oneDate.data;

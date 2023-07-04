@@ -1,12 +1,7 @@
 import { StyledSubCardButton } from "../Styling/StyledButton";
 import { StyledIconEdit } from "../Styling/StyledIcon";
 
-export function SubCardEditPlace({
-  onClick,
-  backgroundcolor,
-  color,
-  children,
-}) {
+export function SubCardEdit({ onClick, backgroundcolor, color, children }) {
   return (
     <StyledSubCardButton
       type="button"

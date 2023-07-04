@@ -5,22 +5,17 @@ import { StyledPlantImage } from "@/components/Styling/StyledImage";
 import {
   CardContainer,
   CardInfoLinkButton,
-  StyledCardFooter,
   StyledCardList,
   StyledCardListItem,
   StyledContentRowContainer,
 } from "@/components/Card/Card.Styling";
 import { useEffect, useState, useRef } from "react";
-import {
-  StyledIconEdit,
-  StyledIconSettings,
-  StyledIconTrash,
-} from "@/components/Styling/StyledIcon";
+import { StyledIconSettings } from "@/components/Styling/StyledIcon";
 import { StyledCircleButton } from "@/components/Styling/StyledButton";
 import { router } from "next/router";
 import { StyledSubCardContainer } from "@/components/Styling/StyledSubCard";
 import { SubCardDelete } from "@/components/SubCards/SubCardDelete";
-import { SubCardEdit } from "@/components/SubCards/SubCardEditPlace";
+import { SubCardEdit } from "@/components/SubCards/SubCardEdit";
 
 export default function PlantCardLong({ plant }) {
   const [showConfirmation, setshowConfirmation] = useState(false);

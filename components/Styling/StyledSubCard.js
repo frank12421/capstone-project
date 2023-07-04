@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledSubCardContainer = styled.div`
-  //background-color: aqua;
   height: 50px;
   padding: 15px 0px;
   margin-bottom: 50px;
