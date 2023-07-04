@@ -1,7 +1,4 @@
-import {
-  StyledCircleButton,
-  StyledLink,
-} from "@/components/Styling/StyledButton";
+import { StyledCircleButton } from "@/components/Styling/StyledButton";
 import {
   CardContainer,
   CardInfoLinkButton,
@@ -15,13 +12,14 @@ import RoofPicture from "/public/pictures/Roof.png";
 import PeoplePicture from "/public/pictures/People.png";
 import { StyledPlaceImage } from "../Styling/StyledImage";
 import { useEffect, useRef, useState } from "react";
-import {
-  StyledIconEdit,
-  StyledIconSettings,
-  StyledIconTrash,
-} from "../Styling/StyledIcon";
+import { StyledIconSettings } from "../Styling/StyledIcon";
 import { mutate } from "swr";
 import { router } from "next/router";
+import { StyledSubCardContainer } from "../Styling/StyledSubCard";
+import { SubCardDelete } from "../SubCards/SubCardDelete";
+import { SubCardEdit } from "../SubCards/SubCardEdit";
+import { SubCardAddDate } from "../SubCards/SubCardAddDate";
+import { SubCardEditPlantsAtPlace } from "../SubCards/SubCardEditPlantsAtPlace";
 
 export default function PlaceCardLong({ place }) {
   const [toggleSettings, setToggleSettings] = useState(false);
@@ -82,73 +80,74 @@ export default function PlaceCardLong({ place }) {
   }, [toggleSettings]);
 
   return (
-    <>
-      <CardContainer
-        backgroundcolor={"globalPlaceBackgroundColor"}
-        key={place._id}
-      >
-        <h2>{place.name}</h2>
-        <StyledContentRowContainer>
-          <StyledPlaceImage src={imageSource} alt="Standort" />
-          <StyledCardList>
-            <StyledCardListItem>
-              Kapazität: {place.plants.length} / {place.capacity}
-            </StyledCardListItem>
-            <StyledCardListItem>Licht: {place.lightratio}</StyledCardListItem>
-            <StyledCardListItem>Standort: {place.location}</StyledCardListItem>
-            <StyledCardListItem>
-              Regenschutz: {place.rainprotection}
-            </StyledCardListItem>
-          </StyledCardList>
-        </StyledContentRowContainer>
+    <CardContainer
+      backgroundcolor={"globalPlaceBackgroundColor"}
+      key={place._id}
+    >
+      <h2>{place.name}</h2>
+      <StyledContentRowContainer>
+        <StyledPlaceImage src={imageSource} alt="Standort" />
+        <StyledCardList>
+          <StyledCardListItem>
+            Kapazität: {place.plants.length} / {place.capacity}
+          </StyledCardListItem>
+          <StyledCardListItem>Licht: {place.lightratio}</StyledCardListItem>
+          <StyledCardListItem>Standort: {place.location}</StyledCardListItem>
+          <StyledCardListItem>
+            Regenschutz: {place.rainprotection}
+          </StyledCardListItem>
+        </StyledCardList>
+      </StyledContentRowContainer>
 
-        <CardInfoLinkButton>
-          <StyledCircleButton
-            onClick={() => setToggleSettings(!toggleSettings)}
-          >
-            <StyledIconSettings />
-          </StyledCircleButton>
-        </CardInfoLinkButton>
-      </CardContainer>
+      <CardInfoLinkButton>
+        <StyledCircleButton onClick={() => setToggleSettings(!toggleSettings)}>
+          <StyledIconSettings />
+        </StyledCircleButton>
+      </CardInfoLinkButton>
       {toggleSettings && (
-        <CardContainer
-          backgroundcolor="globalDateBackgroundColor"
-          ref={confirmationRef}
-        >
-          <h3>Standort löschen?</h3>
-          <StyledCircleButton
-            type="button"
+        <StyledSubCardContainer>
+          <SubCardDelete
             onClick={() => handleDeleteClick(true, place._id)}
+            color="globalLightColor"
+            backgroundcolor="globalDateBackgroundColor"
           >
-            <StyledIconTrash color="globalNavigationPlantColor" />
-          </StyledCircleButton>
-          <h3>Standort bearbeiten:</h3>
-          <StyledCircleButton
-            type="button"
-            onClick={() => handleEditClick(place._id)}
-          >
-            <StyledIconEdit color="globalNavigationIconColor" />
-          </StyledCircleButton>
+            Löschen
+          </SubCardDelete>
 
-          <StyledLink
+          <SubCardEdit
+            onClick={() => handleEditClick(place._id)}
+            color="globalNavigationIconColor"
+            backgroundcolor="globalNavigationPlaceColor"
+          >
+            Bearbeiten
+          </SubCardEdit>
+
+          <SubCardAddDate
+            href={{
+              pathname: `/forms/showdateform`,
+              query: {
+                id: place._id,
+                navibacklink: "/lists/placelist/",
+                titel: "Termin anlegen",
+              },
+            }}
+            color="globalDateBackgroundColor"
+            backgroundcolor="globalNavigationBackgroundColor"
+          >
+            Termin anlegen
+          </SubCardAddDate>
+
+          <SubCardEditPlantsAtPlace
             href={{
               pathname: `/place/plant/${place._id}`,
             }}
-            backgroundcolor={"globalPlantBackgroundColor"}
+            color="globalNavigationPlantColor"
+            backgroundcolor="globalPlantBackgroundColor"
           >
             Pflanzen bearbeiten
-          </StyledLink>
-          <StyledLink
-            href={{
-              pathname: `/forms/showdateform`,
-              query: { id: place._id, navibacklink:"/lists/placelist/",titel:"Termin anlegen"},
-            }}
-            backgroundcolor={"globalDateBackgroundColor"}
-          >
-            Termin anlegen
-          </StyledLink>
-        </CardContainer>
+          </SubCardEditPlantsAtPlace>
+        </StyledSubCardContainer>
       )}
-    </>
+    </CardContainer>
   );
 }

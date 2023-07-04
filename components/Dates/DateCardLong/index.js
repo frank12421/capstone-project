@@ -5,14 +5,13 @@ import {
 import FindPlace from "@/components/Places/FindPlace";
 import TranslateDateSeries from "../TranslateDateSeries";
 import { StyledCircleButton } from "@/components/Styling/StyledButton";
-import {
-  StyledIconEdit,
-  StyledIconSettings,
-  StyledIconTrash,
-} from "@/components/Styling/StyledIcon";
+import { StyledIconSettings } from "@/components/Styling/StyledIcon";
 import { useState } from "react";
 import { mutate } from "swr";
 import { router } from "next/router";
+import { StyledSubCardContainer } from "@/components/Styling/StyledSubCard";
+import { SubCardDelete } from "@/components/SubCards/SubCardDelete";
+import { SubCardEdit } from "@/components/SubCards/SubCardEdit";
 
 export default function DateCardLong({ oneDate }) {
   const date = oneDate.data;
@@ -68,28 +67,26 @@ export default function DateCardLong({ oneDate }) {
             <StyledIconSettings />
           </StyledCircleButton>
         </CardInfoLinkButton>
+        {toggleSettings && (
+          <StyledSubCardContainer>
+            <SubCardDelete
+              onClick={() => handleDeleteClick(true, oneDate._id)}
+              color="globalDateBackgroundColor"
+              backgroundcolor="globalNavigationBackgroundColor"
+            >
+              Termin löschen
+            </SubCardDelete>
+
+            <SubCardEdit
+              onClick={() => handleEditClick(oneDate._id)}
+              color="globalPlantBackgroundColor"
+              backgroundcolor="globalNavigationPlantColor"
+            >
+              Termin bearbeiten
+            </SubCardEdit>
+          </StyledSubCardContainer>
+        )}
       </CardContainer>
-      {toggleSettings && (
-        <CardContainer
-          backgroundcolor="globalDateBackgroundColor"
-          //ref={confirmationRef}
-        >
-          <h3>Termin löschen?</h3>
-          <StyledCircleButton
-            type="button"
-            onClick={() => handleDeleteClick(true, oneDate._id)}
-          >
-            <StyledIconTrash color="globalNavigationPlantColor" />
-          </StyledCircleButton>
-          <h3>Termin bearbeiten:</h3>
-          <StyledCircleButton
-            type="button"
-            onClick={() => handleEditClick(oneDate._id)}
-          >
-            <StyledIconEdit color="globalNavigationIconColor" />
-          </StyledCircleButton>
-        </CardContainer>
-      )}
     </>
   );
 }

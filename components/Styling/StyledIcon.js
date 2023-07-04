@@ -10,6 +10,8 @@ import {
   LuSettings,
   LuTrash2,
   LuEdit3,
+  LuCalendarPlus,
+  LuSprout,
 } from "react-icons/lu";
 
 export const StyledIconInfoCircle = styled(LuInfo)`
@@ -24,6 +26,7 @@ export const StyledIconArrowBack = styled(LuArrowLeftCircle)`
 
 export const StyledIconAdd = styled(LuPlusCircle)`
   color: ${({ color }) => `var(--${color})`};
+
   font-size: 2rem;
   margin-left: ${(props) => (props.align === "right" ? "auto" : "initial")};
   margin-right: ${(props) => (props.align === "left" ? "auto" : "initial")};
@@ -66,14 +69,28 @@ export const StyledIconSettings = styled(LuSettings)`
 
 export const StyledIconTrash = styled(LuTrash2)`
   color: ${({ color }) => `var(--${color})`};
-  font-size: 2rem;
+  font-size: ${(props) => props.fontSize || "2rem"};
   margin-left: ${(props) => (props.align === "right" ? "auto" : "initial")};
   margin-right: ${(props) => (props.align === "left" ? "auto" : "initial")};
 `;
 
 export const StyledIconEdit = styled(LuEdit3)`
   color: ${({ color }) => `var(--${color})`};
-  font-size: 2rem;
+  font-size: ${(props) => props.fontSize || "2rem"};
+  margin-left: ${(props) => (props.align === "right" ? "auto" : "initial")};
+  margin-right: ${(props) => (props.align === "left" ? "auto" : "initial")};
+`;
+
+export const StyledIconCalenderPlus = styled(LuCalendarPlus)`
+  color: ${({ color }) => `var(--${color})`};
+  font-size: ${(props) => props.fontSize || "2rem"};
+  margin-left: ${(props) => (props.align === "right" ? "auto" : "initial")};
+  margin-right: ${(props) => (props.align === "left" ? "auto" : "initial")};
+`;
+
+export const StyledIconSprout = styled(LuSprout)`
+  color: ${({ color }) => `var(--${color})`};
+  font-size: ${(props) => props.fontSize || "2rem"};
   margin-left: ${(props) => (props.align === "right" ? "auto" : "initial")};
   margin-right: ${(props) => (props.align === "left" ? "auto" : "initial")};
 `;
