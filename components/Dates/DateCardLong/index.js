@@ -15,7 +15,7 @@ import { mutate } from "swr";
 import { router } from "next/router";
 import { StyledSubCardContainer } from "@/components/Styling/StyledSubCard";
 import { SubCardDelete } from "@/components/SubCards/SubCardDelete";
-import { SubCardEdit } from "@/components/SubCards/SubCardEdit";
+import { SubCardEdit } from "@/components/SubCards/SubCardEditPlace";
 
 export default function DateCardLong({ oneDate }) {
   const date = oneDate.data;
@@ -72,17 +72,25 @@ export default function DateCardLong({ oneDate }) {
           </StyledCircleButton>
         </CardInfoLinkButton>
         {toggleSettings && (
-     <StyledSubCardContainer>
-     <SubCardDelete onClick={() => handleDeleteClick(true, oneDate._id)}
-     color="globalDateBackgroundColor" backgroundcolor="globalNavigationBackgroundColor">Termin löschen</SubCardDelete>
-     
-     <SubCardEdit onClick={() => handleEditClick(oneDate._id)}
-     color="globalNavigationIconColor" backgroundcolor="globalNavigationPlantColor">Termin bearbeiten</SubCardEdit>
-     </StyledSubCardContainer>
-     
-          )}
+          <StyledSubCardContainer>
+            <SubCardDelete
+              onClick={() => handleDeleteClick(true, oneDate._id)}
+              color="globalDateBackgroundColor"
+              backgroundcolor="globalNavigationBackgroundColor"
+            >
+              Termin löschen
+            </SubCardDelete>
+
+            <SubCardEdit
+              onClick={() => handleEditClick(oneDate._id)}
+              color="globalPlantBackgroundColor"
+              backgroundcolor="globalNavigationPlantColor"
+            >
+              Termin bearbeiten
+            </SubCardEdit>
+          </StyledSubCardContainer>
+        )}
       </CardContainer>
-     
     </>
   );
 }

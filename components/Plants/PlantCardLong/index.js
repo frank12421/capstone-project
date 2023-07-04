@@ -20,7 +20,8 @@ import { StyledCircleButton } from "@/components/Styling/StyledButton";
 import { router } from "next/router";
 import { StyledSubCardContainer } from "@/components/Styling/StyledSubCard";
 import { SubCardDelete } from "@/components/SubCards/SubCardDelete";
-import { SubCardEdit } from "@/components/SubCards/SubCardEdit";
+import { SubCardEdit } from "@/components/SubCards/SubCardEditPlace";
+
 export default function PlantCardLong({ plant }) {
   const [showConfirmation, setshowConfirmation] = useState(false);
   const confirmationRef = useRef(null);
@@ -96,18 +97,26 @@ export default function PlantCardLong({ plant }) {
             <StyledIconSettings />
           </StyledCircleButton>
         </CardInfoLinkButton>
-     {showConfirmation && (
-<StyledSubCardContainer  ref={confirmationRef}         
->
-<SubCardDelete onClick={() => handleDeleteClick(true, plant._id)}
-color="globalNavigationPlantColor" backgroundcolor="globalDateBackgroundColor">Pflanze löschen</SubCardDelete>
+        {showConfirmation && (
+          <StyledSubCardContainer ref={confirmationRef}>
+            <SubCardDelete
+              onClick={() => handleDeleteClick(true, plant._id)}
+              color="globalNavigationPlantColor"
+              backgroundcolor="globalDateBackgroundColor"
+            >
+              Pflanze löschen
+            </SubCardDelete>
 
-<SubCardEdit onClick={() => handleEditClick(plant._id)}
-color="globalPlantBackgroundColor" backgroundcolor="globalNavigationPlantColor">Pflanze bearbeiten</SubCardEdit>
-</StyledSubCardContainer>
-
-     )}
-           </CardContainer>
+            <SubCardEdit
+              onClick={() => handleEditClick(plant._id)}
+              color="globalPlantBackgroundColor"
+              backgroundcolor="globalNavigationPlantColor"
+            >
+              Pflanze bearbeiten
+            </SubCardEdit>
+          </StyledSubCardContainer>
+        )}
+      </CardContainer>
     </>
   );
 }
