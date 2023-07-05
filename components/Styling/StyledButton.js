@@ -13,24 +13,21 @@ export const StyledTextButton = styled.button`
 `;
 
 export const StyledCircleButton = styled.button`
+  padding: 0px;
   background-color: transparent;
   border: none;
   text-decoration: none;
   color: ${(props) => `var(--${props.color})`};
   cursor: pointer;
-
-  &:hover,
-  &:active {
-    color: var(--globalNavigationPlaceColor);
-  }
 `;
 
 const sharedStyles = `
-height: 2.2em;
-  box-shadow: var(--globalBorderShadow);
-  border-style: none;
-  border-radius: 10px;
+padding: 5px;
+border-radius: 10px;
   border: none;
+  font-family: __Jost_277113,__Jost_Fallback_277113;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
   text-decoration: none;
   display: flex;
   justify-content: center;

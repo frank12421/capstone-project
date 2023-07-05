@@ -41,7 +41,7 @@ export const StyledBigText = styled.p`
 
 export const CardInfoLinkButton = styled.div`
   position: absolute;
-  bottom: 0;
+  top: 5px;
   right: 5px;
   z-index: 100;
 `;

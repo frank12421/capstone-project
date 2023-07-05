@@ -2,10 +2,11 @@ import styled from "styled-components";
 import Link from "next/link.js";
 
 export const StyledNavigationContainer = styled.nav`
-  width: 95%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 0;
+  margin-bottom: 5px;
+  padding: 0 15px;
 `;
 
 export const StyledNavigationLink = styled(Link)`
