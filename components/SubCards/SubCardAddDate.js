@@ -2,7 +2,6 @@ import { StyledSubCardLink } from "../Styling/StyledButton";
 import { StyledIconCalenderPlus } from "../Styling/StyledIcon";
 
 export function SubCardAddDate({ href, backgroundcolor, color, children }) {
-  console.log("href=", { href });
   return (
     <StyledSubCardLink
       href={href}

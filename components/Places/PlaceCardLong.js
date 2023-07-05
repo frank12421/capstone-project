@@ -111,7 +111,7 @@ export default function PlaceCardLong({ place }) {
             color="globalLightColor"
             backgroundcolor="globalDateBackgroundColor"
           >
-            Löschen
+            Standort löschen
           </SubCardDelete>
 
           <SubCardEdit
@@ -119,7 +119,7 @@ export default function PlaceCardLong({ place }) {
             color="globalNavigationIconColor"
             backgroundcolor="globalNavigationPlaceColor"
           >
-            Bearbeiten
+            Standort bearbeiten
           </SubCardEdit>
 
           <SubCardAddDate
