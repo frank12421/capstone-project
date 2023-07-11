@@ -5,11 +5,11 @@ import DateForm from "@/components/Dates/DateForm";
 import NavigationBack from "@/components/Navigation/NavigationBack";
 import { useRouter } from "next/router";
 
-export default function ShowDateForm() {
-const router = useRouter()
-const titel = router.query.titel;
-const backLink= router.query.navibacklink;
-const id = router.query.id;
+export default function EditDateForm() {
+  const router = useRouter();
+  const titel = router.query.titel;
+  const backLink = router.query.navibacklink;
+  const id = router.query.id;
 
   return (
     <>
@@ -20,7 +20,7 @@ const id = router.query.id;
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain>
-        <DateForm url={`/api/dates/`} id={id}/>
+        <DateForm url={`/api/dates/`} id={id} />
       </StyledMain>
     </>
   );
