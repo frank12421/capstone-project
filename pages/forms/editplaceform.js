@@ -4,7 +4,7 @@ import { StyledMain } from "@/components/Styling/Main";
 import { StyledHeader } from "@/components/Styling/Header";
 import NavigationBack from "@/components/Navigation/NavigationBack";
 
-export default function addPlace() {
+export default function EditPlaceForm() {
   return (
     <>
       <StyledHeader position="sticky">

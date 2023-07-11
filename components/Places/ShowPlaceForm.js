@@ -72,6 +72,7 @@ export default function ShowPlaceForm({ url, placeData }) {
         <option value="Sonstiges">Sonstiges</option>
       </Select>
       <Label htmlFor="rainprotection">Regenschutz</Label>
+
       <Select
         id="rainprotection"
         name="rainprotection"

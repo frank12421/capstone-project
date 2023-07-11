@@ -12,7 +12,10 @@ export default function PlaceList() {
         <h1>Standorte | Grow Green</h1>
         <StyledNavigationContainer>
           <NavigationBack href="/" />
-          <NavigationAdd href="/addplace" color="globalNavigationPlaceColor" />
+          <NavigationAdd
+            href="/forms/editplaceform"
+            color="globalNavigationPlaceColor"
+          />
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain gap="15">
