@@ -1,4 +1,4 @@
-import EditPlaceForm from "@/components/Places/EditPlaceForm";
+import ShowPlaceForm from "@/components/Places/ShowPlaceForm";
 import { StyledNavigationContainer } from "@/components/Navigation/Navigation";
 import { StyledMain } from "@/components/Styling/Main";
 import { StyledHeader } from "@/components/Styling/Header";
@@ -14,7 +14,7 @@ export default function addPlace() {
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain>
-        <EditPlaceForm url={`/api/places/`} />
+        <ShowPlaceForm url={`/api/places/`} />
       </StyledMain>
     </>
   );
