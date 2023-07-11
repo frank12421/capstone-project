@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { sendRequest } from "@/utils/helper.js";
 
-export default function AddPlaceForm({ url, placeData }) {
+export default function EditPlaceForm({ url, placeData }) {
   const { trigger } = useSWRMutation(url, sendRequest);
   const [savedStatus, setSavedStatus] = useState(false);
 
