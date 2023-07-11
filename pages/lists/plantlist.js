@@ -12,7 +12,10 @@ export default function PlantList() {
         <h1>Pflanzen | Grow Green</h1>
         <StyledNavigationContainer>
           <NavigationBack href="/" />
-          <NavigationAdd href="/addplant" color="globalNavigationPlantColor" />
+          <NavigationAdd
+            href="/forms/editplantform"
+            color="globalNavigationPlantColor"
+          />
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain gap="15">
