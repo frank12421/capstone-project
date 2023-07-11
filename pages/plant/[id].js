@@ -1,6 +1,6 @@
 import { StyledNavigationContainer } from "@/components/Navigation/Navigation";
 import NavigationBack from "@/components/Navigation/NavigationBack";
-import AddPlantForm from "@/components/Plants/AddPlantForm";
+import ShowPlantForm from "@/components/Plants/ShowPlantForm";
 import { StyledHeader } from "@/components/Styling/Header";
 import { StyledMain } from "@/components/Styling/Main";
 import { useOnePlant } from "@/utils/helper";
@@ -33,7 +33,7 @@ export default function EditPlant() {
           </StyledNavigationContainer>
         </StyledHeader>
         <StyledMain>
-          <AddPlantForm url={`/api/plants/${data._id}`} plantData={data} />
+          <ShowPlantForm url={`/api/plants/${data._id}`} plantData={data} />
         </StyledMain>
       </>
     </>

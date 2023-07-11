@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { sendRequest } from "@/utils/helper.js";
 
-export default function AddPlantForm({ url, plantData }) {
+export default function ShowPlantForm({ url, plantData }) {
   const [savedStatus, setSavedStatus] = useState(false);
   const { trigger } = useSWRMutation(url, sendRequest);
 

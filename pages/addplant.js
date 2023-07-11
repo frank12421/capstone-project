@@ -2,7 +2,7 @@ import { StyledNavigationContainer } from "@/components/Navigation/Navigation";
 import { StyledMain } from "@/components/Styling/Main";
 import { StyledHeader } from "@/components/Styling/Header";
 import NavigationBack from "@/components/Navigation/NavigationBack";
-import AddPlantForm from "@/components/Plants/AddPlantForm";
+import ShowPlantForm from "@/components/Plants/ShowPlantForm";
 
 export default function addPlant(id) {
   return (
@@ -14,7 +14,7 @@ export default function addPlant(id) {
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain>
-        <AddPlantForm url="/api/plants/" />
+        <ShowPlantForm url="/api/plants/" />
       </StyledMain>
     </>
   );
