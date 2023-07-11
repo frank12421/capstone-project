@@ -1,7 +1,7 @@
 import { StyledHeader } from "@/components/Styling/Header";
 import { StyledMain } from "@/components/Styling/Main";
 import { StyledNavigationContainer } from "@/components/Navigation/Navigation";
-import DateForm from "@/components/Dates/DateForm";
+import ShowDateForm from "@/components/Dates/ShowDateForm";
 import NavigationBack from "@/components/Navigation/NavigationBack";
 import { useRouter } from "next/router";
 
@@ -20,7 +20,7 @@ export default function EditDateForm() {
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain>
-        <DateForm url={`/api/dates/`} id={id} />
+        <ShowDateForm url={`/api/dates/`} id={id} />
       </StyledMain>
     </>
   );
