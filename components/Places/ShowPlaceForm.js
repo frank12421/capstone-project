@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { sendRequest } from "@/utils/helper.js";
 
-export default function AddPlaceForm({ url, placeData }) {
+export default function ShowPlaceForm({ url, placeData }) {
   const { trigger } = useSWRMutation(url, sendRequest);
   const [savedStatus, setSavedStatus] = useState(false);
 
@@ -72,6 +72,7 @@ export default function AddPlaceForm({ url, placeData }) {
         <option value="Sonstiges">Sonstiges</option>
       </Select>
       <Label htmlFor="rainprotection">Regenschutz</Label>
+
       <Select
         id="rainprotection"
         name="rainprotection"

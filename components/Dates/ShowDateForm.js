@@ -13,7 +13,7 @@ import {
 } from "../Styling/StyledForm.js";
 import { sendRequest, useAllPlaces } from "@/utils/helper.js";
 
-export default function DateForm({ url, editDate, id }) {
+export default function ShowDateForm({ url, editDate, id }) {
   const { trigger } = useSWRMutation(url, sendRequest);
   const [savedStatus, setSavedStatus] = useState(false);
   const [dateseries, setDateseries] = useState(
@@ -59,10 +59,7 @@ export default function DateForm({ url, editDate, id }) {
         <Select
           id="location"
           name="location"
-          defaultValue={
-            id ? id : (editDate ? editDate.location : null)
-          }
-            
+          defaultValue={id ? id : editDate ? editDate.location : null}
         >
           {allPlaces.map((place) => {
             return (

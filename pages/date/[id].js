@@ -1,4 +1,4 @@
-import DateForm from "@/components/Dates/DateForm";
+import ShowDateForm from "@/components/Dates/ShowDateForm";
 import { StyledNavigationContainer } from "@/components/Navigation/Navigation";
 import NavigationBack from "@/components/Navigation/NavigationBack";
 import { StyledHeader } from "@/components/Styling/Header";
@@ -33,7 +33,7 @@ export default function EditDate() {
           </StyledNavigationContainer>
         </StyledHeader>
         <StyledMain>
-          <DateForm url={`/api/dates/${data._id}`} editDate={data} />
+          <ShowDateForm url={`/api/dates/${data._id}`} editDate={data} />
         </StyledMain>
       </>
     </>

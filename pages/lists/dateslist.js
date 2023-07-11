@@ -5,17 +5,19 @@ import { StyledMain } from "@/components/Styling/Main";
 import ShowDatesList from "@/components/Dates/ShowDatesList";
 import NavigationAdd from "@/components/Navigation/NavigationAdd";
 
-export default function DatesList({navibacklink, titel, id, color}) {
+export default function DatesList({ navibacklink, titel, id, color }) {
   return (
     <>
       <StyledHeader position="sticky">
         <h1>Alle Termine | Grow Green</h1>
         <StyledNavigationContainer>
           <NavigationBack href="/" />
-          <NavigationAdd href="/forms/showdateform/" 
-          color="globalNavigationDateColor" 
-          navibacklink="/lists/dateslist" 
-          titel="Einen neuen Termin anlegen"/>
+          <NavigationAdd
+            href="/forms/editdateform/"
+            color="globalNavigationDateColor"
+            navibacklink="/lists/dateslist"
+            titel="Einen neuen Termin anlegen"
+          />
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain gap="15">

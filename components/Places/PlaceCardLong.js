@@ -124,7 +124,7 @@ export default function PlaceCardLong({ place }) {
 
           <SubCardAddDate
             href={{
-              pathname: `/forms/showdateform`,
+              pathname: `/forms/editdateform`,
               query: {
                 id: place._id,
                 navibacklink: "/lists/placelist/",

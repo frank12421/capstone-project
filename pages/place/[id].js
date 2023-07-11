@@ -1,6 +1,6 @@
 import { StyledNavigationContainer } from "@/components/Navigation/Navigation";
 import NavigationBack from "@/components/Navigation/NavigationBack";
-import AddPlaceForm from "@/components/Places/AddPlaceForm";
+import ShowPlaceForm from "@/components/Places/ShowPlaceForm";
 import { StyledHeader } from "@/components/Styling/Header";
 import { StyledMain } from "@/components/Styling/Main";
 import { useOnePlace } from "@/utils/helper";
@@ -32,7 +32,7 @@ export default function EditPlace() {
         </StyledNavigationContainer>
       </StyledHeader>
       <StyledMain>
-        <AddPlaceForm url={`/api/places/${data._id}`} placeData={data} />
+        <ShowPlaceForm url={`/api/places/${data._id}`} placeData={data} />
       </StyledMain>
     </>
   );
