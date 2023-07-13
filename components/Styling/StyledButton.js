@@ -1,17 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link.js";
 
-export const StyledLink = styled(Link)`
-  width: 100%;
-  text-decoration: none;
-`;
-
-export const StyledTextButton = styled.button`
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-`;
-
 export const StyledCircleButton = styled.button`
   padding: 0px;
   background-color: transparent;
