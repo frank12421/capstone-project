@@ -37,20 +37,27 @@ export default function ShowShortDatesList() {
           <li key="was">Was</li>
           <li key="wo">Wo</li>
         </StyledDatesList>
-        {sortDates[0].data.date !== dayjs().format("YYYY-MM-DD") ? (
+
+        {sortDates.length !== 0 ? (
+          <>
+            {sortDates[0].data.date !== dayjs().format("YYYY-MM-DD") && (
+              <StyledDatesList>
+                <li>Heute nix</li>
+                <li>Chillen</li>
+                <li>im Garten</li>
+              </StyledDatesList>
+            )}
+            {sortDates.map((date, index) => (
+              <DateListRow key={date._id} date={date} index={index} />
+            ))}
+          </>
+        ) : (
           <StyledDatesList>
+            {" "}
             <li>Heute nix</li>
             <li>Chillen</li>
             <li>im Garten</li>
           </StyledDatesList>
-        ) : null}
-
-        {sortDates.length !== 0 ? (
-          sortDates.map((date, index) => (
-            <DateListRow key={date._id} date={date} index={index} />
-          ))
-        ) : (
-          <StyledDatesList>Keine Termine</StyledDatesList>
         )}
       </StyledDatesSection>
     </LinkCard>
