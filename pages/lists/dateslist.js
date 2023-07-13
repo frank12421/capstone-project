@@ -5,7 +5,7 @@ import { StyledMain } from "@/components/Styling/Main";
 import ShowDatesList from "@/components/Dates/ShowDatesList";
 import NavigationAdd from "@/components/Navigation/NavigationAdd";
 
-export default function DatesList({ navibacklink, titel, id, color }) {
+export default function DatesList() {
   return (
     <>
       <StyledHeader position="sticky">

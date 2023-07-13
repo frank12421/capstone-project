@@ -8,9 +8,6 @@ import { StyledIconAdd } from "../Styling/StyledIcon";
 export default function AllPlantsSortedtList() {
   const router = useRouter();
   const site = router.query;
-  const place = useOnePlace(site.id);
-  console.log("site_id:", site.id);
-  const placeData = place.data;
   const { trigger } = useSWRMutation(`/api/places/${site.id}`, sendRequest);
   const { data, error, isLoading } = useAllPlants();
 
@@ -20,10 +17,7 @@ export default function AllPlantsSortedtList() {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
   const plantsSorted = [...data].sort((a, b) => (a.name > b.name ? 1 : -1));
-  const freePlaces = placeData.capacity - placeData.plants.length;
-  const showAddButton = freePlaces >= 1;
 
   const onClickAddPlant = (value) => {
     const addNewPlant = { plantid: value };

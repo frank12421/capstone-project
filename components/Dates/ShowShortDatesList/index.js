@@ -1,20 +1,10 @@
 import dayjs from "dayjs";
-import { useState } from "react";
-import {
-  StyledDatesSection,
-  StyledDatesDetailCard,
-  StyledDatesList,
-} from "./styled";
+import { StyledDatesSection, StyledDatesList } from "./styled";
 import { useAllDates } from "@/utils/helper";
-import FindPlace from "@/components/Places/FindPlace";
 import DateListRow from "./DateListRow";
-import { CardContainer } from "@/components/Card/Card.Styling";
-import { StyledIconX } from "@/components/Styling/StyledIcon";
 import LinkCard from "@/components/Card/LinkCard";
-import TranslateDateSeries from "../TranslateDateSeries";
 
 export default function ShowShortDatesList() {
-  const [listentry, setListEntry] = useState(null);
   const { data: newDates, error, isLoading } = useAllDates();
 
   if (isLoading) {
@@ -40,61 +30,36 @@ export default function ShowShortDatesList() {
     <LinkCard
       href={"lists/dateslist"}
       backgroundcolor="globalDateBackgroundColor"
-      
     >
-      {listentry === null ? (
-        <StyledDatesSection>
-          <StyledDatesList $head>
-            <li key="wann">Wann</li>
-            <li key="was">Was</li>
-            <li key="wo">Wo</li>
-          </StyledDatesList>
-          {sortDates[0].data.date !== dayjs().format("YYYY-MM-DD") ? (
-            <StyledDatesList>
-              <li>Heute nix</li>
-              <li>Chillen</li>
-              <li>im Garten</li>
-            </StyledDatesList>
-          ) : null}
+      <StyledDatesSection>
+        <StyledDatesList $head>
+          <li key="wann">Wann</li>
+          <li key="was">Was</li>
+          <li key="wo">Wo</li>
+        </StyledDatesList>
 
-          {sortDates.length !== 0 ? (
-            sortDates.map((date, index) => (
-              <DateListRow
-                key={date._id}
-                date={date}
-                index={index}
-                setListEntry={setListEntry}
-              />
-            ))
-          ) : (
-            <StyledDatesList>Keine Termine</StyledDatesList>
-          )}
-        </StyledDatesSection>
-      ) : (
-        // </CardContainer>
-        <CardContainer backgroundcolor="globalDateBackgroundColor">
-          <StyledDatesDetailCard>
-            <StyledIconX
-              color="globalNavigationIconColor"
-              align="right"
-//              onClick={() => setListEntry(null)}
-            />
-            Datum: {sortDates[listentry].data.date} | Zeit:
-            {sortDates[listentry].data.time}
-            <TranslateDateSeries
-              form={sortDates[listentry].data.dateform}
-              frequency={sortDates[listentry].data.datefrequency}
-            />
-            Stichwort:{sortDates[listentry].data.promptlist}
-            <>
-              {" "}
-              | Standort:
-              <FindPlace locationId={sortDates[listentry].location} />
-            </>
-            <p>Notiz:{sortDates[listentry].data.description}</p>
-          </StyledDatesDetailCard>
-        </CardContainer>
-      )}
+        {sortDates.length !== 0 ? (
+          <>
+            {sortDates[0].data.date !== dayjs().format("YYYY-MM-DD") && (
+              <StyledDatesList>
+                <li>Heute nix</li>
+                <li>Chillen</li>
+                <li>im Garten</li>
+              </StyledDatesList>
+            )}
+            {sortDates.map((date, index) => (
+              <DateListRow key={date._id} date={date} index={index} />
+            ))}
+          </>
+        ) : (
+          <StyledDatesList>
+            {" "}
+            <li>Heute nix</li>
+            <li>Chillen</li>
+            <li>im Garten</li>
+          </StyledDatesList>
+        )}
+      </StyledDatesSection>
     </LinkCard>
   );
 }

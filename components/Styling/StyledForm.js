@@ -25,6 +25,7 @@ export const Input = styled.input`
 `;
 
 export const Label = styled.label`
+  padding-left: 15px;
   font-size: 1rem;
 `;
 
@@ -40,7 +41,8 @@ export const Textarea = styled.textarea`
 export const FlexContainerRadio = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+
+  gap: 2px;
   padding: 0 20px 20px 20px;
 `;
 
